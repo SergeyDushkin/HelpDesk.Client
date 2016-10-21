@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'page/:id', component: PageNumComponent},
     { path: 'tickets', component: TicketListComponent},
-    { path: 'tickets/new', component: TicketNewComponent},
+    { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }},
     { path: 'tickets/:id', component: TicketDetailComponent},
 ];
 
