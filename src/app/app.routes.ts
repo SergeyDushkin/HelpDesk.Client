@@ -10,7 +10,7 @@ import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 
 const routes: Routes = [
     // Root
-    { path: '', component: HomeComponent},
+    { path: '', component: TicketListComponent},
     { path: 'page/:id', component: PageNumComponent},
     { path: 'tickets', component: TicketListComponent},
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }},
