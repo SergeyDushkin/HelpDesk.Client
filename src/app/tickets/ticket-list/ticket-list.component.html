@@ -1,0 +1,22 @@
+<div class="box">
+  <div class="box-body no-padding">
+    <table class="table table-striped">
+      <tr>
+        <th style="width: 10px">Id</th>
+        <th>Store</th>
+        <th>Comments</th>
+        <th>Start date</th>
+        <th>End date</th>
+      </tr>
+      <tr *ngFor="let ticket of Tickets">
+        <td>{{ticket.id}}</td>
+        <td>{{ticket.store}}</td>
+        <td>{{ticket.comments}}</td>
+        <td>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+        <td>{{ticket.endDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+      </tr>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>
+<!-- /.box -->
