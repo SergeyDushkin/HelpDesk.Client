@@ -53,6 +53,8 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routes';
 import { TicketsComponent } from './tickets/tickets.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
+import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
+import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { TicketListComponent } from './tickets/ticket-list/ticket-list.component
     ...widgets,
     ...pages,
     TicketsComponent,
-    TicketListComponent
+    TicketListComponent,
+    TicketNewComponent,
+    TicketDetailComponent
   ],
   imports: [
     ...modules,
