@@ -14,12 +14,12 @@ export class MenuAsideComponent implements OnInit {
   private links: Array<any> = [
     {
       "title": "Заявки",
-      "icon": "dashboard",
+      "icon": "table",
       "link": ['/tickets']
     },
     {
       "title": "Архив заявок",
-      "icon": "dashboard",
+      "icon": "folder",
       "link": ['/tickets/old']
     }
   ];

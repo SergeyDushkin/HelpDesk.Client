@@ -2,7 +2,7 @@
 <section class="content-header">
   <h1>
     Список заявок
-    <small><strong><a routerLink="/tickets/new" style="btn"><i class="glyphicon glyphicon-plus"></i> Подать новую</a></strong></small>
+    <small></small>
   </h1>
 </section>
 
@@ -13,11 +13,11 @@
     <div class="box-body no-padding">
       <table class="table table-striped">
         <tr>
-          <th style="width: 10px">Id</th>
-          <th>Store</th>
-          <th>Comments</th>
-          <th>Start date</th>
-          <th>End date</th>
+          <th style="width: 10px">№</th>
+          <th>Место проблемы</th>
+          <th>Описание</th>
+          <th>Дата заявки</th>
+          <th>Дата закрытия</th>
         </tr>
         <tr routerLink="/tickets/{{ticket.id}}" *ngFor="let ticket of Tickets">
           <td>{{ticket.id}}</td>
