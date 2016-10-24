@@ -13,23 +13,14 @@ export class MenuAsideComponent implements OnInit {
   private current_url: string;
   private links: Array<any> = [
     {
-      "title": "Home",
+      "title": "Заявки",
       "icon": "dashboard",
-      "link": ['/']
+      "link": ['/tickets']
     },
     {
-      "title": "Sub menu",
-      "icon": "link",
-      "sublinks": [
-        {
-          "title": "Page 2",
-          "link": ['/page/2'],
-        },
-        {
-          "title": "Page 3",
-          "link": ['/page/3'],
-        }
-      ]
+      "title": "Архив заявок",
+      "icon": "dashboard",
+      "link": ['/tickets/old']
     }
   ];
 
