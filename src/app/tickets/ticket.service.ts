@@ -1,25 +1,56 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import {Observable, ReplaySubject} from 'rxjs/Rx';
 
 import { Ticket } from './Ticket';
 
 @Injectable()
 export class TicketService {
 
-  Tickets: Ticket[] = [
-    {id: '11', store: 'Марьина Роща', comments : 'Заявка 1', startDate : new Date(), endDate : null },
-    {id: '12', store: 'Марьина Роща', comments : 'Заявка 2', startDate : new Date(), endDate : null },
-    {id: '13', store: 'Марьина Роща', comments : 'Заявка 3', startDate : new Date(), endDate : new Date() },
-    {id: '14', store: 'Марьина Роща', comments : 'Заявка 4', startDate : new Date(), endDate : new Date() },
-    {id: '15', store: 'Марьина Роща', comments : 'Заявка 5', startDate : new Date(), endDate : new Date() }
-  ];
-
   constructor(private http: Http) { 
 
   }
 
-  getTickets() : Promise<Ticket[]> {
-    return Promise.resolve(this.Tickets);
+  getTicketById(id : string) : Observable<Ticket> {
+    
+    var url = "http://185.51.158.143/helpdesk-rzn/api/tickets/?id=" + id;
+
+    var token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.append('Authorization', 'Bearer ' +  token);
+
+    return this.http.get(url, { headers: headers })
+      .map(r => r.json().Data)
+      .map(item => new Ticket({ 
+        id: item.Id, 
+        store: item.StoreName, 
+        comments: item.Comments,
+        ticketNumber: item.TicketNumber,
+        startDate: item.RequestDate, 
+        endDate: item.CompleteDate }));
+  }
+
+  getTickets() : Observable<Ticket[]> {
+    
+    var url = "http://185.51.158.143/helpdesk-rzn/api/tickets/";
+
+    var token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.append('Authorization', 'Bearer ' +  token);
+
+    return this.http.get(url, { headers: headers })
+      .map(r => r.json()
+        .Data
+        .map(item => new Ticket({ 
+          id: item.Id, 
+          store: item.StoreName, 
+          comments: item.Comments, 
+          ticketNumber: item.TicketNumber, 
+          startDate: item.RequestDate, 
+          endDate: item.CompleteDate }
+          )));
   }
 
 }

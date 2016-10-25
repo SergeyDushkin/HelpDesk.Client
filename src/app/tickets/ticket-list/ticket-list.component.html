@@ -20,7 +20,7 @@
           <th>Дата закрытия</th>
         </tr>
         <tr routerLink="/tickets/{{ticket.id}}" *ngFor="let ticket of Tickets">
-          <td>{{ticket.id}}</td>
+          <td>{{ticket.ticketNumber}}</td>
           <td>{{ticket.store}}</td>
           <td>{{ticket.comments}}</td>
           <td>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>

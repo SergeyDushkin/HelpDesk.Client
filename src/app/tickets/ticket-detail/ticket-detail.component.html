@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Заявка №
+    Заявка № {{ticket.ticketNumber}}
     <small></small>
   </h1>
 </section>
@@ -9,38 +9,78 @@
 <!-- Main content -->
 <section class="content">
 
-  <!-- general form elements disabled -->
+  <ul class="timeline">
+
+      <!-- timeline time label -->
+      <li class="time-label">
+          <span class="bg-red">
+              {{ticket.startDate | date: 'dd.MM.yyyy'}}
+          </span>
+      </li>
+      <!-- /.timeline-label -->
+
+      <!-- timeline item -->
+      <li>
+          <!-- timeline icon -->
+          <i class="fa fa-envelope bg-blue"></i>
+          <div class="timeline-item">
+              <span class="time"><i class="fa fa-clock-o"></i> {{ticket.startDate | date: 'HH:mm'}}</span>
+
+              <h3 class="timeline-header">{{ticket.StoreName}}</h3>
+
+              <div class="timeline-body">
+                  {{ticket.comments}}
+              </div>
+
+          </div>
+      </li>
+      <!-- END timeline item -->
+
+      <!-- timeline item -->
+      <li>
+        <i class="fa fa-user bg-aqua"></i>
+
+        <div class="timeline-item">
+          <span class="time"><i class="fa fa-clock-o"></i> {{ticket.endDate | date: 'HH:mm'}}</span>
+
+          <h3 class="timeline-header no-border"><a href="#">Оператор</a> заявка закрыта</h3>
+        </div>
+      </li>
+      <!-- END timeline item -->
+
+      <li>
+        <i class="fa fa-clock-o bg-gray"></i>
+      </li>
+
+  </ul>
+
+  <!-- general form elements disabled
   <div class="box box-warning">
 
     <div class="box-body">
       <form role="form">
 
-        <!-- select -->
         <div class="form-group">
           <label>Место проблемы</label>
-          <select class="form-control">
+          <select class="form-control" name="store">
             <option>Марьина Роща</option>
             <option>Теплый стан</option>
           </select>
         </div>
 
-        <!-- textarea -->
         <div class="form-group">
           <label>Описание</label>
-          <textarea class="form-control" rows="3" placeholder="Опишите проблему ..."></textarea>
+          <textarea class="form-control" [(ngModel)]="ticket.comments" name="comments" rows="3" placeholder="Опишите проблему ..."></textarea>
         </div>
 
       </form>
     </div>
-    <!-- /.box-body -->
 
     <div class="box-footer">
       <button type="submit" class="btn btn-default" (click)="onClickBack()" >Отмена</button>
-      <button type="submit" class="btn btn-info pull-right">Подать заявку</button>
+      <button type="submit" class="btn btn-info pull-right">Сохранить</button>
     </div>
-    <!-- /.box-footer -->
-  </div>
-  <!-- /.box -->
+  </div> -->
 
 </section><!-- /.content -->
 

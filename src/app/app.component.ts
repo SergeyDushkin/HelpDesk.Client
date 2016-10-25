@@ -11,6 +11,7 @@ import { MessagesService } from "./services/messages.service";
 })
 export class AppComponent {
   title = 'app works!';
+  user: User;
 
   constructor(
     private _user_serv: UserService,
@@ -20,6 +21,13 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    
+    this._user_serv.getCurrentUser().subscribe(
+      data => { this.user = data },
+      err => console.error(err),
+      () => console.log('done')
+    );
+
     //on envoi l'evenement resize, pour AdminLTE
     let ie = this.detectIE();
     if(!ie){
