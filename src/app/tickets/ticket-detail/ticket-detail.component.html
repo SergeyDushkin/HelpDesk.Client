@@ -26,7 +26,7 @@
           <div class="timeline-item">
               <span class="time"><i class="fa fa-clock-o"></i> {{ticket.startDate | date: 'HH:mm'}}</span>
 
-              <h3 class="timeline-header">{{ticket.StoreName}}</h3>
+              <h3 class="timeline-header">{{ticket.storeName}}</h3>
 
               <div class="timeline-body">
                   {{ticket.comments}}
@@ -44,6 +44,10 @@
           <span class="time"><i class="fa fa-clock-o"></i> {{ticket.endDate | date: 'HH:mm'}}</span>
 
           <h3 class="timeline-header no-border"><a href="#">Оператор</a> заявка закрыта</h3>
+          
+          <div class="timeline-footer">
+            <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="fa fa-arrow-circle-o-left"></i> Назад</button>
+          </div>
         </div>
       </li>
       <!-- END timeline item -->
