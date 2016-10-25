@@ -19,7 +19,7 @@ export class UserService{
     var headers = new Headers();
     //var base = document.head.getElementsByTagName('base')[0].getAttribute('href');
     //var base = '/helpdesk-rzn/';
-    var base = "http://185.51.158.143/helpdesk-rzn/";
+    var base = "/helpdesk-rzn/";
 
     headers.append('Authorization', 'Bearer ' +  token);
 

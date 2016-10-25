@@ -13,7 +13,7 @@ export class TicketService {
 
   getTicketById(id : string) : Observable<Ticket> {
     
-    var url = "http://185.51.158.143/helpdesk-rzn/api/tickets/?id=" + id;
+    var url = "/helpdesk-rzn/api/tickets/?id=" + id;
 
     var token = localStorage.getItem('token');
     var headers = new Headers();
@@ -33,7 +33,7 @@ export class TicketService {
 
   getTickets() : Observable<Ticket[]> {
     
-    var url = "http://185.51.158.143/helpdesk-rzn/api/tickets/";
+    var url = "/helpdesk-rzn/api/tickets/";
 
     var token = localStorage.getItem('token');
     var headers = new Headers();
