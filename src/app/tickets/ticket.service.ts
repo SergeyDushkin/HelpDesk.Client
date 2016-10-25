@@ -22,13 +22,7 @@ export class TicketService {
 
     return this.http.get(url, { headers: headers })
       .map(r => r.json().Data)
-      .map(item => new Ticket({ 
-        id: item.Id, 
-        store: item.StoreName, 
-        comments: item.Comments,
-        ticketNumber: item.TicketNumber,
-        startDate: item.RequestDate, 
-        endDate: item.CompleteDate }));
+      .map(item => this.extractData(item));
   }
 
   getTickets() : Observable<Ticket[]> {
@@ -43,14 +37,31 @@ export class TicketService {
     return this.http.get(url, { headers: headers })
       .map(r => r.json()
         .Data
-        .map(item => new Ticket({ 
-          id: item.Id, 
-          store: item.StoreName, 
-          comments: item.Comments, 
-          ticketNumber: item.TicketNumber, 
-          startDate: item.RequestDate, 
-          endDate: item.CompleteDate }
-          )));
+        .map(item => this.extractData(item)));
+  }
+
+  createTicket(ticket : any) : Observable<Ticket> {
+    
+    var url = "/helpdesk-rzn/api/tickets/";
+
+    var token = localStorage.getItem('token');
+    var headers = new Headers();
+
+    headers.append('Authorization', 'Bearer ' +  token);
+
+    return this.http.post(url, ticket, { headers: headers })
+      .map(r => r.json().Data)
+      .map(item => this.extractData(item));
+  }
+
+  extractData(item : any) : Ticket{
+    return new Ticket({ 
+        id: item.Id, 
+        store: item.StoreName, 
+        comments: item.Comments,
+        ticketNumber: item.TicketNumber,
+        startDate: item.RequestDate, 
+        endDate: item.CompleteDate });
   }
 
 }

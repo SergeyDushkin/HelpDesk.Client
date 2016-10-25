@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StoreService } from '../store.service';
 import { Store } from '../store';
 
@@ -9,6 +9,8 @@ import { Store } from '../store';
   providers: [StoreService]
 })
 export class StoreSelectComponent implements OnInit {
+  
+  @Input() store : string;
 
   stores : Store[];
   
@@ -18,5 +20,9 @@ export class StoreSelectComponent implements OnInit {
     this.storeService.getStores()
       .subscribe(stores => this.stores = stores);
   }
+
+   onChange(newValue) {
+    this.store = newValue;
+   }
 
 }

@@ -15,12 +15,12 @@
     <div class="box-body">
       <form role="form">
 
-        <app-store-select></app-store-select>
+        <app-store-select name="storeId" [store]="storeId" required></app-store-select>
 
         <!-- textarea -->
         <div class="form-group">
           <label>Описание</label>
-          <textarea class="form-control" rows="3" placeholder="Опишите проблему ..."></textarea>
+          <textarea class="form-control" rows="3" [(ngModel)]="comments" name="comments" placeholder="Опишите проблему ..." required></textarea>
         </div>
 
       </form>
@@ -28,8 +28,8 @@
     <!-- /.box-body -->
 
     <div class="box-footer">
-      <button type="submit" class="btn btn-default" (click)="onClickBack()" >Отмена</button>
-      <button type="submit" class="btn btn-info pull-right">Подать заявку</button>
+      <button type="submit" class="btn btn-default" (click)="onClickBack()">Отмена</button>
+      <button type="submit" class="btn btn-info pull-right" (click)="onSave()">Подать заявку</button>
     </div>
     <!-- /.box-footer -->
   </div>
