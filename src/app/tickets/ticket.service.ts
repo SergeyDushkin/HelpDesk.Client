@@ -27,7 +27,7 @@ export class TicketService {
 
   getTickets() : Observable<Ticket[]> {
     
-    var url = "/helpdesk-rzn/api/tickets/";
+    var url = "/helpdesk-rzn/api/tickets/?$orderby=RequestDate desc";
 
     var token = localStorage.getItem('token');
     var headers = new Headers();
