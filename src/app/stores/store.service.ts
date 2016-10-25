@@ -6,13 +6,19 @@ import { Store } from './Store';
 @Injectable()
 export class StoreService {
 
+  private stores : Store[];
+
   constructor(private http: Http) { 
 
   }
 
   getStores() : Observable<Store[]> {
     
-    var url = "/helpdesk-rzn/api/store/";
+    if (this.stores){
+      return Observable.of(this.stores);
+    }
+
+    var url = "/helpdesk-rzn/api/store/?$filter=IS_DISABLE eq false&$select=GUID_RECORD,LOCATION_NAME&$expand=CONTACT&$orderby=LOCATION_NAME";
 
     var token = localStorage.getItem('token');
     var headers = new Headers();
@@ -24,7 +30,8 @@ export class StoreService {
         .Data
         .map(item => new Store({ 
           id: item.GUID_RECORD, 
-          name: item.LOCATION_NAME })
+          name: item.LOCATION_NAME , 
+          address: item.CONTACT.ADDRESS })
           ));
   }
 

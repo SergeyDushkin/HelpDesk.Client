@@ -51,20 +51,20 @@ let pages = [
 //main bootstrap
 import { AppComponent } from './app.component';
 import { routing } from './app.routes';
-import { TicketsComponent } from './tickets/tickets.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
+import { StoreSelectComponent } from './stores/store-select/store-select.component';
 
 
 @NgModule({
   declarations: [
     ...widgets,
     ...pages,
-    TicketsComponent,
     TicketListComponent,
     TicketNewComponent,
-    TicketDetailComponent
+    TicketDetailComponent,
+    StoreSelectComponent
   ],
   imports: [
     ...modules,
