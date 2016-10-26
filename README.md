@@ -21,6 +21,9 @@ cd src/app/widgets/
 ng g component my-new-widget
 ```
 
+## Build
+ng build --prod --base-href /helpdesk-rzn/client/
+
 Ajouter une page
 
 ```

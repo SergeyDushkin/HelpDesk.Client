@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
-import { Ticket } from './Ticket';
+import { Ticket } from './ticket';
 
 @Injectable()
 export class TicketService {
@@ -35,9 +35,7 @@ export class TicketService {
     headers.append('Authorization', 'Bearer ' +  token);
 
     return this.http.get(url, { headers: headers })
-      .map(r => r.json()
-        .Data
-        .map(item => this.extractData(item)));
+      .map(r => r.json().Data.map(item => this.extractData(item)));
   }
 
   createTicket(ticket : any) : Observable<Ticket> {
@@ -59,7 +57,7 @@ export class TicketService {
         id: item.Id, 
         store: item.StoreName, 
         comments: item.Comments,
-        ticketNumber: item.TicketNumber,
+        number: item.TicketNumber,
         startDate: item.RequestDate, 
         endDate: item.CompleteDate });
   }

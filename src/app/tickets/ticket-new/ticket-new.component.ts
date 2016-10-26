@@ -11,6 +11,7 @@ import { TicketService } from '../ticket.service';
 })
 export class TicketNewComponent implements OnInit {
 
+  store : string;
   storeId : string;
   comments: string;
 
@@ -23,8 +24,12 @@ export class TicketNewComponent implements OnInit {
     this.location.back();
   }
 
+  onSelect(value : string){
+    this.store = value;
+  }
+
   onSave() {
-    this.ticketService.createTicket({ StoreId : this.storeId, Comments : this.comments }).subscribe(r => {
+    this.ticketService.createTicket({ StoreId : this.store, Comments : this.comments }).subscribe(r => {
       this.location.back();
     });
   }

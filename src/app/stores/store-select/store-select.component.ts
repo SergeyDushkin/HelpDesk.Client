@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { StoreService } from '../store.service';
 import { Store } from '../store';
 
@@ -10,7 +10,8 @@ import { Store } from '../store';
 })
 export class StoreSelectComponent implements OnInit {
   
-  @Input() store : string;
+  @Output() store : string;
+  @Output() onStoreSelect = new EventEmitter<string>();
 
   stores : Store[];
   
@@ -22,7 +23,8 @@ export class StoreSelectComponent implements OnInit {
   }
 
    onChange(newValue) {
-    this.store = newValue;
+     this.onStoreSelect.emit(newValue);
+     this.store = newValue;
    }
 
 }

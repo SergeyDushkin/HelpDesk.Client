@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
-import { Store } from './Store';
+import { Store } from './store';
 
 @Injectable()
 export class StoreService {
