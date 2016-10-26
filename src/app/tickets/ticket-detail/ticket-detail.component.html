@@ -37,13 +37,27 @@
       <!-- END timeline item -->
 
       <!-- timeline item -->
-      <li>
+      <li *ngIf="ticket.endDate">
         <i class="fa fa-user bg-aqua"></i>
 
         <div class="timeline-item">
           <span class="time"><i class="fa fa-clock-o"></i> {{ticket.endDate | date: 'HH:mm'}}</span>
 
           <h3 class="timeline-header no-border"><a href="#">Оператор</a> заявка закрыта</h3>
+          
+          <div class="timeline-footer">
+            <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="fa fa-arrow-circle-o-left"></i> Назад</button>
+          </div>
+        </div>
+      </li>
+      <!-- END timeline item -->
+
+      <!-- timeline item -->
+      <li *ngIf="!ticket.endDate">
+        <i class="fa fa-user bg-aqua"></i>
+
+        <div class="timeline-item">
+          <h3 class="timeline-header no-border"><a href="#">Оператор</a> заявка в работе</h3>
           
           <div class="timeline-footer">
             <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="fa fa-arrow-circle-o-left"></i> Назад</button>
