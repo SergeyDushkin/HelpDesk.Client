@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { User } from "./models/user";
-import { UserService} from "./services/user.service";
+import { UserService } from "./services/user.service";
 import { Message } from "./models/message";
 import { MessagesService } from "./services/messages.service";
+import { ConfigService } from "./services/config.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html'
   //styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -15,16 +16,21 @@ export class AppComponent {
 
   constructor(
     private _user_serv: UserService,
-    private _msg_serv: MessagesService
+    private _msg_serv: MessagesService,
+    private configService: ConfigService
   ){
 
   }
 
-  ngOnInit(){
-    
+  ngOnInit() {
+
     this._user_serv.getCurrentUser().subscribe(
       data => { this.user = data },
-      err => { window.location.href = '/helpdesk-rzn/login/'; },
+      err => { 
+        this.configService.get("API_URI")
+          .toPromise()
+          .then(base => { window.location.href = base + 'login/'; }) 
+        },
       () => console.log('done')
     );
 

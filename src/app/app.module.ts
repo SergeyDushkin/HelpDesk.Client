@@ -34,10 +34,14 @@ let widgets = [
 
 import { UserService } from "./services/user.service";
 import { MessagesService } from "./services/messages.service";
+import { ConfigService } from "./services/config.service";
+import { RequestService } from "./services/request.service";
 
 let services =  [
   UserService,
-  MessagesService
+  MessagesService,
+  ConfigService,
+  RequestService
 ];
 
 import { HomeComponent } from './pages/home/home.component';

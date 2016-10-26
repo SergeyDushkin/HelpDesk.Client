@@ -3,51 +3,31 @@ import { Headers, Http } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
 import { Ticket } from './ticket';
+import { RequestService } from '../services/request.service';
 
 @Injectable()
 export class TicketService {
 
-  constructor(private http: Http) { 
-
+  constructor(private http: Http, private requestService : RequestService) { 
   }
 
   getTicketById(id : string) : Observable<Ticket> {
     
-    var url = "/helpdesk-rzn/api/tickets/?id=" + id;
-
-    var token = localStorage.getItem('token');
-    var headers = new Headers();
-
-    headers.append('Authorization', 'Bearer ' +  token);
-
-    return this.http.get(url, { headers: headers })
+    return this.requestService.get("/api/tickets/?id=" + id)
       .map(r => r.json().Data)
       .map(item => this.extractData(item));
   }
 
   getTickets() : Observable<Ticket[]> {
     
-    var url = "/helpdesk-rzn/api/tickets/?$orderby=RequestDate desc";
-
-    var token = localStorage.getItem('token');
-    var headers = new Headers();
-
-    headers.append('Authorization', 'Bearer ' +  token);
-
-    return this.http.get(url, { headers: headers })
+    return this.requestService
+      .get("api/tickets/?$orderby=RequestDate desc")
       .map(r => r.json().Data.map(item => this.extractData(item)));
   }
 
   createTicket(ticket : any) : Observable<Ticket> {
     
-    var url = "/helpdesk-rzn/api/tickets/";
-
-    var token = localStorage.getItem('token');
-    var headers = new Headers();
-
-    headers.append('Authorization', 'Bearer ' +  token);
-
-    return this.http.post(url, ticket, { headers: headers })
+    return this.requestService.post("api/tickets/", ticket)
       .map(r => r.json().Data)
       .map(item => this.extractData(item));
   }
