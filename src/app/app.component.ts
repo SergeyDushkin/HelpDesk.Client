@@ -24,7 +24,7 @@ export class AppComponent {
     
     this._user_serv.getCurrentUser().subscribe(
       data => { this.user = data },
-      err => console.error(err),
+      err => { window.location.href = '/helpdesk-rzn/login/'; },
       () => console.log('done')
     );
 
