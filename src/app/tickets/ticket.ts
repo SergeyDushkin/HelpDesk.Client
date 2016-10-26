@@ -12,6 +12,6 @@ export class Ticket {
         this.comments = data.comments || "";
         this.number = data.number || "";
         this.startDate = data.startDate || Date.now();
-        this.endDate = data.endDate || Date.now();
+        this.endDate = data.endDate || null;
     }
 }

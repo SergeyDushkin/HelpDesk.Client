@@ -19,7 +19,7 @@
           <th>Дата заявки</th>
           <th>Дата закрытия</th>
         </tr>
-        <tr routerLink="/tickets/{{ticket.id}}" *ngFor="let ticket of Tickets">
+        <tr routerLink="/tickets/{{ticket.id}}" *ngFor="let ticket of tickets">
           <td>{{ticket.number}}</td>
           <td>{{ticket.store}}</td>
           <td>{{ticket.comments}}</td>

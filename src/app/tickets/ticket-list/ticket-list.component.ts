@@ -10,12 +10,13 @@ import { Ticket } from '../ticket';
 })
 export class TicketListComponent implements OnInit {
   
-  Tickets: Ticket[];
+  tickets: Ticket[];
+  
   constructor(private ticketService : TicketService) { }
 
   ngOnInit() {
     this.ticketService.getTickets().subscribe(r => {
-      this.Tickets = r;
+      this.tickets = r;
     });
   }
 
