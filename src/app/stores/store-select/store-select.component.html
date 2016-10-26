@@ -1,6 +1,6 @@
 <div class="form-group">
   <label for="power">Место проблемы</label>
-  <select class="form-control" (ngModelChange)="onChange($event)" required>
+  <select class="form-control" [ngModel]="store" name="store" (change)="onChange($event.target.value)" required>
     <option *ngFor="let store of stores" [value]="store.id">{{store.getName()}}</option>
   </select>
 </div>

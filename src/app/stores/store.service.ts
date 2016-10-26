@@ -9,7 +9,10 @@ export class StoreService {
   private stores : Store[];
 
   constructor(private http: Http) { 
-
+    //this.stores = [
+    //  new Store({ id: '1', name : 'Store 1'}),
+    //  new Store({ id: '2', name : 'Store 2'})
+    //];
   }
 
   getStores() : Observable<Store[]> {
