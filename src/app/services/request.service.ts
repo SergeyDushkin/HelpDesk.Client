@@ -34,7 +34,7 @@ export class RequestService {
         var headers = new Headers();
 
         headers.append('Authorization', 'Bearer ' +  token);
-        return this.http.post(url, data, { headers: headers }).toPromise();
+        return this.http.post(base + url, data, { headers: headers }).toPromise();
       });
 
       return Observable.fromPromise(sync);
