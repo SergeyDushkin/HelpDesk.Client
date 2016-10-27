@@ -18,6 +18,13 @@ export class TicketService {
       .map(item => this.extractData(item));
   }
 
+  getArchivedTickets() : Observable<Ticket[]> {
+    
+    return this.requestService
+      .get("api/tickets/archived/?$orderby=RequestDate desc")
+      .map(r => r.json().Data.map(item => this.extractData(item)));
+  }
+
   getTickets() : Observable<Ticket[]> {
     
     return this.requestService

@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Список заявок
+    Архив заявок
     <small></small>
   </h1>
 </section>
@@ -17,12 +17,14 @@
           <th>Место проблемы</th>
           <th>Описание</th>
           <th>Дата заявки</th>
+          <th>Дата закрытия</th>
         </tr>
         <tr routerLink="/tickets/{{ticket.id}}" *ngFor="let ticket of tickets">
           <td>{{ticket.number}}</td>
           <td>{{ticket.store}}</td>
           <td>{{ticket.comments}}</td>
           <td>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+          <td>{{ticket.endDate | date: 'dd.MM.yyyy HH:mm'}}</td>
         </tr>
       </table>
     </div>

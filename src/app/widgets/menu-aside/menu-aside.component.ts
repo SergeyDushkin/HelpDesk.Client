@@ -20,7 +20,7 @@ export class MenuAsideComponent implements OnInit {
     {
       "title": "Архив заявок",
       "icon": "folder",
-      "link": ['/tickets/old']
+      "link": ['/tickets/archived']
     }
   ];
 
