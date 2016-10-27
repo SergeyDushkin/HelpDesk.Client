@@ -41,9 +41,9 @@
         <i class="fa fa-user bg-aqua"></i>
 
         <div class="timeline-item">
-          <span class="time" *ngIf="event.date"><i class="fa fa-clock-o"></i> {{event.date | date: 'HH:mm'}}</span>
+          <span class="time" *ngIf="event.date"><i class="fa fa-clock-o"></i> {{event.date | date: 'dd.MM.yyyy HH:mm'}}</span>
 
-          <h3 class="timeline-header no-border"><a href="#">{{event.userName}}</a></h3>
+          <h3 class="timeline-header">{{event.userName}}</h3>
           
           <div class="timeline-body">
             {{event.comments}}
