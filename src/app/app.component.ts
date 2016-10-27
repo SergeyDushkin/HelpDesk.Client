@@ -29,7 +29,7 @@ export class AppComponent {
       err => { 
         this.configService.get("API_URI")
           .toPromise()
-          .then(base => { window.location.href = base + 'login/'; }) 
+          .then(base => { window.location.href = base + 'login/?key=client_token&ref=' + window.location.href; }) 
         },
       () => console.log('done')
     );

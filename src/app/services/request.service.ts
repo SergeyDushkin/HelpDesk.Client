@@ -14,7 +14,7 @@ export class RequestService {
       .toPromise()
       .then(base => {
 
-        var token = localStorage.getItem('token');
+        var token = localStorage.getItem('client_token');
         var headers = new Headers();
 
         headers.append('Authorization', 'Bearer ' +  token);
@@ -30,7 +30,7 @@ export class RequestService {
       .toPromise()
       .then(base => {
 
-        var token = localStorage.getItem('token');
+        var token = localStorage.getItem('client_token');
         var headers = new Headers();
 
         headers.append('Authorization', 'Bearer ' +  token);
