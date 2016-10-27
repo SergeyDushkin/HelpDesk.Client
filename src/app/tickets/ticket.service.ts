@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
-import { Ticket } from './ticket';
+import { Ticket, TicketEvent } from './ticket';
 import { RequestService } from '../services/request.service';
 
 @Injectable()
@@ -46,7 +46,9 @@ export class TicketService {
         comments: item.Comments,
         number: item.TicketNumber,
         startDate: item.RequestDate, 
-        endDate: item.CompleteDate });
+        endDate: item.CompleteDate,
+        events : item.Events.map(r => new TicketEvent({ date : r.Date, userName : r.UserName, comments : r.Comment })) 
+      });
   }
 
 }
