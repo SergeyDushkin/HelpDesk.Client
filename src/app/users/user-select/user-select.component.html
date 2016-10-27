@@ -1,0 +1,6 @@
+<div class="form-group">
+  <label for="power">Заявитель</label>
+  <select class="form-control" [ngModel]="client" name="client" (change)="onChange($event.target.value)" required>
+    <option *ngFor="let client of clients" [value]="client.id">{{client.name}}</option>
+  </select>
+</div>
