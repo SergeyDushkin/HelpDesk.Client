@@ -1,6 +1,6 @@
 //external module
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -79,7 +79,12 @@ import { UserSelectComponent } from './users/user-select/user-select.component';
     routing
   ],
   providers: [
-    ...services
+    ...services, {
+      provide: APP_INITIALIZER,
+      useFactory: (config:ConfigService) => () => config.load(),
+      deps: [ConfigService],
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

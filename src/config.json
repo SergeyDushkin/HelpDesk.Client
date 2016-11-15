@@ -1,3 +1,5 @@
 {
-    "API_URI" : "/helpdesk-rzn/"
+    "API_URI" : "http://helpdesk.sibintek.ru/tst/api/",
+    "apiEndpoint": "string",
+    "title": "string"
 }

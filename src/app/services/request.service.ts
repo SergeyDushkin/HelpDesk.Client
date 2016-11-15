@@ -10,6 +10,14 @@ export class RequestService {
 
   public get(url : string) {
 
+    let baseUrl = this.configService.get("API_URI");
+    let token = localStorage.getItem('client_token');
+    var headers = new Headers();
+    
+    headers.append('Authorization', 'Bearer ' +  token);
+    return this.http.get(baseUrl + url, { headers: headers });
+
+    /*
     let sync = this.configService.get("API_URI")
       .toPromise()
       .then(base => {
@@ -21,7 +29,7 @@ export class RequestService {
         return this.http.get(base + url, { headers: headers }).toPromise();
       });
 
-      return Observable.fromPromise(sync);
+      return Observable.fromPromise(sync);*/
   }
 
   public post(url : string, data : any) {

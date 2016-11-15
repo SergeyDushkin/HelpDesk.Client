@@ -23,13 +23,14 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    
+    let baseUri = this.configService.get("API_URI");
 
     this._user_serv.getCurrentUser().subscribe(
       data => { this.user = data },
       err => { 
-        this.configService.get("API_URI")
-          .toPromise()
-          .then(base => { window.location.href = base + 'login/?key=client_token&ref=' + window.location.href; }) 
+            //window.location.href = base + 'login/?key=client_token&ref=' + window.location.href; 
+            return;
         },
       () => console.log('done')
     );
