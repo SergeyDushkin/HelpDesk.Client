@@ -16,36 +16,16 @@ export class RequestService {
     
     headers.append('Authorization', 'Bearer ' +  token);
     return this.http.get(baseUrl + url, { headers: headers });
-
-    /*
-    let sync = this.configService.get("API_URI")
-      .toPromise()
-      .then(base => {
-
-        var token = localStorage.getItem('client_token');
-        var headers = new Headers();
-
-        headers.append('Authorization', 'Bearer ' +  token);
-        return this.http.get(base + url, { headers: headers }).toPromise();
-      });
-
-      return Observable.fromPromise(sync);*/
   }
 
   public post(url : string, data : any) {
+
+    let baseUrl = this.configService.get("API_URI");
+    let token = localStorage.getItem('client_token');
+    var headers = new Headers();
     
-    let sync = this.configService.get("API_URI")
-      .toPromise()
-      .then(base => {
-
-        var token = localStorage.getItem('client_token');
-        var headers = new Headers();
-
-        headers.append('Authorization', 'Bearer ' +  token);
-        return this.http.post(base + url, data, { headers: headers }).toPromise();
-      });
-
-      return Observable.fromPromise(sync);
+    headers.append('Authorization', 'Bearer ' +  token);
+    return this.http.post(baseUrl + url, data, { headers: headers });
   }
 
 }
