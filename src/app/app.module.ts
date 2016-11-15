@@ -38,6 +38,8 @@ import { ConfigService } from "./services/config.service";
 import { RequestService } from "./services/request.service";
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './guards/authentication-guard';
+import { TicketService } from './tickets/ticket.service';
+import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
 let services =  [
   UserService,
@@ -46,6 +48,8 @@ let services =  [
   RequestService,
   AuthenticationService,
   AuthenticationGuard,
+  TicketService,
+  TicketDetailResolve,
 ];
 
 import { HomeComponent } from './pages/home/home.component';

@@ -11,6 +11,7 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 
 import { AuthenticationGuard } from './guards/authentication-guard';
+import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
 const routes: Routes = [
     // Root
@@ -19,7 +20,7 @@ const routes: Routes = [
     { path: 'tickets', component: TicketListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
-    { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard] },
+    { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard], resolve: { ticket: TicketDetailResolve } },
     { path: 'login', component: LoginComponent },
 ];
 

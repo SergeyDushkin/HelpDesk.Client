@@ -4,6 +4,7 @@ import { UserService } from "./services/user.service";
 import { Message } from "./models/message";
 import { MessagesService } from "./services/messages.service";
 import { ConfigService } from "./services/config.service";
+import { AuthenticationService } from "./services/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent {
   constructor(
     private _user_serv: UserService,
     private _msg_serv: MessagesService,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private authenticationService: AuthenticationService
   ){
 
   }
@@ -29,8 +31,10 @@ export class AppComponent {
     this._user_serv.getCurrentUser().subscribe(
       data => { this.user = data },
       err => { 
-            //window.location.href = base + 'login/?key=client_token&ref=' + window.location.href; 
-            return;
+        if (err.status == 401) {
+          this.authenticationService.logout();
+        }
+        return;
         },
       () => console.log('done')
     );
