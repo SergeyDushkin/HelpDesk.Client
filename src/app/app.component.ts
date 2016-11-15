@@ -47,6 +47,7 @@ export class AppComponent {
       window.dispatchEvent(event);
     }
 
+    /*
     //envoi d'un user de test
     let user1 = new User({
       firstname: "WEBER",
@@ -69,6 +70,7 @@ export class AppComponent {
       author: user2,
       destination: user1
     }));
+    */
 
   }
 

@@ -36,12 +36,16 @@ import { UserService } from "./services/user.service";
 import { MessagesService } from "./services/messages.service";
 import { ConfigService } from "./services/config.service";
 import { RequestService } from "./services/request.service";
+import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationGuard } from './guards/authentication-guard';
 
 let services =  [
   UserService,
   MessagesService,
   ConfigService,
-  RequestService
+  RequestService,
+  AuthenticationService,
+  AuthenticationGuard,
 ];
 
 import { HomeComponent } from './pages/home/home.component';
@@ -61,6 +65,7 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -72,7 +77,8 @@ import { UserSelectComponent } from './users/user-select/user-select.component';
     TicketDetailComponent,
     StoreSelectComponent,
     TicketArchListComponent,
-    UserSelectComponent
+    UserSelectComponent,
+    LoginComponent
   ],
   imports: [
     ...modules,

@@ -1,5 +1,8 @@
 {
     "API_URI" : "http://helpdesk.sibintek.ru/tst/api/",
-    "apiEndpoint": "string",
-    "title": "string"
+    "AuthenticationServer" : {
+        "url" : "http://helpdesk.sibintek.ru/authorization/",
+        "client_id" : "public",
+        "client_secret" : "public"
+        }
 }

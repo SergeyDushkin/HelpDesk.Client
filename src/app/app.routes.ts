@@ -4,19 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { HomeComponent } from './pages/home/home.component';
 import { PageNumComponent } from './pages/page-num/page-num.component';
+import { LoginComponent } from './pages/login/login.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 
+import { AuthenticationGuard } from './guards/authentication-guard';
+
 const routes: Routes = [
     // Root
-    { path: '', component: TicketListComponent },
-    { path: 'page/:id', component: PageNumComponent },
-    { path: 'tickets', component: TicketListComponent },
-    { path: 'tickets/archived', component: TicketArchListComponent },
-    { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }},
-    { path: 'tickets/:id', component: TicketDetailComponent},
+    { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
+    { path: 'page/:id', component: PageNumComponent, canActivate: [AuthenticationGuard] },
+    { path: 'tickets', component: TicketListComponent, canActivate: [AuthenticationGuard] },
+    { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
+    { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
+    { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard] },
+    { path: 'login', component: LoginComponent },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
