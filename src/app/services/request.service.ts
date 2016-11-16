@@ -16,7 +16,16 @@ export class RequestService {
     var headers = new Headers();
     
     headers.append('Authorization', 'Bearer ' +  token);
-    return this.http.get(baseUrl + url, { headers: headers });
+
+    var request = this.http.get(baseUrl + url, { headers: headers })
+
+    request.subscribe(
+      data => { },
+      err => { 
+        if (err.status == 401) { this.authenticationService.logout(); }},
+      () => console.log('RequestService: done'));
+
+    return request;
   }
 
   public post(url : string, data : any) {

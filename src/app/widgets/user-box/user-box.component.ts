@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../models/user";
-import {UserService} from "../../services/user.service";
+import { User } from "../../models/user";
+import { UserService } from "../../services/user.service";
+import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: '.userBox',
@@ -10,7 +11,7 @@ import {UserService} from "../../services/user.service";
 export class UserBoxComponent implements OnInit {
     current_user: User;
 
-    constructor( private _user_serv : UserService ){
+    constructor( private _user_serv : UserService, private authenticationService: AuthenticationService ){
       //se connecter au modif du user courant
       this._user_serv.current_user.subscribe((user: User) => this.current_user = user);
     }
@@ -20,5 +21,9 @@ export class UserBoxComponent implements OnInit {
       /*this._user_serv.current_user.subscribe((user: User)=>{
         this.current_user = user;
       });*/
+    }
+
+    onSignOut(){
+      this.authenticationService.logout();
     }
 }

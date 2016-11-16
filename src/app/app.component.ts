@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from "./models/user";
 import { UserService } from "./services/user.service";
 import { Message } from "./models/message";
 import { MessagesService } from "./services/messages.service";
-import { ConfigService } from "./services/config.service";
 import { AuthenticationService } from "./services/authentication.service";
 
 @Component({
@@ -16,9 +16,9 @@ export class AppComponent {
   user: User;
 
   constructor(
+    private router: Router,
     private _user_serv: UserService,
     private _msg_serv: MessagesService,
-    private configService: ConfigService,
     private authenticationService: AuthenticationService
   ){
 
@@ -26,18 +26,25 @@ export class AppComponent {
 
   ngOnInit() {
     
-    let baseUri = this.configService.get("API_URI");
+    this.authenticationService.isAuthenticated.subscribe(
+      isAuthenticated => {
+        console.log('Authenticated: ' + isAuthenticated);
 
-    this._user_serv.getCurrentUser().subscribe(
-      data => { this.user = data },
-      err => { 
-        if (err.status == 401) {
-          this.authenticationService.logout();
+        if (isAuthenticated) {
+          this._user_serv.getCurrentUser().subscribe(
+            data => console.log('Profile service: load ' + data),
+            err => console.log('Profile service: error ' + err),
+            () => console.log('Profile service: done'),
+          );
         }
-        return;
-        },
-      () => console.log('done')
-    );
+
+        if (!isAuthenticated) {
+          this._user_serv.clear();
+
+          // not logged in so redirect to login page
+          this.router.navigate(['/login']);
+        }
+      });
 
     //on envoi l'evenement resize, pour AdminLTE
     let ie = this.detectIE();
@@ -52,21 +59,6 @@ export class AppComponent {
     }
 
     /*
-    //envoi d'un user de test
-    let user1 = new User({
-      firstname: "WEBER",
-      lastname: "Antoine",
-      email: "weber.antoine.pro@gmail.com",
-      avatar_url: "public/assets/img/user2-160x160.jpg"
-    });
-    let user2 = new User({
-      firstname: "FIRSTNAME",
-      lastname: "LASTNAME",
-      email: "EMAIL",
-      avatar_url: "public/assets/img/user2-160x160.jpg"
-    });
-    this._user_serv.setCurrentUser( user1 );
-
     //envoi d'un message de test
     this._msg_serv.addMessage( new Message({
       title: "un message super important",

@@ -1,16 +1,16 @@
 import { User } from "../models/user";
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
-import { Headers, Http } from '@angular/http';
 import { RequestService } from '../services/request.service';
 
 @Injectable()
-export class UserService{
+export class UserService {
+
   public current_user: ReplaySubject<User> = new ReplaySubject<User>(1);
 
-  constructor(private http: Http, private requestService : RequestService) {}
+  constructor(private requestService : RequestService) {}
 
-  public setCurrentUser(user: User){
+  public setCurrentUser(user: User) {
     this.current_user.next(user);
   }
 
@@ -23,5 +23,9 @@ export class UserService{
         this.setCurrentUser(user);
         return new User(user);
       });
+  }
+
+  public clear() {
+    this.current_user.next(null);
   }
 }

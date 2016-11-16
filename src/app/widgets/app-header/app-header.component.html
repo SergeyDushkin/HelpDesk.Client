@@ -20,7 +20,7 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
 
-        <li class="dropdown notifications-menu">
+        <li *ngIf="isAuthenticated" class="dropdown notifications-menu">
             <a routerLink="/tickets/new" class="dropdown-toggle" data-toggle="dropdown">
               <i class="glyphicon glyphicon-pencil"></i> 
               <span style="padding-left:5px;">Подать заявку</span>
