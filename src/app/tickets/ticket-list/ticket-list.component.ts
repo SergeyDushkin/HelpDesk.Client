@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketService } from '../ticket.service';
+import { ActivatedRoute } from '@angular/router';
 import { Ticket } from '../ticket';
 
 @Component({
   selector: 'app-ticket-list',
-  templateUrl: './ticket-list.component.html',
-  styleUrls: ['./ticket-list.component.css'],
-  providers: [TicketService]
+  templateUrl: './ticket-list.component.html'
 })
 export class TicketListComponent implements OnInit {
   
   tickets: Ticket[];
   
-  constructor(private ticketService : TicketService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.ticketService.getTickets().subscribe(r => {
-      this.tickets = r;
-    });
+    this.tickets = this.route.snapshot.data['tickets'];
   }
 
 }

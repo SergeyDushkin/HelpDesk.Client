@@ -39,6 +39,7 @@ import { RequestService } from "./services/request.service";
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketService } from './tickets/ticket.service';
+import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
 let services =  [
@@ -49,6 +50,7 @@ let services =  [
   AuthenticationService,
   AuthenticationGuard,
   TicketService,
+  TicketListResolve,
   TicketDetailResolve,
 ];
 
