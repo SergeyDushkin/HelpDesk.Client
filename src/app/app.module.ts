@@ -54,12 +54,10 @@ let services =  [
   TicketDetailResolve,
 ];
 
-import { HomeComponent } from './pages/home/home.component';
-import { PageNumComponent } from './pages/page-num/page-num.component';
+import { LoginComponent } from './pages/login/login.component';
 
 let pages = [
-  HomeComponent,
-  PageNumComponent
+  LoginComponent
 ]
 
 //main bootstrap
@@ -71,7 +69,6 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
-import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
