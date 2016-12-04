@@ -69,6 +69,7 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
+import { TicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { UserSelectComponent } from './users/user-select/user-select.component';
     StoreSelectComponent,
     TicketArchListComponent,
     UserSelectComponent,
-    LoginComponent
+    LoginComponent,
+    TicketDetailComponent
   ],
   imports: [
     ...modules,
