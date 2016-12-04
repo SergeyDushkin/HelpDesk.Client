@@ -69,7 +69,7 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
-import { TicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
+import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
 
 @NgModule({
@@ -83,7 +83,7 @@ import { TicketDetailComponent } from './modules/operator/tickets/ticket-detail/
     TicketArchListComponent,
     UserSelectComponent,
     LoginComponent,
-    TicketDetailComponent
+    OperatorTicketDetailComponent
   ],
   imports: [
     ...modules,
