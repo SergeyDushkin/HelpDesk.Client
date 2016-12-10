@@ -49,6 +49,10 @@ import { ClientService } from './clients/client.service';
 import { ClientListResolve } from './clients/client-list-resolve.service';
 import { ClientDetailResolve } from './clients/client-detail-resolve.service';
 
+import { UserService as ClientUserService } from './clients/users/user.service';
+import { UserListResolve } from './clients/users/user-list-resolve.service';
+import { UserDetailResolve } from './clients/users/user-detail-resolve.service';
+
 let services =  [
   UserService,
   MessagesService,
@@ -58,6 +62,7 @@ let services =  [
   AuthenticationGuard,
   TicketService, TicketListResolve, TicketDetailResolve,
   ClientService, ClientListResolve, ClientDetailResolve,
+  ClientUserService, UserListResolve, UserDetailResolve,
 ];
 
 import { LoginComponent } from './pages/login/login.component';
@@ -82,6 +87,10 @@ import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientSelectComponent } from './clients/client-select/client-select.component';
 
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
+import { UserListComponent } from './clients/users/user-list/user-list.component';
+import { UserDetailComponent } from './clients/users/user-detail/user-detail.component';
+import { UserNewComponent } from './clients/users/user-new/user-new.component';
+import { UserSelectComponent as ClientUserSelectComponent } from './clients/users/user-select/user-select.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +107,11 @@ import { TicketDetailComponent as OperatorTicketDetailComponent } from './module
     ClientDetailComponent,
     ClientNewComponent,
     ClientSelectComponent,
-    OperatorTicketDetailComponent
+    OperatorTicketDetailComponent,
+    UserListComponent,
+    UserDetailComponent,
+    UserNewComponent,
+    ClientUserSelectComponent
   ],
   imports: [
     ...modules,

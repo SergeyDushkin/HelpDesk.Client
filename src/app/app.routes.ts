@@ -18,6 +18,9 @@ import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientListResolve } from './clients/client-list-resolve.service';
 import { ClientDetailResolve } from './clients/client-detail-resolve.service';
 
+import { UserListResolve } from './clients/users/user-list-resolve.service';
+import { UserDetailResolve } from './clients/users/user-detail-resolve.service';
+
 const routes: Routes = [
     // Root
     { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
@@ -29,7 +32,7 @@ const routes: Routes = [
 
     { path: 'clients', component: ClientListComponent, canActivate: [AuthenticationGuard], resolve: { clients: ClientListResolve } },
     { path: 'clients/create', component: ClientNewComponent, canActivate: [AuthenticationGuard] },
-    { path: 'clients/:client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve } },
+    { path: 'clients/:client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve, users: UserListResolve } },
 
     { path: 'login', component: LoginComponent },
 ];
