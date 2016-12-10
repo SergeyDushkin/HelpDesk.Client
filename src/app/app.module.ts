@@ -53,6 +53,10 @@ import { UserService as ClientUserService } from './clients/users/user.service';
 import { UserListResolve } from './clients/users/user-list-resolve.service';
 import { UserDetailResolve } from './clients/users/user-detail-resolve.service';
 
+import { AddressService } from './clients/address/address.service';
+import { AddressListResolve } from './clients/address/address-list-resolve.service';
+import { AddressDetailResolve } from './clients/address/address-detail-resolve.service';
+
 let services =  [
   UserService,
   MessagesService,
@@ -63,6 +67,7 @@ let services =  [
   TicketService, TicketListResolve, TicketDetailResolve,
   ClientService, ClientListResolve, ClientDetailResolve,
   ClientUserService, UserListResolve, UserDetailResolve,
+  AddressService, AddressListResolve, AddressDetailResolve,
 ];
 
 import { LoginComponent } from './pages/login/login.component';
