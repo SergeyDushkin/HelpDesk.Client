@@ -75,16 +75,13 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
-<<<<<<< HEAD
-import { LoginComponent } from './pages/login/login.component';
+
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientSelectComponent } from './clients/client-select/client-select.component';
-=======
-import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
->>>>>>> 24b8b150c0a56e59f209e395554135ed45c4da96
 
+import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -97,14 +94,11 @@ import { TicketDetailComponent as OperatorTicketDetailComponent } from './module
     TicketArchListComponent,
     UserSelectComponent,
     LoginComponent,
-<<<<<<< HEAD
     ClientListComponent,
     ClientDetailComponent,
     ClientNewComponent,
-    ClientSelectComponent
-=======
+    ClientSelectComponent,
     OperatorTicketDetailComponent
->>>>>>> 24b8b150c0a56e59f209e395554135ed45c4da96
   ],
   imports: [
     ...modules,

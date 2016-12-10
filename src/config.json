@@ -1,9 +1,6 @@
 {
     "API_URI" : "http://servicedesk.atomigy.com/api/",
-<<<<<<< HEAD
     "APP_API_URI" : "http://servicedesk.atomigy.com/api.v1/",
-=======
->>>>>>> 24b8b150c0a56e59f209e395554135ed45c4da96
     "AuthenticationServer" : {
         "url" : "http://servicedesk.atomigy.com/authorization/",
         "client_id" : "public",

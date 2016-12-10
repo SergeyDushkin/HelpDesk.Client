@@ -21,11 +21,7 @@ import { ClientDetailResolve } from './clients/client-detail-resolve.service';
 const routes: Routes = [
     // Root
     { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
-<<<<<<< HEAD
-    { path: 'page/:id', component: PageNumComponent, canActivate: [AuthenticationGuard] },
-
-=======
->>>>>>> 24b8b150c0a56e59f209e395554135ed45c4da96
+    
     { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } , canActivate: [AuthenticationGuard] },
     { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
