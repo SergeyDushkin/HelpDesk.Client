@@ -2,8 +2,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Components
-import { HomeComponent } from './pages/home/home.component';
-import { PageNumComponent } from './pages/page-num/page-num.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
@@ -23,8 +21,11 @@ import { ClientDetailResolve } from './clients/client-detail-resolve.service';
 const routes: Routes = [
     // Root
     { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
+<<<<<<< HEAD
     { path: 'page/:id', component: PageNumComponent, canActivate: [AuthenticationGuard] },
 
+=======
+>>>>>>> 24b8b150c0a56e59f209e395554135ed45c4da96
     { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } , canActivate: [AuthenticationGuard] },
     { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
