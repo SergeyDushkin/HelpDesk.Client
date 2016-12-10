@@ -18,6 +18,9 @@ import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientListResolve } from './clients/client-list-resolve.service';
 import { ClientDetailResolve } from './clients/client-detail-resolve.service';
 
+import { UserListComponent } from './clients/users/user-list/user-list.component';
+import { UserDetailComponent } from './clients/users/user-detail/user-detail.component';
+import { UserNewComponent } from './clients/users/user-new/user-new.component';
 import { UserListResolve } from './clients/users/user-list-resolve.service';
 import { UserDetailResolve } from './clients/users/user-detail-resolve.service';
 
@@ -33,6 +36,10 @@ const routes: Routes = [
     { path: 'clients', component: ClientListComponent, canActivate: [AuthenticationGuard], resolve: { clients: ClientListResolve } },
     { path: 'clients/create', component: ClientNewComponent, canActivate: [AuthenticationGuard] },
     { path: 'clients/:client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve, users: UserListResolve } },
+    
+    { path: 'clients/:client_id/users/', component: UserListComponent, canActivate: [AuthenticationGuard], resolve: { users: UserListResolve } },
+    { path: 'clients/:client_id/users/create', component: UserNewComponent, canActivate: [AuthenticationGuard] },
+    { path: 'clients/:client_id/users/:id', component: UserDetailComponent, canActivate: [AuthenticationGuard], resolve: { user: UserDetailResolve } },
 
     { path: 'login', component: LoginComponent },
 ];

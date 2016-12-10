@@ -32,11 +32,9 @@ export class UserService {
       .map(item => this.extractData(item));
   }
 
-  update(clientId : string, user : User) : Observable<User> {
+  update(clientId : string, user : User) : Observable<Response> {
     
-    return this.apiService.put("clients/" + clientId + "/users/" + user.id, user)
-      .map(r => r.json())
-      .map(item => this.extractData(item));
+    return this.apiService.put("clients/" + clientId + "/users/" + user.id, user);
   }
 
   delete(clientId : string, id : string) : Observable<Response> {

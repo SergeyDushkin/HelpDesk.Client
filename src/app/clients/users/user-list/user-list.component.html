@@ -2,7 +2,7 @@
 <section class="content-header">
   <h1>
     Персоны
-    <small><a routerLink="create"><i class="glyphicon glyphicon-plus"></i> Добавить</a></small>
+    <small><a routerLink="users/create"><i class="glyphicon glyphicon-plus"></i> Добавить</a></small>
   </h1>
 </section>
 
@@ -15,7 +15,7 @@
         <tr>
           <th>Имя</th>
         </tr>
-        <tr routerLink="{{user.id}}" *ngFor="let user of users">
+        <tr routerLink="users/{{user.id}}" *ngFor="let user of users">
           <td>{{user.name}}</td>
         </tr>
       </table>
