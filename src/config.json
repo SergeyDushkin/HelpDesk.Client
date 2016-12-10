@@ -1,7 +1,8 @@
 {
-    "API_URI" : "http://helpdesk.sibintek.ru/tst/api/",
+    "API_URI" : "http://servicedesk.atomigy.com/api/",
+    "APP_API_URI" : "http://servicedesk.atomigy.com/api.v1/",
     "AuthenticationServer" : {
-        "url" : "http://helpdesk.sibintek.ru/authorization/",
+        "url" : "http://servicedesk.atomigy.com/authorization/",
         "client_id" : "public",
         "client_secret" : "public"
         }

@@ -1,0 +1,14 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-client-new',
+  templateUrl: './client-new.component.html'
+})
+export class ClientNewComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

@@ -35,23 +35,29 @@ let widgets = [
 import { UserService } from "./services/user.service";
 import { MessagesService } from "./services/messages.service";
 import { ConfigService } from "./services/config.service";
+
+import { BaseApiService } from "./services/base-api.service";
 import { RequestService } from "./services/request.service";
+
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketService } from './tickets/ticket.service';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
+import { ClientService } from './clients/client.service';
+import { ClientListResolve } from './clients/client-list-resolve.service';
+import { ClientDetailResolve } from './clients/client-detail-resolve.service';
+
 let services =  [
   UserService,
   MessagesService,
   ConfigService,
-  RequestService,
+  RequestService, BaseApiService,
   AuthenticationService,
   AuthenticationGuard,
-  TicketService,
-  TicketListResolve,
-  TicketDetailResolve,
+  TicketService, TicketListResolve, TicketDetailResolve,
+  ClientService, ClientListResolve, ClientDetailResolve,
 ];
 
 import { HomeComponent } from './pages/home/home.component';
@@ -72,6 +78,10 @@ import { StoreSelectComponent } from './stores/store-select/store-select.compone
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ClientListComponent } from './clients/client-list/client-list.component';
+import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
+import { ClientNewComponent } from './clients/client-new/client-new.component';
+import { ClientSelectComponent } from './clients/client-select/client-select.component';
 
 
 @NgModule({
@@ -84,7 +94,11 @@ import { LoginComponent } from './pages/login/login.component';
     StoreSelectComponent,
     TicketArchListComponent,
     UserSelectComponent,
-    LoginComponent
+    LoginComponent,
+    ClientListComponent,
+    ClientDetailComponent,
+    ClientNewComponent,
+    ClientSelectComponent
   ],
   imports: [
     ...modules,

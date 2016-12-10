@@ -14,14 +14,26 @@ import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
+import { ClientListComponent } from './clients/client-list/client-list.component';
+import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
+import { ClientNewComponent } from './clients/client-new/client-new.component';
+import { ClientListResolve } from './clients/client-list-resolve.service';
+import { ClientDetailResolve } from './clients/client-detail-resolve.service';
+
 const routes: Routes = [
     // Root
     { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
     { path: 'page/:id', component: PageNumComponent, canActivate: [AuthenticationGuard] },
+
     { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } , canActivate: [AuthenticationGuard] },
     { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
     { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard], resolve: { ticket: TicketDetailResolve } },
+
+    { path: 'clients', component: ClientListComponent, canActivate: [AuthenticationGuard], resolve: { clients: ClientListResolve } },
+    { path: 'clients/create', component: ClientNewComponent, canActivate: [AuthenticationGuard] },
+    { path: 'clients/:client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve } },
+
     { path: 'login', component: LoginComponent },
 ];
 

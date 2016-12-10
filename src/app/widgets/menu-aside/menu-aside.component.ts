@@ -5,12 +5,12 @@ import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'menu-aside',
-  templateUrl: 'menu-aside.component.html',
-  styleUrls: ['menu-aside.component.css']
+  templateUrl: 'menu-aside.component.html'
 })
 export class MenuAsideComponent implements OnInit {
   private current_user: User;
   private current_url: string;
+  
   private links: Array<any> = [
     {
       "title": "Заявки",
@@ -21,6 +21,14 @@ export class MenuAsideComponent implements OnInit {
       "title": "Архив заявок",
       "icon": "folder",
       "link": ['/tickets/archived']
+    }
+  ];
+  
+  private adm_links: Array<any> = [
+    {
+      "title": "Клиенты",
+      "icon": "users",
+      "link": ['/clients']
     }
   ];
 

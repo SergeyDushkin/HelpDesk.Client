@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
 import { Ticket, TicketEvent } from './ticket';
@@ -8,7 +7,7 @@ import { RequestService } from '../services/request.service';
 @Injectable()
 export class TicketService {
 
-  constructor(private http: Http, private requestService : RequestService) { 
+  constructor(private requestService : RequestService) { 
   }
 
   getTicketById(id : string) : Observable<Ticket> {
