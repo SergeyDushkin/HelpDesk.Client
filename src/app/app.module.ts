@@ -91,6 +91,10 @@ import { UserListComponent } from './clients/users/user-list/user-list.component
 import { UserDetailComponent } from './clients/users/user-detail/user-detail.component';
 import { UserNewComponent } from './clients/users/user-new/user-new.component';
 import { UserSelectComponent as ClientUserSelectComponent } from './clients/users/user-select/user-select.component';
+import { AddressListComponent } from './clients/address/address-list/address-list.component';
+import { AddressDetailComponent } from './clients/address/address-detail/address-detail.component';
+import { AddressNewComponent } from './clients/address/address-new/address-new.component';
+import { AddressSelectComponent } from './clients/address/address-select/address-select.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +115,11 @@ import { UserSelectComponent as ClientUserSelectComponent } from './clients/user
     UserListComponent,
     UserDetailComponent,
     UserNewComponent,
-    ClientUserSelectComponent
+    ClientUserSelectComponent,
+    AddressListComponent,
+    AddressDetailComponent,
+    AddressNewComponent,
+    AddressSelectComponent
   ],
   imports: [
     ...modules,
