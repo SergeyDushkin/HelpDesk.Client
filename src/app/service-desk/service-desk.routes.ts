@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     children: [
       { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } },
-      { path: 'tickets/:id', component: TicketDetailComponent }
+      { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve } }
     ]
   }
 ];

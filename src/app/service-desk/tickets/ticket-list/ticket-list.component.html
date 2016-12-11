@@ -14,14 +14,18 @@
       <table class="table table-striped">
         <tr>
           <th style="width: 10px">№</th>
+          <th>Клиент</th>
           <th>Место проблемы</th>
+          <th>Заявитель</th>
           <th>Описание</th>
           <th style="width: 130px">Дата заявки</th>
         </tr>
-        <tr routerLink="/tickets/{{ticket.id}}" *ngFor="let ticket of tickets">
-          <td>{{ticket.number}}</td>
-          <td>{{ticket.store}}</td>
-          <td>{{ticket.comments}}</td>
+        <tr routerLink="{{ticket.id}}" *ngFor="let ticket of tickets">
+          <td>{{ticket.ticketNumber}}</td>
+          <td>{{ticket.client.name}}</td>
+          <td>{{ticket.address.name}}</td>
+          <td>{{ticket.user.name}}</td>
+          <td>{{ticket.description}}</td>
           <td>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>
         </tr>
       </table>
