@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Ticket } from '../ticket';
 
 @Component({
   selector: 'app-ticket-list',
@@ -6,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketListComponent implements OnInit {
 
-  constructor() { }
+  private tickets : Ticket[];
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.tickets = this.route.snapshot.data['tickets'];
   }
 
 }
