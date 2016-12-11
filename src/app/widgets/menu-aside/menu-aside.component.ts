@@ -31,6 +31,14 @@ export class MenuAsideComponent implements OnInit {
       "link": ['/clients']
     }
   ];
+  
+  private service_links: Array<any> = [
+    {
+      "title": "Заявки",
+      "icon": "table",
+      "link": ['/service/tickets']
+    }
+  ];
 
   constructor(
     private _user_serv : UserService,

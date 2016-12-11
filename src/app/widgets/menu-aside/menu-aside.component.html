@@ -31,6 +31,18 @@
       </template>
       <!-- Optionally, you can add icons to the links -->
 
+      <li class="header">Сервис</li>
+      <template ngFor let-item [ngForOf]="service_links" >
+        <template [ngIf]="!item.sublinks">
+          <li [class.active]="item.link[0] === current_url" >
+            <a [routerLink]="item.link">
+              <i class="fa fa-{{item.icon}}"></i>
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+        </template>
+      </template>
+
       <li class="header">Администрирование</li>
       <template ngFor let-item [ngForOf]="adm_links" >
         <template [ngIf]="!item.sublinks">

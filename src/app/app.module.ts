@@ -6,6 +6,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
+/* Feature Modules */
+import { ServiceDeskModule } from './service-desk/service-desk.module';
+
 let modules = [
   AlertModule,
   DatepickerModule,
@@ -13,6 +16,8 @@ let modules = [
   FormsModule,
   HttpModule,
   RouterModule,
+
+  ServiceDeskModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header";
@@ -78,7 +83,7 @@ let pages = [
 
 //main bootstrap
 import { AppComponent } from './app.component';
-import { routing } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
@@ -128,7 +133,7 @@ import { AddressSelectComponent } from './clients/address/address-select/address
   ],
   imports: [
     ...modules,
-    routing
+    AppRoutingModule
   ],
   providers: [
     ...services, {

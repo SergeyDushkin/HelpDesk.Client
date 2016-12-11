@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Components
@@ -30,7 +30,7 @@ import { AddressNewComponent } from './clients/address/address-new/address-new.c
 import { AddressListResolve } from './clients/address/address-list-resolve.service';
 import { AddressDetailResolve } from './clients/address/address-detail-resolve.service';
 
-const routes: Routes = [
+export const routes: Routes = [
     // Root
     { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
     
@@ -50,8 +50,16 @@ const routes: Routes = [
     { path: 'clients/:client_id/address/', component: AddressListComponent, canActivate: [AuthenticationGuard], resolve: { address: AddressListResolve } },
     { path: 'clients/:client_id/address/create', component: AddressNewComponent, canActivate: [AuthenticationGuard] },
     { path: 'clients/:client_id/address/:id', component: AddressDetailComponent, canActivate: [AuthenticationGuard], resolve: { address: AddressDetailResolve } },
+    
+    { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
 
     { path: 'login', component: LoginComponent },
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+//export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
