@@ -11,8 +11,15 @@ export class ConfigService {
     console.log('Init ConfigService');
   }
 
-  public load() {
+  public load() : Promise<void> {
+    
+    return this.http.get('./config.json')
+        .map(res => res.json())
+        .toPromise()
+        .then(config => this._config = config)
+        .catch(err => console.log(err));
 
+        /*
     return new Promise((resolve, reject) => {
       this.http.get('./config.json')
         .map(res => res.json())
@@ -23,10 +30,10 @@ export class ConfigService {
           },
           err=>console.log(err)
         );
-    });
+    });*/
   }
   
-  public get(key : string) {
+  public get(key : string) : any {
     return this._config[key];
   }
 }

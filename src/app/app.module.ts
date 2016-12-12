@@ -105,6 +105,12 @@ import { AddressDetailComponent } from './clients/address/address-detail/address
 import { AddressNewComponent } from './clients/address/address-new/address-new.component';
 import { AddressSelectComponent } from './clients/address/address-select/address-select.component';
 
+export function configServiceFactory(config: ConfigService) {
+  return function() {
+    return config.load();
+  }
+};
+
 @NgModule({
   declarations: [
     ...widgets,
@@ -136,7 +142,7 @@ import { AddressSelectComponent } from './clients/address/address-select/address
   providers: [
     ...services, {
       provide: APP_INITIALIZER,
-      useFactory: (config:ConfigService) => () => config.load(),
+      useFactory: configServiceFactory,
       deps: [ConfigService],
       multi: true
     }
