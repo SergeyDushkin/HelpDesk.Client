@@ -26,7 +26,8 @@
     "zone.js": "^0.6.23",
 
     "ng2-bootstrap": "^1.1.16",
-    "ng2-select2": "^0.6.1"
+    "ng2-select2": "^0.6.1",
+	"ng2-select": "^1.1.2"
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.2.3",
