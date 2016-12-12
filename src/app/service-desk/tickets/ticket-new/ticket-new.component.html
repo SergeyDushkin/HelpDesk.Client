@@ -1,3 +1,46 @@
-<p>
-  ticket-new works!
-</p>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Заявка №{{ticket.ticketNumber}}
+  </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- general form elements -->
+  <div class="box box-primary">
+    <!-- form start -->
+    <form role="form">
+      <div class="box-body">
+        <div class="form-group">
+          <label for="requestDate">Клиент</label>
+          <app-client-select [(client)]="ticket.client"></app-client-select>
+        </div>
+        <div class="form-group">
+          <label for="address">Адрес</label>
+          <app-client-select [(client)]="ticket.address"></app-client-select>
+        </div>
+        <div class="form-group">
+          <label for="user">Заявитель</label>
+          <app-client-select [(client)]="ticket.user"></app-client-select>
+        </div>
+        <div class="form-group">
+          <label for="description">Описание</label>
+          <textarea class="form-control" rows="3" [(ngModel)]="description" name="description" placeholder="Опишите проблему ..." required></textarea>
+        </div>
+      </div>
+
+
+      <!-- /.box-body -->
+
+      <div class="box-footer">
+        <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
+
+        <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.box -->
+
+</section><!-- /.content -->
