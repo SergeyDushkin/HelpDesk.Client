@@ -5,8 +5,7 @@ import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: '.userBox',
-  templateUrl: 'user-box.component.html',
-  styleUrls: ['user-box.component.css']
+  templateUrl: './user-box.component.html'
 })
 export class UserBoxComponent implements OnInit {
     current_user: User;

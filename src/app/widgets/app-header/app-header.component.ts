@@ -3,8 +3,7 @@ import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: 'app-header',
-  templateUrl: 'app-header.component.html',
-  styleUrls: ['app-header.component.css']
+  templateUrl: './app-header.component.html'
 })
 export class AppHeaderComponent implements OnInit {
 

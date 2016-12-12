@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 import { ConfigService } from '../services/config.service';
 import { AuthenticationService } from '../services/authentication.service';
@@ -9,7 +9,7 @@ export class BaseApiService {
 
   constructor(private http: Http, private configService : ConfigService, private authenticationService : AuthenticationService) { }
 
-  public get(url : string) {
+  public get(url : string) : Observable<Response> {
 
     let baseUrl = this.configService.get("APP_API_URI");
     let token = this.authenticationService.token;
@@ -28,7 +28,7 @@ export class BaseApiService {
     return request;
   }
 
-  public post(url : string, data : any) {
+  public post(url : string, data : any) : Observable<Response> {
 
     let baseUrl = this.configService.get("APP_API_URI");
     let token = this.authenticationService.token;
@@ -38,7 +38,7 @@ export class BaseApiService {
     return this.http.post(baseUrl + url, data, { headers: headers });
   }
 
-  public put(url : string, data : any) {
+  public put(url : string, data : any) : Observable<Response> {
 
     let baseUrl = this.configService.get("APP_API_URI");
     let token = this.authenticationService.token;
@@ -48,7 +48,7 @@ export class BaseApiService {
     return this.http.put(baseUrl + url, data, { headers: headers });
   }
 
-  public delete(url : string) {
+  public delete(url : string) : Observable<Response> {
 
     let baseUrl = this.configService.get("APP_API_URI");
     let token = this.authenticationService.token;

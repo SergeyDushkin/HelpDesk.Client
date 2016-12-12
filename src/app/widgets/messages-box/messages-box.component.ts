@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {MessagesService} from "../../services/messages.service"
-import {Message} from "../../models/message"
+import { MessagesService } from "../../services/messages.service"
+import { Message } from "../../models/message"
 
 @Component({
   selector: '.messagesBox',
-  templateUrl: 'messages-box.component.html',
-  styleUrls: ['messages-box.component.css']
+  templateUrl: './messages-box.component.html'
 })
 export class MessagesBoxComponent implements OnInit {
   // Declaring the variable for binding with initial value
@@ -15,7 +14,7 @@ export class MessagesBoxComponent implements OnInit {
       this.messages = [];
     }
 
-    public ngOnInit(){
+    public ngOnInit() {
       //à chaque modification de message on change nos données
       this._msg_serv.messages.subscribe((msg: Message[])=>{
         console.log('reception de message');

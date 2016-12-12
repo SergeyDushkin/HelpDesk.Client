@@ -20,12 +20,12 @@ let modules = [
   ServiceDeskModule
 ];
 
-import { AppHeaderComponent } from "./widgets/app-header";
-import { MenuAsideComponent } from "./widgets/menu-aside";
-import { MessagesBoxComponent} from "./widgets/messages-box";
-import { NotificationBoxComponent } from "./widgets/notification-box";
-import { TasksBoxComponent } from "./widgets/tasks-box";
-import { UserBoxComponent } from "./widgets/user-box"
+import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
+import { MenuAsideComponent } from "./widgets/menu-aside/menu-aside.component";
+import { MessagesBoxComponent} from "./widgets/messages-box/messages-box.component";
+import { NotificationBoxComponent } from "./widgets/notification-box/notification-box.component";
+import { TasksBoxComponent } from "./widgets/tasks-box/tasks-box.component";
+import { UserBoxComponent } from "./widgets/user-box/user-box.component"
 
 let widgets = [
   AppComponent,
@@ -105,6 +105,18 @@ import { AddressDetailComponent } from './clients/address/address-detail/address
 import { AddressNewComponent } from './clients/address/address-new/address-new.component';
 import { AddressSelectComponent } from './clients/address/address-select/address-select.component';
 
+
+export function jwtHelperFactory() {
+  return {
+    tokenName: "auth_token",
+    headerName: 'Authorization',
+    headerPrefix: 'Bearer',
+    globalHeaders: [{'Content-Type':'application/json'}],
+    noJwtError: true,
+    noTokenScheme: true
+  };
+}
+
 @NgModule({
   declarations: [
     ...widgets,
@@ -136,6 +148,7 @@ import { AddressSelectComponent } from './clients/address/address-select/address
   providers: [
     ...services, {
       provide: APP_INITIALIZER,
+      //useFactory: jwtHelperFactory,
       useFactory: (config:ConfigService) => () => config.load(),
       deps: [ConfigService],
       multi: true

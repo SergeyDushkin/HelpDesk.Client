@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Select2Component } from 'ng2-select2/ng2-select2';
 import { Client } from '../../tickets/ticket';
 
 @Component({

@@ -5,7 +5,7 @@ import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'menu-aside',
-  templateUrl: 'menu-aside.component.html'
+  templateUrl: './menu-aside.component.html'
 })
 export class MenuAsideComponent implements OnInit {
   private current_user: User;
