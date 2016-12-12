@@ -94,7 +94,6 @@ import { UserSelectComponent } from './users/user-select/user-select.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { ClientNewComponent } from './clients/client-new/client-new.component';
-import { ClientSelectComponent } from './clients/client-select/client-select.component';
 
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 import { UserListComponent } from './clients/users/user-list/user-list.component';
@@ -120,7 +119,6 @@ import { AddressSelectComponent } from './clients/address/address-select/address
     ClientListComponent,
     ClientDetailComponent,
     ClientNewComponent,
-    ClientSelectComponent,
     OperatorTicketDetailComponent,
     UserListComponent,
     UserDetailComponent,

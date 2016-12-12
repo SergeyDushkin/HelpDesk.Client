@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Routes,
          RouterModule } from '@angular/router';
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';
+
+import { ClientSelectComponent } from './clients/client-select/client-select.component';
 
 import { ServiceDeskComponent } from './service-desk.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
@@ -19,8 +22,11 @@ let services = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, ServiceDeskRoutingModule ],
-  declarations: [ServiceDeskComponent, TicketListComponent, TicketDetailComponent, TicketNewComponent],
+  imports: [ CommonModule, FormsModule, ServiceDeskRoutingModule ],
+  declarations: [ServiceDeskComponent, 
+    TicketListComponent, TicketDetailComponent, TicketNewComponent,
+    ClientSelectComponent,
+  ],
   providers: [
     ...services
   ]

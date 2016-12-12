@@ -20,15 +20,20 @@ export class Ticket {
         this.description = data.description || "";
         this.requestDate = data.requestDate || undefined;
         this.completeDate = data.completeDate || undefined;
-        this.client = data.client || undefined;
+        this.client = data.client ? new Client(data.client) : undefined;
         this.address = data.address || undefined;
         this.user = data.user || undefined;
     }
 }
 
-export interface Client {
+export class Client {
     id: string;
     name: string;
+
+    public constructor(data:any = {}) {
+        this.id = data.id || undefined;
+        this.name = data.name || "";
+    };
 }
 
 export interface Address {
