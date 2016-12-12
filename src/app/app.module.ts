@@ -105,18 +105,6 @@ import { AddressDetailComponent } from './clients/address/address-detail/address
 import { AddressNewComponent } from './clients/address/address-new/address-new.component';
 import { AddressSelectComponent } from './clients/address/address-select/address-select.component';
 
-
-export function jwtHelperFactory() {
-  return {
-    tokenName: "auth_token",
-    headerName: 'Authorization',
-    headerPrefix: 'Bearer',
-    globalHeaders: [{'Content-Type':'application/json'}],
-    noJwtError: true,
-    noTokenScheme: true
-  };
-}
-
 @NgModule({
   declarations: [
     ...widgets,
@@ -148,7 +136,6 @@ export function jwtHelperFactory() {
   providers: [
     ...services, {
       provide: APP_INITIALIZER,
-      //useFactory: jwtHelperFactory,
       useFactory: (config:ConfigService) => () => config.load(),
       deps: [ConfigService],
       multi: true
