@@ -25,18 +25,18 @@ export class TicketService {
       .map(item => this.extractData(item)));
   }
 
-  create(ticket : Ticket) : Observable<Ticket> {
+  create(ticket : Ticket) : Observable<Response> {
     
-    return this.apiService.post("tickets/", ticket)
-      .map(r => r.json())
-      .map(item => this.extractData(item));
+    return this.apiService.post("tickets/", ticket);
+      //.map(r => r.json())
+      //.map(item => this.extractData(item));
   }
 
-  update(ticket : Ticket) : Observable<Ticket> {
+  update(ticket : Ticket) : Observable<Response> {
     
     return this.apiService.put("tickets/" + ticket.id, ticket)
-      .map(r => r.json())
-      .map(item => this.extractData(item));
+      //.map(r => r.json())
+      //.map(item => this.extractData(item));
   }
 
   delete(id : string) : Observable<Response> {
