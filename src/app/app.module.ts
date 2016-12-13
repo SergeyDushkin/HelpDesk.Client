@@ -8,6 +8,7 @@ import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 /* Feature Modules */
 import { ServiceDeskModule } from './service-desk/service-desk.module';
+import { ClientModule } from './clients/client.module';
 
 let modules = [
   AlertModule,
@@ -17,7 +18,8 @@ let modules = [
   HttpModule,
   RouterModule,
 
-  ServiceDeskModule
+  ServiceDeskModule,
+  ClientModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
@@ -50,17 +52,7 @@ import { TicketService } from './tickets/ticket.service';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
-import { ClientService } from './clients/client.service';
-import { ClientListResolve } from './clients/client-list-resolve.service';
-import { ClientDetailResolve } from './clients/client-detail-resolve.service';
 
-import { UserService as ClientUserService } from './clients/users/user.service';
-import { UserListResolve } from './clients/users/user-list-resolve.service';
-import { UserDetailResolve } from './clients/users/user-detail-resolve.service';
-
-import { AddressService } from './clients/address/address.service';
-import { AddressListResolve } from './clients/address/address-list-resolve.service';
-import { AddressDetailResolve } from './clients/address/address-detail-resolve.service';
 
 let services =  [
   UserService,
@@ -70,9 +62,6 @@ let services =  [
   AuthenticationService,
   AuthenticationGuard,
   TicketService, TicketListResolve, TicketDetailResolve,
-  ClientService, ClientListResolve, ClientDetailResolve,
-  ClientUserService, UserListResolve, UserDetailResolve,
-  AddressService, AddressListResolve, AddressDetailResolve,
 ];
 
 import { LoginComponent } from './pages/login/login.component';
@@ -91,19 +80,10 @@ import { StoreSelectComponent } from './stores/store-select/store-select.compone
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
 
-import { ClientListComponent } from './clients/client-list/client-list.component';
-import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
-import { ClientNewComponent } from './clients/client-new/client-new.component';
+
 
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
-import { UserListComponent } from './clients/users/user-list/user-list.component';
-import { UserDetailComponent } from './clients/users/user-detail/user-detail.component';
-import { UserNewComponent } from './clients/users/user-new/user-new.component';
-import { UserSelectComponent as ClientUserSelectComponent } from './clients/users/user-select/user-select.component';
-import { AddressListComponent } from './clients/address/address-list/address-list.component';
-import { AddressDetailComponent } from './clients/address/address-detail/address-detail.component';
-import { AddressNewComponent } from './clients/address/address-new/address-new.component';
-import { AddressSelectComponent } from './clients/address/address-select/address-select.component';
+
 
 export function configServiceFactory(config: ConfigService) {
   return function() {
@@ -122,18 +102,7 @@ export function configServiceFactory(config: ConfigService) {
     TicketArchListComponent,
     UserSelectComponent,
     LoginComponent,
-    ClientListComponent,
-    ClientDetailComponent,
-    ClientNewComponent,
     OperatorTicketDetailComponent,
-    UserListComponent,
-    UserDetailComponent,
-    UserNewComponent,
-    ClientUserSelectComponent,
-    AddressListComponent,
-    AddressDetailComponent,
-    AddressNewComponent,
-    AddressSelectComponent
   ],
   imports: [
     ...modules,

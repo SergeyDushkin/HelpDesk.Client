@@ -4,9 +4,14 @@ import { CommonModule } from '@angular/common';
 import { Routes,
          RouterModule } from '@angular/router';
 
-import { ServiceDeskRoutingModule } from './service-desk.routes';
+/* Feature Modules */
+import { ClientModule } from '../clients/client.module';
 
-import { ClientSelectComponent } from './clients/client-select/client-select.component';
+let modules = [
+  ClientModule
+];
+
+import { ServiceDeskRoutingModule } from './service-desk.routes';
 
 import { ServiceDeskComponent } from './service-desk.component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
@@ -22,10 +27,13 @@ let services = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, ServiceDeskRoutingModule ],
-  declarations: [ServiceDeskComponent, 
+  imports: [ 
+    ...modules, 
+    CommonModule, FormsModule, ServiceDeskRoutingModule 
+  ],
+  declarations: [
+    ServiceDeskComponent, 
     TicketListComponent, TicketDetailComponent, TicketNewComponent,
-    ClientSelectComponent,
   ],
   providers: [
     ...services

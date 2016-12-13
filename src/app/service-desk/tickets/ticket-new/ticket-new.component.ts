@@ -3,8 +3,6 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
-//import { Client } from '../client';
-//import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-ticket-new',

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Client } from '../../tickets/ticket';
+import { Client } from '../client';
 
 @Component({
   selector: 'app-client-select',
