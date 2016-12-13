@@ -3,8 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Routes,
          RouterModule } from '@angular/router';
-         
-import { SelectComponent } from 'ng2-select/ng2-select';
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';
 
@@ -28,7 +26,6 @@ let services = [
   declarations: [ServiceDeskComponent, 
     TicketListComponent, TicketDetailComponent, TicketNewComponent,
     ClientSelectComponent,
-    SelectComponent,
   ],
   providers: [
     ...services

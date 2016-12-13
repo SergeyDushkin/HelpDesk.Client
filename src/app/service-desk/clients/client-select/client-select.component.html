@@ -1,17 +1,7 @@
 <div class="input-group">
-  <!--
   <select class="form-control" [disabled]="disabled" (change)="onChange($event.target)">
     <option *ngFor="let record of data" [value]="record.id">{{record.name}}</option>
-  </select>-->
-  <ng-select [allowClear]="true"
-              [items]="items"
-              [disabled]="disabled"
-              (data)="refreshValue($event)"
-              (selected)="selected($event)"
-              (removed)="removed($event)"
-              (typed)="typed($event)"
-              placeholder="No city selected">
-  </ng-select>
+  </select>
   <span class="input-group-btn">
     <a class="btn btn-flat" routerLink="/clients/{{client.id}}"><i class="fa fa-sliders"></i></a>
     <a class="btn btn-flat" routerLink="/clients/create"><i class="fa fa-plus-circle"></i></a>
