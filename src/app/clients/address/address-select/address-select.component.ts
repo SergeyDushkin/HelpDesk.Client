@@ -30,10 +30,17 @@ export class AddressSelectComponent implements OnChanges, OnInit {
   }
 
   set client(val) {
-    if (!val) return;
+    
+    if (!val) {
+      this._source = new Array<Address>();
+      return;
+    }
 
     this._client = val;
-    this.addressService.get(val).toPromise().then(r => this._source = r);
+    this.addressService.get(val).toPromise()
+      .then(r => this._source = r)
+      .then(r => r[0])
+      .then(r => this.address = r);
   }
 
   get address() {

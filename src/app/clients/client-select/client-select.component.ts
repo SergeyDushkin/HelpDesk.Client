@@ -54,8 +54,12 @@ export class ClientSelectComponent implements OnChanges, OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this._source = this.route.snapshot.data['clients'];
-    this._client = this._source[0];
+    this._source = new Array<Client>(new Client());
+
+    let clients: Client[] = this.route.snapshot.data['clients'];
+    clients.forEach(r => this._source.push(r));
+
+    this.client = this._source[0];
   }
 
   ngOnChanges() {

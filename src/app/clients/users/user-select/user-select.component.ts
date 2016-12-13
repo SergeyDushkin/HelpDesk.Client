@@ -25,15 +25,18 @@ export class UserSelectComponent implements OnChanges, OnInit {
   }
 
   @Input('client')
-  get client() {
-    return this._client;
-  }
-
   set client(val) {
-    if (!val) return;
+    
+    if (!val) {
+      this._source = new Array<User>();
+      return;
+    }
 
     this._client = val;
-    this.userService.get(val).toPromise().then(r => this._source = r);
+    this.userService.get(val).toPromise()
+      .then(r => this._source = r)
+      .then(r => r[0])
+      .then(r => this.user = r);
   }
 
   get user() {
