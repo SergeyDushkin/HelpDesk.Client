@@ -11,7 +11,7 @@ export class UserSelectComponent implements OnChanges, OnInit {
 
   private _client : string;
 
-  @Output() questionChange = new EventEmitter();
+  @Output() userChange = new EventEmitter();
   @Input('disabled') _disabled : boolean = false;
   @Input('user') _user : User;
   @Input('source') _source : User[];
@@ -45,7 +45,7 @@ export class UserSelectComponent implements OnChanges, OnInit {
 
   set user(val) {
     this._user = val;
-    this.questionChange.emit(this._user);
+    this.userChange.emit(this._user);
   }
 
   onChange(value){
@@ -60,7 +60,7 @@ export class UserSelectComponent implements OnChanges, OnInit {
   ngOnInit() {
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
   }
 
 }

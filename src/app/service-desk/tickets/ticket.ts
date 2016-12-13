@@ -1,3 +1,6 @@
+import { User } from '../../clients/users/user';
+import { Address } from '../../clients/address/address';
+
 export class Ticket {
     id: string;
     ticketNumber: string;
@@ -21,8 +24,8 @@ export class Ticket {
         this.requestDate = data.requestDate || undefined;
         this.completeDate = data.completeDate || undefined;
         this.client = data.client ? new Client(data.client) : undefined;
-        this.address = data.address || undefined;
-        this.user = data.user || undefined;
+        this.address = data.address || new Address();
+        this.user = data.user || new User;
     }
 }
 
@@ -36,12 +39,13 @@ export class Client {
     };
 }
 
-export interface Address {
+/*
+export class Address {
     id: string;
     name: string;
 }
 
-export interface User {
+export class User {
     id: string;
     name: string;
-}
+}*/

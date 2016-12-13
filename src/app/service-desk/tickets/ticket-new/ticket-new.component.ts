@@ -26,6 +26,10 @@ export class TicketNewComponent implements OnInit {
     this.ticket.clientId = val;
   }
 
+  onUserChange(val) {
+    this.ticket.userId = val;
+  }
+
   onUpdate() {
     this.service.create(this.ticket).subscribe(
       (response) => this.router.navigate(['/service/tickets/']),

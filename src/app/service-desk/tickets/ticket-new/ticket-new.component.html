@@ -19,11 +19,11 @@
         </div>
         <div class="form-group">
           <label for="address">Адрес</label>
-          <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.address"></app-address-select>
+          <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.user"></app-address-select>
         </div>
         <div class="form-group">
           <label for="user">Заявитель</label>
-          <app-user-select [(client)]="ticket.clientId" [(user)]="ticket.user"></app-user-select>
+          <app-user-select [(client)]="ticket.clientId" [(user)]="ticket.user" (change)="onUserChange($event.target.value)"></app-user-select>
         </div>
         <div class="form-group">
           <label for="description">Описание</label>

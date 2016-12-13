@@ -11,7 +11,7 @@ export class AddressSelectComponent implements OnChanges, OnInit {
 
   private _client : string;
 
-  @Output() questionChange = new EventEmitter();
+  @Output() addressChange = new EventEmitter();
   @Input('disabled') _disabled : boolean = false;
   @Input('address') _address : Address;
   @Input('source') _source : Address[];
@@ -30,7 +30,7 @@ export class AddressSelectComponent implements OnChanges, OnInit {
   }
 
   set client(val) {
-    
+
     if (!val) {
       this._source = new Array<Address>();
       return;
@@ -49,7 +49,7 @@ export class AddressSelectComponent implements OnChanges, OnInit {
 
   set address(val) {
     this._address = val;
-    this.questionChange.emit(this._address);
+    this.addressChange.emit(this._address);
   }
 
   onChange(value){
@@ -64,7 +64,7 @@ export class AddressSelectComponent implements OnChanges, OnInit {
   ngOnInit() {
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
   }
 
 }

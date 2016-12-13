@@ -8,7 +8,7 @@ import { Client } from '../client';
 })
 export class ClientSelectComponent implements OnChanges, OnInit {
 
-  @Output() questionChange = new EventEmitter();
+  @Output() clientChange = new EventEmitter();
   @Input('disabled') _disabled : boolean;
   @Input('client') _client : Client;
   @Input('source') _source : Client[];
@@ -41,7 +41,7 @@ export class ClientSelectComponent implements OnChanges, OnInit {
 
   set client(val) {
     this._client = val;
-    this.questionChange.emit(this._client);
+    this.clientChange.emit(this._client);
   }
 
   onChange(value){
@@ -54,15 +54,18 @@ export class ClientSelectComponent implements OnChanges, OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this._source = new Array<Client>(new Client());
-
-    let clients: Client[] = this.route.snapshot.data['clients'];
-    clients.forEach(r => this._source.push(r));
-
+    this._source = this.route.snapshot.data['clients'];
     this.client = this._source[0];
+    
+    //this._source = new Array<Client>(new Client());
+
+    //let clients: Client[] = this.route.snapshot.data['clients'];
+    //clients.forEach(r => this._source.push(r));
+
+    //this.client = this._source[0];
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
   }
 
 }
