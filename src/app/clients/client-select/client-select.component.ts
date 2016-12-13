@@ -22,7 +22,11 @@ export class ClientSelectComponent implements OnChanges, OnInit {
     return this._source;
   }
 
-  get disabled() {
+  getInfoDisabled () : boolean {
+    return false;
+  }
+
+  get disabled() : boolean {
 
     if (!this._disabled) {
       return false;
@@ -41,12 +45,17 @@ export class ClientSelectComponent implements OnChanges, OnInit {
   }
 
   onChange(value){
-    this.client = value;
+    let idx = this._source.findIndex(r => r.id == value);
+    let val = this._source[idx];
+    
+    this.client = val;
   }
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this._source = this.route.snapshot.data['clients'];
+    this._client = this._source[0];
   }
 
   ngOnChanges() {

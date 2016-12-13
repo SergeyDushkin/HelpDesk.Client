@@ -13,13 +13,15 @@ import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 import { TicketListResolve } from './tickets/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail-resolve.service';
 
+import { ClientListResolve } from '../clients/client-list-resolve.service';
+
 const routes: Routes = [
   { path: 'service',
     component: ServiceDeskComponent, 
     canActivate: [AuthenticationGuard],
     children: [
       { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } },
-      { path: 'tickets/create', component: TicketNewComponent },
+      { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve } },
       { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve } }
     ]
   }
