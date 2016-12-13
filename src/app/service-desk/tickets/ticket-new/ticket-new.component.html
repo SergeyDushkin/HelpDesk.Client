@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
           <label for="address">Адрес</label>
-          <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.user"></app-address-select>
+          <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.address" (change)="onAddressChange($event.target.value)"></app-address-select>
         </div>
         <div class="form-group">
           <label for="user">Заявитель</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
           <label for="description">Описание</label>
-          <textarea class="form-control" rows="3" [(ngModel)]="description" name="description" placeholder="Опишите проблему ..." required></textarea>
+          <textarea class="form-control" rows="3" [(ngModel)]="ticket.description" name="description" placeholder="Опишите проблему ..." required></textarea>
         </div>
       </div>
 
