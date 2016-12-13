@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="public/assets/css/AdminLTE.min.css">
     <!-- AdminLTE Skin -->
     <link rel="stylesheet" href="public/assets/css/skins/skin-blue.min.css">
+    <!-- Pace style -->
+    <link rel="stylesheet" href="public/plugins/pace/pace.min.css">
 
     <style>
       section.content { min-height: 50px }
@@ -44,10 +46,26 @@
 
         <!-- REQUIRED JS SCRIPTS -->
 
+        <!-- PACE configuration -->
+        <script>
+          window.paceOptions = {
+              document: true,
+              eventLag: true,
+              restartOnPushState: true,
+              restartOnRequestAfter: true,
+              ajax: {
+                  trackMethods: [ 'POST','GET']
+              }
+
+          };
+        </script>
+
         <!-- jQuery 2.1.4 -->
         <script src="public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <!-- Bootstrap 3.3.5 -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- PACE -->
+        <script src="public/plugins/pace/pace.min.js"></script>
         <!-- AdminLTE App -->
         <script src="public/assets/js/app.min.js"></script>
 
