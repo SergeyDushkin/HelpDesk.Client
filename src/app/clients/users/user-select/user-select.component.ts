@@ -7,10 +7,10 @@ import { UserService } from '../user.service';
   selector: 'app-user-select',
   templateUrl: './user-select.component.html'
 })
-export class UserSelectComponent implements  OnChanges, OnInit {
+export class UserSelectComponent implements OnChanges, OnInit {
 
   private _client : string;
-  
+
   @Output() questionChange = new EventEmitter();
   @Input('disabled') _disabled : boolean = false;
   @Input('user') _user : User;

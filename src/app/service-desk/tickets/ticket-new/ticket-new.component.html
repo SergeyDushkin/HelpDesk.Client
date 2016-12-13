@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
           <label for="address">Адрес</label>
-          <app-client-select [(client)]="ticket.address"></app-client-select>
+          <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.address"></app-address-select>
         </div>
         <div class="form-group">
           <label for="user">Заявитель</label>

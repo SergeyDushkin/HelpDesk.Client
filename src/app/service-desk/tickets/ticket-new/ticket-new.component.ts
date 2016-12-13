@@ -23,7 +23,6 @@ export class TicketNewComponent implements OnInit {
   }
 
   onClientChange(val) {
-    console.log(val);
     this.ticket.clientId = val;
   }
 
