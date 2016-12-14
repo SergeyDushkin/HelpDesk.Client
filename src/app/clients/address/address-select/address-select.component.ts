@@ -53,10 +53,9 @@ export class AddressSelectComponent implements OnChanges, OnInit {
   }
 
   onChange(value){
-    let idx = this._source.findIndex(r => r.id == value);
-    let val = this._source[idx];
-    
-    this.address = val;
+    //let idx = this._source.findIndex(r => r.id == value);
+    //let val = this._source[idx];
+    //this.address = val;
   }
 
   constructor(private route: ActivatedRoute, private addressService: AddressService) { }

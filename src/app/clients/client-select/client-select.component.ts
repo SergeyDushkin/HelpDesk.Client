@@ -45,10 +45,9 @@ export class ClientSelectComponent implements OnChanges, OnInit {
   }
 
   onChange(value){
-    let idx = this._source.findIndex(r => r.id == value);
-    let val = this._source[idx];
-    
-    this.client = val;
+    //let idx = this._source.findIndex(r => r.id == value);
+    //let val = this._source[idx];
+    //this.client = val;
   }
 
   constructor(private route: ActivatedRoute) { }

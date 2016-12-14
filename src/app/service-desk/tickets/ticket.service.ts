@@ -47,16 +47,16 @@ export class TicketService {
   extractData(item : any) : Ticket {
     return new Ticket({ 
         id: item.id, 
-        ticketNumber:item.ticketNumber,
-        clientId:item.clientId,
-        addressId:item.addressId,
-        userId:item.userId,
-        description:item.description,
-        requestDate:item.requestDate,
-        completeDate:item.completeDate,
-        client:item.client,
-        address:item.address,
-        user:item.user
+        ticketNumber: item.ticketNumber,
+        clientId: item.clientId,
+        addressId: item.addressId,
+        userId: item.userId,
+        description: item.description,
+        requestDate: item.requestDate,
+        completeDate: item.completeDate,
+        client: item.client,
+        address: item.address,
+        user: item.user
       });
   }
 

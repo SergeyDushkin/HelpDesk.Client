@@ -49,10 +49,9 @@ export class UserSelectComponent implements OnChanges, OnInit {
   }
 
   onChange(value){
-    let idx = this._source.findIndex(r => r.id == value);
-    let val = this._source[idx];
-    
-    this.user = val;
+    //let idx = this._source.findIndex(r => r.id == value);
+    //let val = this._source[idx];
+    //this.user = val;
   }
 
   constructor(private route: ActivatedRoute, private userService: UserService) { }

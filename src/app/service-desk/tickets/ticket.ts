@@ -1,3 +1,4 @@
+import { Client } from '../../clients/client';
 import { User } from '../../clients/users/user';
 import { Address } from '../../clients/address/address';
 
@@ -21,31 +22,10 @@ export class Ticket {
         this.addressId = data.addressId || "";
         this.userId = data.userId || "";
         this.description = data.description || "";
-        this.requestDate = data.requestDate || undefined;
-        this.completeDate = data.completeDate || undefined;
+        this.requestDate = new Date(data.requestDate) || undefined;
+        this.completeDate = new Date(data.completeDate) || undefined;
         this.client = data.client ? new Client(data.client) : undefined;
         this.address = data.address || new Address();
-        this.user = data.user || new User;
+        this.user = data.user || new User();
     }
 }
-
-export class Client {
-    id: string;
-    name: string;
-
-    public constructor(data:any = {}) {
-        this.id = data.id || undefined;
-        this.name = data.name || "";
-    };
-}
-
-/*
-export class Address {
-    id: string;
-    name: string;
-}
-
-export class User {
-    id: string;
-    name: string;
-}*/
