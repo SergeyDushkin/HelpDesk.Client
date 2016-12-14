@@ -10,7 +10,7 @@ export class SupplierDetailResolve implements Resolve<Supplier> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getById(route.params["id"])
+    return this.service.getById(route.params["supplier_id"])
       .toPromise()
       .then(data => data);
   }

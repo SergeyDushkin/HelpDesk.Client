@@ -4,6 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Routes,
          RouterModule } from '@angular/router';
 
+/* Feature Modules */
+import { UserModule } from './users/user.module';
+
+let modules = [
+  UserModule
+];
+
 import { SupplierRoutingModule } from './supplier.routes';
 import { SupplierComponent } from './supplier.component';
 
@@ -29,7 +36,8 @@ let services = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, SupplierRoutingModule ],
+  imports: [ 
+    ...modules, CommonModule, FormsModule, SupplierRoutingModule ],
   declarations: [SupplierComponent, 
     declarations
   ],

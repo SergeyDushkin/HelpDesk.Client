@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    {{supplier.name}}
+    {{user.name}}
     <small></small>
   </h1>
 </section>
@@ -16,7 +16,7 @@
       <div class="box-body">
         <div class="form-group">
           <label for="name">Имя</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="supplier.name">
+          <input type="text" class="form-control" name="name" [(ngModel)]="user.name">
         </div>
       </div>
       <!-- /.box-body -->
@@ -32,5 +32,3 @@
   <!-- /.box -->
 
 </section><!-- /.content -->
-
-<app-user-list></app-user-list>
