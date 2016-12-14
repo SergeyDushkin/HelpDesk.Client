@@ -22,6 +22,7 @@ export const routes: Routes = [
     { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard], resolve: { ticket: TicketDetailResolve } },
 
     { path: 'clients', loadChildren: './clients/client.module#ClientModule' },
+    { path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
     { path: 'operators', loadChildren: './service-desk/operators/operator.module#OperatorModule' }, 
 

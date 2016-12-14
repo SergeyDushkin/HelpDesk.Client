@@ -10,6 +10,7 @@ import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ServiceDeskModule } from './service-desk/service-desk.module';
 import { OperatorModule } from './service-desk/operators/operator.module';
 import { ClientModule } from './clients/client.module';
+import { SupplierModule } from './suppliers/supplier.module';
 
 let modules = [
   AlertModule,
@@ -21,7 +22,8 @@ let modules = [
 
   ServiceDeskModule,
   OperatorModule,
-  ClientModule
+  ClientModule,
+  SupplierModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
