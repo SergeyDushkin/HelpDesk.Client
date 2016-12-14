@@ -6,6 +6,6 @@ export class Address {
     public constructor(data:any = {}) {
         this.id = data.id || "";
         this.name = data.name || "";
-        this.address = data.address || "";
+        this.address = data.contact ?  data.contact.address : "";
     }
 }

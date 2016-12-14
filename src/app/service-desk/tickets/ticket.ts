@@ -22,10 +22,10 @@ export class Ticket {
         this.addressId = data.addressId || "";
         this.userId = data.userId || "";
         this.description = data.description || "";
-        this.requestDate = new Date(data.requestDate) || undefined;
-        this.completeDate = new Date(data.completeDate) || undefined;
+        this.requestDate = data.requestDate ? new Date(data.requestDate) : undefined;
+        this.completeDate = data.completeDate ? new Date(data.completeDate) : undefined;
         this.client = data.client ? new Client(data.client) : undefined;
-        this.address = data.address || new Address();
-        this.user = data.user || new User();
+        this.address = data.address ? new Address(data.address) : new Address();
+        this.user = data.user ? new User(data.user) : new User();
     }
 }

@@ -46,7 +46,7 @@ export class AddressService {
     return new Address({ 
         id: item.id, 
         name: item.name,
-        address: item.contact.address
+        contact: item.contact
       });
   }
 
