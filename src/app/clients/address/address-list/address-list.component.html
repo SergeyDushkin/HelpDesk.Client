@@ -13,10 +13,12 @@
     <div class="box-body no-padding">
       <table class="table table-striped">
         <tr>
+          <th>Наименование</th>
           <th>Адрес</th>
         </tr>
         <tr routerLink="address/{{a.id}}" *ngFor="let a of address">
           <td>{{a.name}}</td>
+          <td>{{a.address}}</td>
         </tr>
       </table>
     </div>

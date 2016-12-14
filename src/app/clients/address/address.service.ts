@@ -45,7 +45,8 @@ export class AddressService {
   extractData(item : any) : Address {
     return new Address({ 
         id: item.id, 
-        name: item.name
+        name: item.name,
+        address: item.contact.address
       });
   }
 
