@@ -6,6 +6,7 @@ import { Routes,
 import { AuthenticationGuard } from '../guards/authentication-guard';
 
 import { ServiceDeskComponent } from './service-desk.component';
+
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
     children: [
       { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } },
       { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve } },
-      { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve } }
+      { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve } },  
     ]
   }
 ];

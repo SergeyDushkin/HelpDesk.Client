@@ -8,6 +8,7 @@ import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 /* Feature Modules */
 import { ServiceDeskModule } from './service-desk/service-desk.module';
+import { OperatorModule } from './service-desk/operators/operator.module';
 import { ClientModule } from './clients/client.module';
 
 let modules = [
@@ -19,6 +20,7 @@ let modules = [
   RouterModule,
 
   ServiceDeskModule,
+  OperatorModule,
   ClientModule
 ];
 
@@ -79,7 +81,6 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
-
 
 
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
