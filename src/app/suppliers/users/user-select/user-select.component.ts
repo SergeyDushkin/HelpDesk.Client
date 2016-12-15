@@ -4,12 +4,12 @@ import { User } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-user-select',
+  selector: 'app-supplier-user-select',
   templateUrl: './user-select.component.html'
 })
 export class UserSelectComponent implements OnChanges, OnInit {
 
-  private _client : string;
+  private _supplier : string;
 
   @Output() userChange = new EventEmitter();
   @Input('disabled') _disabled : boolean = false;
@@ -24,15 +24,15 @@ export class UserSelectComponent implements OnChanges, OnInit {
     return this._disabled;
   }
 
-  @Input('client')
-  set client(val) {
+  @Input('supplier')
+  set supplier(val) {
     
     if (!val) {
       this._source = new Array<User>();
       return;
     }
 
-    this._client = val;
+    this._supplier = val;
     this.userService.get(val).toPromise()
       .then(r => this._source = r)
       .then(r => r[0])

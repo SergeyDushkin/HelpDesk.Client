@@ -7,9 +7,10 @@ import { Routes,
 /* Feature Modules */
 import { ClientModule } from '../clients/client.module';
 import { OperatorModule } from './operators/operator.module';
+import { JobModule } from './tickets/jobs/job.module';
 
 let modules = [
-  ClientModule, OperatorModule
+  ClientModule, OperatorModule, JobModule
 ];
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';

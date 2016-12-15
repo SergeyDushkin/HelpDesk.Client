@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Заявка №{{ticket.ticketNumber}}
+    {{job.name}}
     <small></small>
   </h1>
 </section>
@@ -15,33 +15,23 @@
     <form role="form">
       <div class="box-body">
         <div class="form-group">
-          <label for="requestDate">Клиент</label>
-          <span>{{ticket.client.name}}</span>
+          <label for="supplier">Сервисная компания</label>
+          <app-supplier-select [(supplier)]="job.supplierId" (change)="onClientChange($event.target.value)"></app-supplier-select>
         </div>
         <div class="form-group">
-          <label for="address">Адрес</label>
-          <span>{{ticket.address.name}}: {{ticket.address.address}}</span>
-        </div>
-        <div class="form-group">
-          <label for="user">Заявитель</label>
-          <span>{{ticket.user.name}}</span>
-        </div>
-        <div class="form-group">
-          <label for="requestDate">Дата подачи заявки</label>
-          <span>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+          <label for="user">Исполнитель</label>
+          <!--<app-supplier-user-select [(supplier)]="job.supplierId" [(user)]="job.userId" (change)="onUserChange($event.target.value)"></app-supplier-user-select>-->
         </div>
         <div class="form-group">
           <label for="description">Описание</label>
-          <span>{{ticket.description}}</span>
+          <textarea class="form-control" rows="3" [(ngModel)]="job.description" name="description" placeholder="Опишите проблему ..." required></textarea>
         </div>
       </div>
-
-
       <!-- /.box-body -->
 
       <div class="box-footer">
         <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
-        <a routerLink="jobs/create" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Создать работу</a>
+
         <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
       </div>
     </form>
