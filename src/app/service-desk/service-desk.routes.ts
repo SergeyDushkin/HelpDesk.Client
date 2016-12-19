@@ -34,7 +34,7 @@ const routes: Routes = [
       { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve } }, 
 
       { path: 'tickets/:ticket_id/jobs/', component: JobListComponent, resolve: { tickets: JobListResolve } },
-      { path: 'tickets/:ticket_id/jobs/create', component: JobNewComponent, resolve: { supplier: SupplierListResolve } },
+      { path: 'tickets/:ticket_id/jobs/create', component: JobNewComponent, resolve: { suppliers: SupplierListResolve } },
       { path: 'tickets/:ticket_id/jobs/:id', component: JobDetailComponent, resolve: { ticket: JobDetailResolve } },  
     ]
   }

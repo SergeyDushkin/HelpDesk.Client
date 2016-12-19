@@ -3,7 +3,7 @@
     <option *ngFor="let record of data" [value]="record.id">{{record.name}}</option>
   </select>
   <span class="input-group-btn">
-    <a *ngIf="supplier" class="btn btn-flat" routerLink="/service/suppliers/{{supplier.id}}"><i class="fa fa-sliders"></i></a>
-    <a class="btn btn-flat" routerLink="/service/create"><i class="fa fa-plus-circle"></i></a>
+    <a *ngIf="supplier" class="btn btn-flat" routerLink="/service/suppliers/{{supplier}}"><i class="fa fa-sliders"></i></a>
+    <a class="btn btn-flat" routerLink="/service/suppliers/create"><i class="fa fa-plus-circle"></i></a>
   </span>
 </div>

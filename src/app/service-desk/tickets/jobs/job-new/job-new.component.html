@@ -16,11 +16,11 @@
       <div class="box-body">
         <div class="form-group">
           <label for="supplier">Сервисная компания</label>
-          <app-supplier-select [(supplier)]="job.supplierId" (change)="onClientChange($event.target.value)"></app-supplier-select>
+          <app-supplier-select [(supplier)]="job.supplierId"></app-supplier-select>
         </div>
         <div class="form-group">
           <label for="user">Исполнитель</label>
-          <!--<app-supplier-user-select [(supplier)]="job.supplierId" [(user)]="job.userId" (change)="onUserChange($event.target.value)"></app-supplier-user-select>-->
+          <app-supplier-user-select [(supplier)]="job.supplierId" [(user)]="job.userId"></app-supplier-user-select>
         </div>
         <div class="form-group">
           <label for="description">Описание</label>

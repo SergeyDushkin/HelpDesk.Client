@@ -45,7 +45,7 @@ let services = [
     ...services
   ],
   exports: [
-    declarations
+    declarations, UserModule
   ]
 })
 export class SupplierModule { }

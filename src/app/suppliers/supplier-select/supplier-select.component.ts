@@ -9,14 +9,11 @@ import { SupplierService } from '../supplier.service';
 })
 export class SupplierSelectComponent implements OnChanges, OnInit {
 
+  private data : Supplier[];
+
   @Output() supplierChange = new EventEmitter();
   @Input('disabled') _disabled : boolean = false;
   @Input('supplier') _supplier : Supplier;
-  @Input('source') _source : Supplier[];
-
-  get data() {
-    return this._source;
-  }
 
   get disabled() : boolean {
     return this._disabled;
@@ -37,6 +34,7 @@ export class SupplierSelectComponent implements OnChanges, OnInit {
   constructor(private route: ActivatedRoute, private supplierService: SupplierService) { }
 
   ngOnInit() {
+    this.data = this.route.snapshot.data['suppliers'];
   }
 
   ngOnChanges(changes) {
