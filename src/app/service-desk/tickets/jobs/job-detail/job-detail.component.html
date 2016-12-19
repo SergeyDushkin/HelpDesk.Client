@@ -1,11 +1,3 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    {{job.name}}
-    <small></small>
-  </h1>
-</section>
-
 <!-- Main content -->
 <section class="content">
 
@@ -15,8 +7,20 @@
     <form role="form">
       <div class="box-body">
         <div class="form-group">
-          <label for="name">Имя</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="job.name">
+          <label for="client">Сервисная компания</label>
+          <span>{{job.client.name}}</span>
+        </div>
+        <div class="form-group">
+          <label for="user">Исполнитель</label>
+          <span>{{job.user.name}}</span>
+        </div>
+        <div class="form-group">
+          <label for="startDate">Дата назначения</label>
+          <span>{{job.startDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+        </div>
+        <div class="form-group">
+          <label for="description">Описание</label>
+          <span>{{job.description}}</span>
         </div>
       </div>
       <!-- /.box-body -->

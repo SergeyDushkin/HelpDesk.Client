@@ -49,3 +49,5 @@
   <!-- /.box -->
 
 </section><!-- /.content -->
+
+<app-job-list *ngIf="this.route.snapshot.data['jobs'].length > 0"></app-job-list>

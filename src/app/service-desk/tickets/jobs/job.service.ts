@@ -43,10 +43,7 @@ export class JobService {
   }
 
   extractData(item : any) : Job {
-    return new Job({ 
-        id: item.id, 
-        name: item.name
-      });
+    return item as Job;
   }
 
 }

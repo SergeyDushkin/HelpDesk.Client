@@ -1,8 +1,8 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Персоны
-    <small><a routerLink="jobs/create"><i class="glyphicon glyphicon-plus"></i> Добавить</a></small>
+    Работы
+    <small></small>
   </h1>
 </section>
 
@@ -13,10 +13,18 @@
     <div class="box-body no-padding">
       <table class="table table-striped">
         <tr>
-          <th>Имя</th>
+          <th>Сервисная компания</th>
+          <th>Исполнитель</th>
+          <th>Описание</th>
+          <th>Дата назначения</th>
+          <th>Дата выполнения</th>
         </tr>
         <tr routerLink="jobs/{{job.id}}" *ngFor="let job of jobs">
-          <td>{{job.name}}</td>
+          <td>{{job.client.name}}</td>
+          <td>{{job.user.name}}</td>
+          <td>{{job.description}}</td>
+          <td>{{job.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+          <td>{{job.completeDate | date: 'dd.MM.yyyy HH:mm'}}</td>
         </tr>
       </table>
     </div>

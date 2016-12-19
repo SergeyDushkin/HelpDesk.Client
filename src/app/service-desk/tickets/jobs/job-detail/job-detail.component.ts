@@ -11,22 +11,31 @@ import { JobService } from '../job.service';
 export class JobDetailComponent implements OnInit {
 
   private job : Job;
+  private ticket_id : any;
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: JobService) { }
 
   ngOnInit() {
     this.job = this.route.snapshot.data['job'];
+    this.ticket_id = this.route.snapshot.params["ticket_id"];
   }
 
   onClickBack() {
     this.location.back();
   }
 
+  onDelete() {
+
+    this.service.delete(this.ticket_id, this.job.id).subscribe(
+      (response) => this.router.navigate(['/service/tickets/' + this.ticket_id]),
+      (err) => console.log("SupplierService delete: error " + err),
+      () => console.log("SupplierService delete done"));
+  }
+
   onUpdate() {
-    let ticket_id = this.route.snapshot.params["ticket_id"];
     
-    this.service.update(ticket_id, this.job).subscribe(
-      (response) => this.router.navigate(['/service/tickets/' + ticket_id]),
+    this.service.update(this.ticket_id, this.job).subscribe(
+      (response) => this.router.navigate(['/service/tickets/' + this.ticket_id]),
       (err) => console.log("JobService update: error " + err),
       () => console.log("JobService update done"));
   }

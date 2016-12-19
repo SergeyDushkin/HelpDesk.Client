@@ -31,11 +31,10 @@ const routes: Routes = [
     children: [
       { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } },
       { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve } },
-      { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve } }, 
+      { path: 'tickets/:ticket_id', component: TicketDetailComponent, resolve: { ticket: TicketDetailResolve, jobs: JobListResolve } }, 
 
-      { path: 'tickets/:ticket_id/jobs/', component: JobListComponent, resolve: { tickets: JobListResolve } },
       { path: 'tickets/:ticket_id/jobs/create', component: JobNewComponent, resolve: { suppliers: SupplierListResolve } },
-      { path: 'tickets/:ticket_id/jobs/:id', component: JobDetailComponent, resolve: { ticket: JobDetailResolve } },  
+      { path: 'tickets/:ticket_id/jobs/:id', component: JobDetailComponent, resolve: { job: JobDetailResolve } },  
     ]
   }
 ];
