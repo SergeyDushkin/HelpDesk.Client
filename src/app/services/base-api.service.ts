@@ -9,15 +9,21 @@ export class BaseApiService {
 
   constructor(private http: Http, private configService : ConfigService, private authenticationService : AuthenticationService) { }
 
-  public get(url : string) : Observable<Response> {
+  public getBaseUrl() {
+    return this.configService.get("APP_API_URI");
+  }
 
-    let baseUrl = this.configService.get("APP_API_URI");
+  public getHeaders() {
+
     let token = this.authenticationService.token;
     var headers = new Headers();
     
     headers.append('Authorization', 'Bearer ' +  token);
 
-    var request = this.http.get(baseUrl + url, { headers: headers })
+    return headers;
+  }
+
+  public get(url : string) : Observable<Response> {
 
     //request.subscribe(
     //  data => { },
@@ -25,37 +31,22 @@ export class BaseApiService {
     //    if (err.status == 401) { this.authenticationService.logout(); }},
     //  () => console.log('RequestService: done'));
 
-    return request;
+    return this.http.get(this.getBaseUrl() + url, { headers: this.getHeaders() });
   }
 
   public post(url : string, data : any) : Observable<Response> {
 
-    let baseUrl = this.configService.get("APP_API_URI");
-    let token = this.authenticationService.token;
-    var headers = new Headers();
-    
-    headers.append('Authorization', 'Bearer ' +  token);
-    return this.http.post(baseUrl + url, data, { headers: headers });
+    return this.http.post(this.getBaseUrl() + url, data, { headers: this.getHeaders() });
   }
 
   public put(url : string, data : any) : Observable<Response> {
 
-    let baseUrl = this.configService.get("APP_API_URI");
-    let token = this.authenticationService.token;
-    var headers = new Headers();
-    
-    headers.append('Authorization', 'Bearer ' +  token);
-    return this.http.put(baseUrl + url, data, { headers: headers });
+    return this.http.put(this.getBaseUrl() + url, data, { headers: this.getHeaders() });
   }
 
   public delete(url : string) : Observable<Response> {
 
-    let baseUrl = this.configService.get("APP_API_URI");
-    let token = this.authenticationService.token;
-    var headers = new Headers();
-    
-    headers.append('Authorization', 'Bearer ' +  token);
-    return this.http.delete(baseUrl + url, { headers: headers });
+    return this.http.delete(this.getBaseUrl() + url, { headers: this.getHeaders() });
   }
 
 }

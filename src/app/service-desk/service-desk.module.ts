@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Routes,
          RouterModule } from '@angular/router';
+import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 
 /* Feature Modules */
 import { ClientModule } from '../clients/client.module';
@@ -10,7 +11,7 @@ import { OperatorModule } from './operators/operator.module';
 import { JobModule } from './tickets/jobs/job.module';
 
 let modules = [
-  ClientModule, OperatorModule, JobModule
+  ClientModule, OperatorModule, JobModule,FileUploadModule
 ];
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';
