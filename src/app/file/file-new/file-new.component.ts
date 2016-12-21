@@ -30,19 +30,17 @@ export class FileNewComponent implements OnInit {
 
   ngOnInit() {
     this.file = new File();
-    //this.apiService.getHeaders().values()
-    this.uploader = new FileUploader({url: this.apiService.getBaseUrl() + "tickets/" + this.route.params[this.route.data["referenceKey"]] + "/files/", headers: null });
-  }
+    
+    var headers : any[] = new Array<any>();
 
-  onClickBack() {
-    this.location.back();
-  }
+    for(var value in this.apiService.getHeaders().toJSON()) {
+      headers.push({ name : value, value : this.apiService.getHeaders().toJSON()[value][0]});
+    }
 
-  onUpdate() {
-    this.service.createFile(this.route.params[this.route.data["referenceKey"]], this.file).subscribe(
-      (response) => this.router.navigate(['/files/']),
-      (err) => console.log("FileService update: error " + err),
-      () => console.log("FileService update done"));
+    var referenceKey = this.route.snapshot.data["referenceKey"];
+    var referenceId = this.route.snapshot.params[referenceKey];
+
+    this.uploader = new FileUploader({url: this.apiService.getBaseUrl() + "tickets/" + referenceId + "/files/", headers: headers });
   }
 
 }

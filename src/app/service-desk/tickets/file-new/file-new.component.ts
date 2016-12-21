@@ -20,4 +20,8 @@ export class TicketFileNewComponent implements OnInit {
   onUpdate() {
   }
 
+  onClickBack() {
+    this.location.back();
+  }
+
 }

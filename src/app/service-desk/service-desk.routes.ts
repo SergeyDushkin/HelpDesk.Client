@@ -37,7 +37,7 @@ const routes: Routes = [
         data : { parent : "ticket_id", referenceKey : "ticket_id" }, 
         resolve: { ticket: TicketDetailResolve, jobs: JobListResolve, files: FileListResolve } }, 
 
-      { path: 'tickets/:ticket_id/files/create', component: TicketFileNewComponent },
+      { path: 'tickets/:ticket_id/files/create', component: TicketFileNewComponent, data : { referenceKey : "ticket_id" } },
       { path: 'tickets/:ticket_id/jobs/create', component: JobNewComponent, resolve: { suppliers: SupplierListResolve } },
       { path: 'tickets/:ticket_id/jobs/:id', component: JobDetailComponent, data : { parent : "ticket_id" }, resolve: { job: JobDetailResolve } },  
     ]
