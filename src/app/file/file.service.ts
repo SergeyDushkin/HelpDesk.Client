@@ -11,21 +11,21 @@ export class FileService {
   constructor(private apiService : BaseApiService) { 
   }
 
-  getFileById(referenceId : string, id : string) : Observable<File> {
+  getById(referenceId : string, id : string) : Observable<File> {
     
     return this.apiService.get("tickets/" + referenceId  + "/files/" + id)
       .map(r => r.json())
       .map(item => this.extractData(item));
   }
 
-  getFiles(referenceId : string) : Observable<File[]> {
+  get(referenceId : string) : Observable<File[]> {
     
     return this.apiService.get("tickets/" + referenceId  + "/files/")
       .map(r => r.json()
       .map(item => this.extractData(item)));
   }
 
-  createFile(referenceId : string, file : File) : Observable<File> {
+  create(referenceId : string, file : File) : Observable<File> {
     
     return this.apiService.post("tickets/" + referenceId  + "/files/", file)
       .map(r => r.json())
@@ -44,11 +44,24 @@ export class FileService {
     return this.apiService.delete("tickets/" + referenceId  + "/files/" + id);
   }
 
+  download(referenceId : string, id : string, contentType : string) : Observable<Response> {
+
+    return this.apiService.download("tickets/" + referenceId  + "/files/" + id + "/download", contentType);
+  }
+
   extractData(item : any) : File {
     return new File({ 
         id: item.id, 
-        name: item.name
+        name: item.name,
+        contentType: item.contentType,
+        fileType: item.fileType,
+        size: item.size,
       });
+  }
+  
+  private extractContent(res: Response) {
+    let blob: Blob = res.blob();
+    window['saveAs'](blob, 'test.pdf');
   }
 
 }

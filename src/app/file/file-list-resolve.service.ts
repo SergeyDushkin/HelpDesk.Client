@@ -10,7 +10,7 @@ export class FileListResolve implements Resolve<File[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getFiles(route.params[route.data["referenceKey"]])
+    return this.service.get(route.params[route.data["referenceKey"]])
       .toPromise()
       .then(data => data);
   }

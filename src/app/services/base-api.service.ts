@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
+import { Headers, Http, Response, RequestOptions, ResponseContentType } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 import { ConfigService } from '../services/config.service';
 import { AuthenticationService } from '../services/authentication.service';
@@ -48,5 +48,16 @@ export class BaseApiService {
 
     return this.http.delete(this.getBaseUrl() + url, { headers: this.getHeaders() });
   }
+
+  public download(url : string, contentType : string) : Observable<Response> {
+    
+    //let headers = this.getHeaders();
+    //headers.append("Content-Type", contentType);
+
+    return this.http.get(this.getBaseUrl() + url, { headers: this.getHeaders(), responseType: ResponseContentType.Blob });
+  }
+
+      
+
 
 }

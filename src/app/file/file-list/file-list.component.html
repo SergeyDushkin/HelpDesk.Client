@@ -2,7 +2,7 @@
 <section class="content-header">
   <h1>
     Файлы
-    <small><a routerLink="create"><i class="glyphicon glyphicon-plus"></i> Добавить</a></small>
+    <small></small>
   </h1>
 </section>
 
@@ -15,7 +15,7 @@
         <tr>
           <th>Имя</th>
         </tr>
-        <tr routerLink="{{file.id}}" *ngFor="let file of files">
+        <tr (click)="onClick(file)" *ngFor="let file of files">
           <td>{{file.name}}</td>
         </tr>
       </table>
