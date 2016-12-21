@@ -23,6 +23,7 @@ export const routes: Routes = [
 
     { path: 'clients', loadChildren: './clients/client.module#ClientModule' },
     { path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },
+    { path: 'services', loadChildren: './service/service.module#ServiceModule' },
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
     { path: 'operators', loadChildren: './service-desk/operators/operator.module#OperatorModule' }, 
 
