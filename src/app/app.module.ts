@@ -11,6 +11,7 @@ import { ServiceDeskModule } from './service-desk/service-desk.module';
 import { OperatorModule } from './service-desk/operators/operator.module';
 import { ClientModule } from './clients/client.module';
 import { SupplierModule } from './suppliers/supplier.module';
+import { ServiceModule } from './service/service.module';
 
 let modules = [
   AlertModule,
@@ -23,7 +24,8 @@ let modules = [
   ServiceDeskModule,
   OperatorModule,
   ClientModule,
-  SupplierModule
+  SupplierModule,
+  ServiceModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
@@ -83,7 +85,7 @@ import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.com
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
-
+ 
 
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
@@ -106,6 +108,7 @@ export function configServiceFactory(config: ConfigService) {
     UserSelectComponent,
     LoginComponent,
     OperatorTicketDetailComponent,
+    
   ],
   imports: [
     ...modules,

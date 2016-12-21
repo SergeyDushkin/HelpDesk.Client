@@ -55,6 +55,18 @@
         </template>
       </template>
 
+        <li class="header">Справочники</li>
+      <template ngFor let-item [ngForOf]="directory_links" >
+        <template [ngIf]="!item.sublinks">
+          <li [class.active]="item.link[0] === current_url" >
+            <a [routerLink]="item.link">
+              <i class="fa fa-{{item.icon}}"></i>
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+        </template>
+      </template>
+
     </ul><!-- /.sidebar-menu -->
   </section>
   <!-- /.sidebar -->

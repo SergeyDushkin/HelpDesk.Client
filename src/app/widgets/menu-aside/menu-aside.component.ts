@@ -50,6 +50,14 @@ export class MenuAsideComponent implements OnInit {
     }
   ];
 
+    private directory_links: Array<any> = [
+    {
+      "title": "Услуги",
+      "icon": "cube",
+      "link": ['/services']
+    }
+  ];
+
   constructor(
     private _user_serv : UserService,
     public router: Router ){
