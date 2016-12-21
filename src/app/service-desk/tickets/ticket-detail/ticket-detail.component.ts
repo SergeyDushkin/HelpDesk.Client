@@ -6,8 +6,6 @@ import { BaseApiService } from '../../../services/base-api.service';
 import { TicketService } from '../ticket.service';
 import { FileUploader } from 'ng2-file-upload';
 
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
-
 @Component({
   selector: 'app-ticket-detail',
   templateUrl: './ticket-detail.component.html'

@@ -6,11 +6,13 @@ import { Job } from './job';
 @Injectable()
 export class JobDetailResolve implements Resolve<Job> {
 
+  private data : any;
+
   constructor(private route: ActivatedRoute, private service : JobService) { 
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getById(route.params["ticket_id"], route.params["id"])
+    return this.service.getById(route.params[route.data["parent"]], route.params["id"])
       .toPromise()
       .then(data => data);
   }

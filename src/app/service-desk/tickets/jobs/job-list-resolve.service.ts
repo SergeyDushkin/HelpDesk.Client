@@ -10,7 +10,7 @@ export class JobListResolve implements Resolve<Job[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.get(route.params["ticket_id"])
+    return this.service.get(route.params[route.data["parent"]])
       .toPromise()
       .then(data => data);
   }
