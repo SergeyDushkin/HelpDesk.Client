@@ -49,11 +49,8 @@ export class BaseApiService {
     return this.http.delete(this.getBaseUrl() + url, { headers: this.getHeaders() });
   }
 
-  public download(url : string, contentType : string) : Observable<Response> {
+  public download(url : string) : Observable<Response> {
     
-    //let headers = this.getHeaders();
-    //headers.append("Content-Type", contentType);
-
     return this.http.get(this.getBaseUrl() + url, { headers: this.getHeaders(), responseType: ResponseContentType.Blob });
   }
 

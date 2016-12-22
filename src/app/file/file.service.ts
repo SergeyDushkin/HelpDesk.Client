@@ -44,9 +44,14 @@ export class FileService {
     return this.apiService.delete("tickets/" + referenceId  + "/files/" + id);
   }
 
-  download(referenceId : string, id : string, contentType : string) : Observable<Response> {
+  download(referenceId : string, id : string) {
 
-    return this.apiService.download("tickets/" + referenceId  + "/files/" + id + "/download", contentType);
+    return this.apiService.get("tickets/" + referenceId  + "/files/" + id + "/download/?postback=true")
+      .map(r => r.json())
+      .toPromise()
+      .then(r => {
+        window.location.href = this.apiService.getBaseUrl() + r.url
+      });
   }
 
   extractData(item : any) : File {
