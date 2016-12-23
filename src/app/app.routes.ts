@@ -12,6 +12,8 @@ import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 
+import { SmtpSettingsComponent} from './settings/smtp.settings.component';
+
 export const routes: Routes = [
     // Root
     { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
@@ -20,13 +22,14 @@ export const routes: Routes = [
     { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
     { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard], resolve: { ticket: TicketDetailResolve } },
+    { path: 'settings/smtp', component: SmtpSettingsComponent, canActivate: [AuthenticationGuard] },
 
     { path: 'clients', loadChildren: './clients/client.module#ClientModule' },
     { path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },
     { path: 'services', loadChildren: './service/service.module#ServiceModule' },
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
     { path: 'operators', loadChildren: './service-desk/operators/operator.module#OperatorModule' }, 
-
+    
     { path: 'login', component: LoginComponent },
 ];
 
