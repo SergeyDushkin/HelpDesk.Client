@@ -7,8 +7,10 @@ import { Routes,
 /* Feature Modules */
 import { SupplierModule } from '../../../suppliers/supplier.module';
 import { UserModule } from '../../../suppliers/users/user.module';
+import { StatusModule } from '../../../status/status.module';
 
 let modules = [
+  StatusModule, 
   SupplierModule,
   UserModule
 ];
@@ -26,7 +28,7 @@ let services = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, RouterModule, SupplierModule ],
+  imports: [ CommonModule, FormsModule, RouterModule, SupplierModule, StatusModule ],
   declarations: [ JobListComponent, JobDetailComponent, JobNewComponent ],
   providers: [
     ...services

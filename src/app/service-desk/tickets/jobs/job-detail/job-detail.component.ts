@@ -12,12 +12,14 @@ export class JobDetailComponent implements OnInit {
 
   private job : Job;
   private ticket_id : any;
+  private statusUri : string;
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: JobService) { }
 
   ngOnInit() {
     this.job = this.route.snapshot.data['job'];
     this.ticket_id = this.route.snapshot.params["ticket_id"];
+    this.statusUri =  `tickets/${this.ticket_id}/jobs/${this.job.id}/status/`;
   }
 
   onClickBack() {
