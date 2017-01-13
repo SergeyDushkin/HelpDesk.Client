@@ -1,16 +1,22 @@
 <!-- Menu toggle button -->
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
   <i class="fa fa-bell-o"></i>
-  <span class="label label-warning">10</span>
+  <span class="label label-warning">{{messages.length}}</span>
 </a>
 <ul class="dropdown-menu">
-  <li class="header">You have 10 notifications</li>
+  <li class="header">You have {{messages.length}} messages</li>
   <li>
     <!-- Inner Menu: contains the notifications -->
     <ul class="menu">
-      <li><!-- start notification -->
+      <li *ngFor="let msg of messages; let i = index"><!-- start notification -->
         <a href="#">
-          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+          <!-- Message title and timestamp -->
+          <h4>
+            <i class="fa fa-users text-aqua"></i> {{msg.title}}
+            <small><i class="fa fa-clock-o"></i> {{msg.date}}</small>
+          </h4>
+          <!-- The message -->
+          <p>{{msg.content}}</p>
         </a>
       </li><!-- end notification -->
     </ul>
