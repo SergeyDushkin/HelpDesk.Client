@@ -1,37 +1,40 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    Список заявок
-    <small><a routerLink="create"><i class="glyphicon glyphicon-plus"></i> Добавить</a></small>
-  </h1>
-</section>
-
 <!-- Main content -->
 <section class="content">
-
-  <div class="box">
-    <div class="box-body no-padding">
-      <table class="table table-striped">
-        <tr>
-          <th style="width: 10px">№</th>
-          <th>Клиент</th>
-          <th>Место проблемы</th>
-          <th>Заявитель</th>
-          <th>Описание</th>
-          <th style="width: 130px">Дата заявки</th>
-        </tr>
-        <tr routerLink="{{ticket.id}}" *ngFor="let ticket of tickets">
-          <td>{{ticket.ticketNumber}}</td>
-          <td>{{ticket.client.name}}</td>
-          <td>{{ticket.address.name}}</td>
-          <td>{{ticket.user.name}}</td>
-          <td>{{ticket.description}}</td>
-          <td>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</td>
-        </tr>
-      </table>
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">           
+            <li class="pull-left header"><i class="fa fa-table"></i>Список заявок</li>
+            <a routerLink="create" style="margin-top: 4px; margin-right: 5px;" class="btn btn-primary pull-right btn-sm"><i class="glyphicon glyphicon-plus"></i>Добавить заявку</a>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->
+            <div class="chart tab-pane active" style="position: relative;">
+                <div class="box  box-primary">
+                    <div class="box-body no-padding">
+                        <table class="table table-striped">
+                            <tr>
+                                <th style="width: 10px">№</th>
+                                <th>Клиент</th>
+                                <th>Место проблемы</th>
+                                <th>Заявитель</th>
+                                <th>Описание</th>
+                                <th style="width: 130px">Дата заявки</th>
+                            </tr>
+                            <tr routerLink="{{ticket.id}}" *ngFor="let ticket of tickets">
+                                <td>{{ticket.ticketNumber}}</td>
+                                <td>{{ticket.client.name}}</td>
+                                <td>{{ticket.address.name}}</td>
+                                <td>{{ticket.user.name}}</td>
+                                <td>{{ticket.description}}</td>
+                                <td>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
     </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
-
 </section><!-- /.content -->

@@ -1,44 +1,43 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    Заявка №{{ticket.ticketNumber}}
-  </h1>
-</section>
-
 <!-- Main content -->
 <section class="content">
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">
+            <li class="pull-left header"><i class="fa"></i> Заявка №{{ticket.ticketNumber}}</li>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->
+            <div class="chart tab-pane active" style="position: relative;">
+                <div class="box  box-primary">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="requestDate">Клиент</label>
+                            <app-client-select [(client)]="ticket.clientId" (change)="onClientChange($event.target.value)"></app-client-select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Адрес</label>
+                            <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.addressId" (change)="onAddressChange($event.target.value)"></app-address-select>
+                        </div>
+                        <div class="form-group">
+                            <label for="user">Заявитель</label>
+                            <app-user-select [(client)]="ticket.clientId" [(user)]="ticket.userId" (change)="onUserChange($event.target.value)"></app-user-select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea class="form-control" rows="3" [(ngModel)]="ticket.description" name="description" placeholder="Опишите проблему ..." required></textarea>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
 
-  <!-- general form elements -->
-  <div class="box box-primary">
-    <!-- form start -->
-    <form role="form">
-      <div class="box-body">
-        <div class="form-group">
-          <label for="requestDate">Клиент</label>
-          <app-client-select [(client)]="ticket.clientId" (change)="onClientChange($event.target.value)"></app-client-select>
-        </div>
-        <div class="form-group">
-          <label for="address">Адрес</label>
-          <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.addressId" (change)="onAddressChange($event.target.value)"></app-address-select>
-        </div>
-        <div class="form-group">
-          <label for="user">Заявитель</label>
-          <app-user-select [(client)]="ticket.clientId" [(user)]="ticket.userId" (change)="onUserChange($event.target.value)"></app-user-select>
-        </div>
-        <div class="form-group">
-          <label for="description">Описание</label>
-          <textarea class="form-control" rows="3" [(ngModel)]="ticket.description" name="description" placeholder="Опишите проблему ..." required></textarea>
-        </div>
-      </div>
-      <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
 
-      <div class="box-footer">
-        <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
-
-        <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
-      </div>
-    </form>
-  </div>
-  <!-- /.box -->
-
+                        <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
 </section><!-- /.content -->
