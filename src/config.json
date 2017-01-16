@@ -1,8 +1,9 @@
 {
-    "API_URI" : "http://servicedesk.atomigy.com/api/",
-    "APP_API_URI" : "http://servicedesk.atomigy.com/api.v1/",
+    "API_URI" : "http://40.85.129.95:5000/",
+    "APP_API_URI" : "http://40.85.129.95:5000/",
+    "APP_HUB_URI" : "http://40.85.129.95:15000/hub",
     "AuthenticationServer" : {
-        "url" : "http://servicedesk.atomigy.com/authorization/",
+        "url" : "http://40.85.129.95:10001/",
         "client_id" : "public",
         "client_secret" : "public"
         }
