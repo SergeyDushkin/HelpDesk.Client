@@ -1,14 +1,14 @@
 import { User } from "../models/user";
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
-import { RequestService } from '../services/request.service';
+import { BaseApiService } from '../services/base-api.service';
 
 @Injectable()
 export class UserService {
 
   public current_user: ReplaySubject<User> = new ReplaySubject<User>(1);
 
-  constructor(private requestService : RequestService) {}
+  constructor(private baseApiService : BaseApiService) {}
 
   public setCurrentUser(user: User) {
     this.current_user.next(user);
@@ -16,10 +16,10 @@ export class UserService {
 
   public getCurrentUser() : Observable<User> {
 
-    return this.requestService.get("api/user/me")
-      .map(r => r.json().Data)
+    return this.baseApiService.get("profile")
+      .map(r => r.json())
       .map(r => {
-        var user = new User({ firstname : r.Name, avatar_url: "public/assets/img/avatar.png"});
+        var user = new User({ firstname : r.name, avatar_url: "public/assets/img/avatar.png"});
         this.setCurrentUser(user);
         return new User(user);
       });
