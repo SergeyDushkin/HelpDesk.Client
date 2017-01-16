@@ -15,9 +15,11 @@ RUN npm install && npm cache clean
 COPY . $APP_DIR
 RUN chown -R $APP_USER:$APP_USER $HOME/*
 
+RUN ng build --prod
+
 USER $APP_USER
 WORKDIR $APP_DIR
 
 EXPOSE 4200
 
-CMD ["npm", "start", "--host=0.0.0.0"]
+CMD ["ng", "serve"]
