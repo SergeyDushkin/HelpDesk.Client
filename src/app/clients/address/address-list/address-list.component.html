@@ -1,12 +1,16 @@
-  <div class="box box-primary">
+  <div class="box box-style">
+    <hr class="hr-header ">
+        <div class="box-header with-border">
+            <a routerLink="address/create" class="btn btn-primary btn-flat btn-sm"><i class="glyphicon glyphicon-plus"></i>Добавить</a>
+        </div>
+    <hr class="hr-body">
     <div class="box-body no-padding">
-      <a routerLink="address/create" style="margin-top: 4px; margin-left: 5px;" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i>Добавить</a>
-      <table class="table table-striped">
-        <tr>
+      <table class="table table-hover">
+        <tr class="tr-style">
           <th>Наименование</th>
           <th>Адрес</th>
         </tr>
-        <tr routerLink="address/{{a.id}}" *ngFor="let a of address">
+        <tr routerLink="address/{{a.id}}" *ngFor="let a of address" class="tr-cursor">
           <td>{{a.name}}</td>
           <td>{{a.address}}</td>
         </tr>
