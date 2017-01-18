@@ -55,18 +55,69 @@ export class FileService {
   }
 
   extractData(item : any) : File {
+    
     return new File({ 
         id: item.id, 
         name: item.name,
         contentType: item.contentType,
         fileType: item.fileType,
-        size: item.size,
+        size: (item.size / 1000).toFixed(2), 
+        icon: this.icons(item.fileType),
+        fileImg:this.fileImgs(item.fileType),
       });
   }
   
   private extractContent(res: Response) {
     let blob: Blob = res.blob();
     window['saveAs'](blob, 'test.pdf');
+  }
+
+    icons (format: string) {
+    var icon = "";      
+    switch (format) {
+            case "image/jpeg":
+            icon = "fa-camera";
+            break;
+            case "image/png":
+            icon = "fa-camera";
+            break;
+            default:
+            icon = "fa-paperclip";
+      };  
+     return icon;
+  }
+
+   fileImgs (format: string) {
+    var img = "";      
+    switch (format) {
+            case "image/jpeg":
+            img = "fa-file-image-o";
+            break;
+            case "image/png":
+            img = "fa-file-image-o";
+            break;
+            case "application/zip":
+            img = "fa-file-archive-o";
+            break;
+            case "application/pdf":
+            img = "fa-file-pdf-o";
+            break;
+            case "application/vnd.ms-excel":
+            img = "fa-file-excel-o";
+            break;
+            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+            img = "fa-file-excel-o";
+            break;
+            case "application/msword":
+            img = "fa-file-word-o";
+            break;
+            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+            img = "fa-file-word-o";
+            break;
+            default:
+            img = "fa-file-o";
+      };  
+     return img;
   }
 
 }

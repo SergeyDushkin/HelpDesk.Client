@@ -16,14 +16,12 @@
         margin-top: 0px;
         margin-bottom: 0px;
     }
-
-
-
+    
     .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
         background-color: #E3F2FD;
     }
 
-       .box-style {
+    .box-style {
         border-top-color: rgb(255, 255, 255); 
         margin-bottom: 0px;   
         border-top-width: 0px;   
@@ -53,4 +51,14 @@
     }
     .th-claim-date {
         width: 130px
+    }
+
+    .mailbox-style{
+        padding-top: 10px; 
+        padding-left: 10px; 
+        padding-bottom: 10px; 
+        padding-right: 10px;
+        border-top-color: #90CAF9;
+        border-top-style: solid;
+        border-top-width: 1px;
     }
