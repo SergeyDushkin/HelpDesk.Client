@@ -91,11 +91,11 @@ import { UserSelectComponent } from './users/user-select/user-select.component';
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
 
-export function configServiceFactory(config: ConfigService) {
-  return function() {
-    return config.load();
-  }
-};
+//export function configServiceFactory(config: ConfigService) {
+//  return function() {
+//    return config.load();
+//  }
+//};
 
 @NgModule({
   declarations: [
@@ -116,12 +116,13 @@ export function configServiceFactory(config: ConfigService) {
     AppRoutingModule
   ],
   providers: [
-    ...services, {
-      provide: APP_INITIALIZER,
-      useFactory: configServiceFactory,
-      deps: [ConfigService],
-      multi: true
-    }
+    ...services
+      //, {
+      //provide: APP_INITIALIZER,
+      //useFactory: configServiceFactory,
+      //deps: [ConfigService],
+      //multi: true
+     //}
   ],
   bootstrap: [AppComponent]
 })
