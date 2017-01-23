@@ -29,6 +29,8 @@
         <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
         <button type="submit" class="btn btn-danger" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
 
+        <app-status-button [(baseUri)]="statusUri" [(referenceId)]="job.id"></app-status-button>
+
         <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
       </div>
     </form>

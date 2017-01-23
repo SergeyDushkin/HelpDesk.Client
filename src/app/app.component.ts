@@ -5,6 +5,7 @@ import { UserService } from "./services/user.service";
 import { Message } from "./models/message";
 import { MessagesService } from "./services/messages.service";
 import { AuthenticationService } from "./services/authentication.service";
+import { SignalRService } from "./services/signalr.service";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent {
     private router: Router,
     private _user_serv: UserService,
     private _msg_serv: MessagesService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private signalRService: SignalRService
   ){
 
   }
@@ -45,6 +47,21 @@ export class AppComponent {
           this.router.navigate(['/login']);
         }
       });
+
+    this.signalRService.messageReceived.subscribe(
+      data => {
+        // sending a test message
+        this._msg_serv.addMessage(new Message( {
+            author: 'Auto',
+            content: JSON.stringify(data),
+            destination: 'User',
+            title: 'Publish message'
+        }));
+      },
+      err => console.log('SignalR service: error ' + err),
+      () => console.log('SignalR service: done'),
+    );
+
 
     //on envoi l'evenement resize, pour AdminLTE
     let ie = this.detectIE();

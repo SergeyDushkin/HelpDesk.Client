@@ -1,37 +1,40 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    Список заявок
-    <small><a routerLink="create"><i class="glyphicon glyphicon-plus"></i> Добавить</a></small>
-  </h1>
-</section>
-
 <!-- Main content -->
 <section class="content">
-
-  <div class="box">
-    <div class="box-body no-padding">
-      <table class="table table-striped">
-        <tr>
-          <th style="width: 10px">№</th>
-          <th>Клиент</th>
-          <th>Место проблемы</th>
-          <th>Заявитель</th>
-          <th>Описание</th>
-          <th style="width: 130px">Дата заявки</th>
-        </tr>
-        <tr routerLink="{{ticket.id}}" *ngFor="let ticket of tickets">
-          <td>{{ticket.ticketNumber}}</td>
-          <td>{{ticket.client.name}}</td>
-          <td>{{ticket.address.name}}</td>
-          <td>{{ticket.user.name}}</td>
-          <td>{{ticket.description}}</td>
-          <td>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</td>
-        </tr>
-      </table>
+    <div class="box box-style">
+        <div class="box-header box-header-style">
+            <h4>Список заявок</h4>
+        </div>
+        <hr class="hr-header ">
+        
+        <div class="box-header with-border ">
+            <a routerLink="create" class="btn btn-primary btn-flat btn-sm"><i class="glyphicon glyphicon-plus"></i> Добавить заявку</a>
+        </div>
+        
+        <div class="box-body no-padding">
+            <table class="table table-hover">
+                <thead class="thead-inverse">
+                    <tr class="tr-style">
+                        <th class="th-number">№</th>
+                        <th>Клиент</th>
+                        <th>Место проблемы</th>
+                        <th>Заявитель</th>
+                        <th>Описание</th>
+                        <th class="th-claim-date">Дата заявки</th>
+                    </tr>                
+                </thead>
+            
+                <tr routerLink="{{ticket.id}}" *ngFor="let ticket of tickets" class="tr-cursor">
+                    <td>{{ticket.ticketNumber}}</td>
+                    <td>{{ticket.client.name}}</td>
+                    <td>{{ticket.address.name}}</td>
+                    <td>{{ticket.user.name}}</td>
+                    <td>{{ticket.description}}</td>
+                    <td>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+                </tr>
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <!-- /.box -->
     </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
 
 </section><!-- /.content -->

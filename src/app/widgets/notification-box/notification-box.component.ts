@@ -10,9 +10,16 @@ export class NotificationBoxComponent implements OnInit {
 
   private messages: Message[];
 
-  constructor() {}
+  constructor( private _msg_serv:MessagesService ){
+    this.messages = [];
+  }
 
-  ngOnInit() {
+  public ngOnInit() {
+    //à chaque modification de message on change nos données
+    this._msg_serv.messages.subscribe((msg: Message[])=>{
+      console.log('reception de message');
+      this.messages = msg;
+    });
   }
 
 }

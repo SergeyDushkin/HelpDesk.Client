@@ -51,6 +51,7 @@ import { ConfigService } from "./services/config.service";
 
 import { BaseApiService } from "./services/base-api.service";
 import { RequestService } from "./services/request.service";
+import { SignalRService } from "./services/signalr.service";
 
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './guards/authentication-guard';
@@ -64,7 +65,7 @@ let services =  [
   UserService,
   MessagesService,
   ConfigService,
-  RequestService, BaseApiService,
+  RequestService, BaseApiService, SignalRService,
   AuthenticationService,
   AuthenticationGuard,
   TicketService, TicketListResolve, TicketDetailResolve,
@@ -90,11 +91,11 @@ import { UserSelectComponent } from './users/user-select/user-select.component';
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
 
-export function configServiceFactory(config: ConfigService) {
-  return function() {
-    return config.load();
-  }
-};
+//export function configServiceFactory(config: ConfigService) {
+//  return function() {
+//    return config.load();
+//  }
+//};
 
 @NgModule({
   declarations: [
@@ -115,12 +116,13 @@ export function configServiceFactory(config: ConfigService) {
     AppRoutingModule
   ],
   providers: [
-    ...services, {
-      provide: APP_INITIALIZER,
-      useFactory: configServiceFactory,
-      deps: [ConfigService],
-      multi: true
-    }
+    ...services
+      //, {
+      //provide: APP_INITIALIZER,
+      //useFactory: configServiceFactory,
+      //deps: [ConfigService],
+      //multi: true
+     //}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,12 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-default">{{current.description}}</button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li (click)="onClick(a)" *ngFor="let a of next"><a href="javasctipt:void(0)">{{a.description}}</a></li>
+    <li class="divider"></li>
+    <li (click)="onUndo()"><a href="javasctipt:void(0)">Отменить действие</a></li>
+  </ul>
+</div>

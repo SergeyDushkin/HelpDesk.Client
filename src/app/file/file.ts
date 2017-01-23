@@ -4,6 +4,8 @@ export class File {
     public contentType : string;
     public fileType : string;
     public size : number;
+    public icon : string;
+    public fileImg : string;
 
     public constructor(data:any = {}) {
         this.id = data.id || "";
@@ -11,5 +13,7 @@ export class File {
         this.contentType = data.contentType || "";
         this.fileType = data.fileType || "";
         this.size = data.size || 0;
+        this.icon = data.icon || "";
+        this.fileImg = data.fileImg || "";
     }
 }

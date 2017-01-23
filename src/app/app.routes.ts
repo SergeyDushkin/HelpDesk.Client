@@ -3,11 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { LoginComponent } from './pages/login/login.component';
+<<<<<<< HEAD
 import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 import { SmtpSettingsComponent} from './settings/smtp.settings.component';
+=======
+//import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
+//import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
+//import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
+//import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
+>>>>>>> 2e2ba3dcd653e5710fa4977956bc6d1837aeceef
 
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
@@ -15,13 +22,20 @@ import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resol
 
 export const routes: Routes = [
     // Root
-    { path: '', component: TicketListComponent, canActivate: [AuthenticationGuard] },
+    { path: '', redirectTo: 'service', pathMatch: 'full', canActivate: [AuthenticationGuard] },
     
+<<<<<<< HEAD
     { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } , canActivate: [AuthenticationGuard] },
     { path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
     { path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
     { path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard], resolve: { ticket: TicketDetailResolve } },
     { path: 'settings/smtp', component: SmtpSettingsComponent, canActivate: [AuthenticationGuard] },
+=======
+    //{ path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } , canActivate: [AuthenticationGuard] },
+    //{ path: 'tickets/archived', component: TicketArchListComponent, canActivate: [AuthenticationGuard] },
+    //{ path: 'tickets/new', component: TicketNewComponent, data : { title : 'Создание заявки' }, canActivate: [AuthenticationGuard]},
+    //{ path: 'tickets/:id', component: TicketDetailComponent, canActivate: [AuthenticationGuard], resolve: { ticket: TicketDetailResolve } },
+>>>>>>> 2e2ba3dcd653e5710fa4977956bc6d1837aeceef
 
     { path: 'clients', loadChildren: './clients/client.module#ClientModule' },
     { path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },
