@@ -7,12 +7,11 @@ import { TicketListComponent } from './tickets/ticket-list/ticket-list.component
 import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
 import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
+import { SmtpSettingsComponent} from './settings/smtp.settings.component';
 
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
-
-import { SmtpSettingsComponent} from './settings/smtp.settings.component';
 
 export const routes: Routes = [
     // Root

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { SmtpSettings } from './smtp.settings';
+import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-smtp-settings',
-  templateUrl: './ticket-list.component.html'
+  templateUrl: './smtp-settings.component.html',
+  providers: [SettingsService] 
 })
 
 export class SmtpSettingsComponent implements OnInit {
@@ -14,7 +17,9 @@ export class SmtpSettingsComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.SmtpSettings = this.route.snapshot.data['tickets'];
+    //this.SmtpSettings = this.route.snapshot.data['tickets'];
+
+    
   }
 
 }
