@@ -33,7 +33,8 @@ import { MenuAsideComponent } from "./widgets/menu-aside/menu-aside.component";
 import { MessagesBoxComponent} from "./widgets/messages-box/messages-box.component";
 import { NotificationBoxComponent } from "./widgets/notification-box/notification-box.component";
 import { TasksBoxComponent } from "./widgets/tasks-box/tasks-box.component";
-import { UserBoxComponent } from "./widgets/user-box/user-box.component"
+import { UserBoxComponent } from "./widgets/user-box/user-box.component";
+import { SmtpSettingsComponent } from "./settings/smtp.settings.component";
 
 let widgets = [
   AppComponent,
@@ -42,7 +43,8 @@ let widgets = [
   MessagesBoxComponent,
   NotificationBoxComponent,
   TasksBoxComponent,
-  UserBoxComponent
+  UserBoxComponent,
+  SmtpSettingsComponent
 ];
 
 import { UserService } from "./services/user.service";
@@ -58,7 +60,7 @@ import { AuthenticationGuard } from './guards/authentication-guard';
 import { TicketService } from './tickets/ticket.service';
 import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
 import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
-
+import { SettingsService } from './settings/settings.service';
 
 
 let services =  [
@@ -68,7 +70,7 @@ let services =  [
   RequestService, BaseApiService, SignalRService,
   AuthenticationService,
   AuthenticationGuard,
-  TicketService, TicketListResolve, TicketDetailResolve,
+  TicketService, TicketListResolve, TicketDetailResolve,SettingsService
 ];
 
 import { LoginComponent } from './pages/login/login.component';
