@@ -5,14 +5,15 @@
         <ul class="nav nav-tabs pull-right">
               
             <li>            
-                <a href="#file" data-toggle="tab">Файлы</a>                
+                <a href="#files" data-toggle="tab">Файлы</a>                
             </li>           
             <li>   
-                <a href="#work" data-toggle="tab">Работы</a>
+                <a href="#jobs" data-toggle="tab">Работы</a>
             </li>
             <li class="active">
                 <a href="#description" data-toggle="tab">Описание</a>
             </li>
+            
             <li class="pull-left header"><h4> Заявка №{{ticket.ticketNumber}}</h4></li>
         </ul>
         <div class="tab-content no-padding">
@@ -49,21 +50,23 @@
                     <hr class="hr-body">
                     <div class="box-footer">
                         <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
-                        
-                
                         <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
                     </div>
                 </div>
                 <!-- /.box -->
             </div>
-            <div class="chart tab-pane chart-style" id="file">
+            <div class="chart tab-pane chart-style" id="files">
                 <app-file-list></app-file-list>
             </div>
 
-            <div class="chart tab-pane chart-style" id="work">
+            <div class="chart tab-pane chart-style" id="jobs">
                 <app-job-list ></app-job-list>
+            </div>
+          
+             <div class="chart tab-pane chart-style" id="jobfiles">
+           <app-file-list></app-file-list>
             </div>
         </div>
     </div>
-</section><!-- /.content -->
+</section><!-- /.content  -->
 

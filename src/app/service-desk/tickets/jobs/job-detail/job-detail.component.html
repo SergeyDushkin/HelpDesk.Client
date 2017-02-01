@@ -1,11 +1,41 @@
-<!-- Main content -->
 <section class="content">
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">      
+            <li>            
+                <a (click)="onTicket()" data-toggle="tab">Файлы</a>                
+            </li> 
 
-  <!-- general form elements -->
-  <div class="box box-primary">
-    <!-- form start -->
-    <form role="form">
-      <div class="box-body">
+            <li>   
+                <a (click)="onTicket()" data-toggle="tab">Работы</a>
+            </li>  
+
+            <li>
+                 <a (click)="onTicket()" data-toggle="tab">Заявка</a>
+            </li>  
+
+            <li class="pull-left header"><h4> Работа № 0 </h4></li>
+
+            <li  class="active pull-left dop" >
+                <a href="#description" data-toggle="tab">Работа</a>
+            </li>
+
+            <li class="pull-left  dop" >
+                <a href="#job" data-toggle="tab">Файлы</a>
+            </li>
+
+            <li class="pull-left  dop" >
+                <a href="#job" data-toggle="tab">Коментарии</a>
+            </li>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->            
+            <div class="chart tab-pane active chart-style" id="description">
+                <hr class="hr-header">
+                <!-- general form elements -->
+                <div class="box box-style">
+                      <div class="box-body">
         <div class="form-group">
           <label for="client">Сервисная компания</label>
           <span>{{job.client.name}}</span>
@@ -29,12 +59,23 @@
         <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
         <button type="submit" class="btn btn-danger" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
 
-        <app-status-button [(baseUri)]="statusUri" [(referenceId)]="job.id"></app-status-button>
+      <!--  <app-status-button [(baseUri)]="statusUri" [(referenceId)]="job.id"></app-status-button>-->
 
         <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
       </div>
-    </form>
-  </div>
-  <!-- /.box -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <div class="chart tab-pane chart-style" id="job">
+              
+            </div>
 
-</section><!-- /.content -->
+            <div class="chart tab-pane chart-style" id="job">
+               
+            </div>
+
+            
+        </div>
+    </div>
+</section><!-- /.content  <app-job-detail ></app-job-detail>-->
+

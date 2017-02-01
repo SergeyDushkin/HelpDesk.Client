@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   onSign() {
     this.authenticationService.login(this.username, this.password).subscribe(IsAuthenticated => {
       if (IsAuthenticated){
-        this.router.navigate(['/']);
+        this.router.navigate(['/service/tickets']);
       } else {
         alert("Логин или пароль указаны не верно");
       }

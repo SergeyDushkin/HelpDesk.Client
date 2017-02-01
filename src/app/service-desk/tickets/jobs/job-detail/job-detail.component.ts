@@ -42,4 +42,8 @@ export class JobDetailComponent implements OnInit {
       () => console.log("JobService update done"));
   }
 
+    onTicket() {
+      this.router.navigate(['/service/tickets/' + this.ticket_id]);
+  }
+
 }
