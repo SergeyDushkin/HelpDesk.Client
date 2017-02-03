@@ -13,6 +13,7 @@ import { ClientModule } from './clients/client.module';
 import { SupplierModule } from './suppliers/supplier.module';
 import { ServiceModule } from './service/service.module';
 import { StatusModule as WorkStatusModule } from './works/status/status.module';
+import { StatusModule as TicketStatusModule } from './service-desk/tickets/status/status.module';
 
 let modules = [
   AlertModule,
@@ -27,7 +28,8 @@ let modules = [
   ClientModule,
   SupplierModule,
   ServiceModule,
-  WorkStatusModule
+  WorkStatusModule,
+  TicketStatusModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";

@@ -32,6 +32,7 @@ export const routes: Routes = [
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
     { path: 'operators', loadChildren: './service-desk/operators/operator.module#OperatorModule' }, 
     { path: 'work-statuses', loadChildren: './works/status/status.module#StatusModule' }, 
+    { path: 'ticket-statuses', loadChildren: './service-desk/tickets/status/status.module#StatusModule' }, 
     
     { path: 'login', component: LoginComponent },
 ];

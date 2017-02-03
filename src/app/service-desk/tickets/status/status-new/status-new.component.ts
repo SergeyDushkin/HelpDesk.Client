@@ -5,7 +5,7 @@ import { Status } from '../status';
 import { StatusService } from '../status.service';
 
 @Component({
-  selector: 'app-work-status-new',
+  selector: 'app-ticket-status-new',
   templateUrl: './status-new.component.html'
 })
 export class StatusNewComponent implements OnInit {
@@ -24,9 +24,9 @@ export class StatusNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.data).subscribe(
-      (response) => this.router.navigate(['/work-statuses']),
-      (err) => console.log("WorkStatusService create: error " + err),
-      () => console.log("WorkStatusService create done"));
+      (response) => this.router.navigate(['/ticket-statuses']),
+      (err) => console.log("TicketStatusService create: error " + err),
+      () => console.log("TicketStatusService create done"));
   }
 
 }
