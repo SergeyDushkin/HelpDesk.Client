@@ -10,7 +10,7 @@ export class ClientDetailResolve implements Resolve<Client> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getClientById(route.params["client_id"])
+    return this.service.getById(route.params["client_id"])
       .toPromise()
       .then(data => data);
   }

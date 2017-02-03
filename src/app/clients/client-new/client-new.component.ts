@@ -23,7 +23,7 @@ export class ClientNewComponent implements OnInit {
   }
 
   onUpdate() {
-    this.service.createClient(this.client).subscribe(
+    this.service.create(this.client).subscribe(
       (response) => this.router.navigate(['/clients/']),
       (err) => console.log("ClientService update: error " + err),
       () => console.log("ClientService update done"));

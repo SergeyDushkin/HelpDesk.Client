@@ -10,7 +10,7 @@ export class ClientListResolve implements Resolve<Client[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getClients()
+    return this.service.get()
       .toPromise()
       .then(data => data);
   }

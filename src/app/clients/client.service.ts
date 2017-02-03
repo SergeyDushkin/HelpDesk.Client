@@ -2,11 +2,46 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
-import { Client} from './client';
-import { BaseApiService } from '../services/base-api.service';
+import { Client } from './client';
+import { TicketServiceApiService } from '../services/ticket-service-api.service';
 
 @Injectable()
 export class ClientService {
+
+  private resource_url : string;
+
+  private resource = (id = "") : string => this.resource_url + id || "";
+
+  constructor(private api : TicketServiceApiService) { 
+    this.resource_url = 'customers/';
+  }
+
+  get = () : Observable<Client[]> =>
+    this.api.get(this.resource())
+      .map(r => r.json()
+      .map(item => this.extractData(item)));
+
+  getById = (id : string) : Observable<Client> =>
+    this.api.get(this.resource(id))
+      .map(r => r.json())
+      .map(item => this.extractData(item));
+
+  create = (create : Client) : Observable<Response> =>
+    this.api.post(this.resource(), create);
+
+  update = (update : Client) : Observable<Response> =>
+    this.api.put(this.resource(update.id), update);
+
+  delete = (id : string) : Observable<Response> =>
+    this.api.delete(this.resource(id));
+
+  extractData = (item : any) : Client =>
+    new Client({ 
+        id: item.Id, 
+        name: item.Name
+      });
+
+  /*
 
   constructor(private apiService : BaseApiService) { 
   }
@@ -49,6 +84,6 @@ export class ClientService {
         id: item.id, 
         name: item.name
       });
-  }
+  }*/
 
 }
