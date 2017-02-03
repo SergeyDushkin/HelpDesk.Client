@@ -14,12 +14,18 @@
             <table class="table table-hover">
                 <thead class="thead-inverse">
                     <tr class="tr-style">
-                       <th>Имя</th>
+                       <th>Номер</th>
+                       <th>Дата</th>
+                       <th>Клиент</th>
                     </tr>                
                 </thead>
             
                 <tr routerLink="{{item.id}}" *ngFor="let item of data" class="tr-cursor">
-                    <td>{{item.name}}</td>
+                    <td>{{item.number}}</td>
+                </tr>
+                <tr routerLink="{{item.id}}" *ngFor="let item of data" class="tr-cursor">
+                </tr>
+                <tr routerLink="{{item.id}}" *ngFor="let item of data" class="tr-cursor">
                 </tr>
             </table>
         </div>
