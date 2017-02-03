@@ -11,13 +11,15 @@ import { ContractNewComponent } from './contract-new/contract-new.component';
 import { ContractListResolve } from './contract-list-resolve.service';
 import { ContractDetailResolve } from './contract-detail-resolve.service';
 
+import { ClientListResolve } from '../clients/client-list-resolve.service';
+
 const routes: Routes = [
   { path: 'contracts',
     component:  ContractComponent, 
     children: [
-      { path: '', component:  ContractListComponent, resolve: { 'work-contract': ContractListResolve } },
-      { path: 'create', component:  ContractNewComponent, },
-      { path: ':work_contract_id', component:  ContractDetailComponent, resolve: { 'work-contract': ContractDetailResolve } },  
+      { path: '', component:  ContractListComponent, resolve: { 'contract': ContractListResolve } },
+      { path: 'create', component:  ContractNewComponent, resolve: { clients: ClientListResolve } },
+      { path: ':contract_id', component:  ContractDetailComponent, resolve: { 'contract': ContractDetailResolve } },  
     ]
   }
 ];

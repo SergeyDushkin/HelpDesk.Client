@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                               <label for="name">Клиент</label>
-							  <input type="text" class="form-control" name="client" [(ngModel)]="data.client">
+                              <app-client-select [(client)]="data.clientId" (change)="onClientChange($event.target.value)"></app-client-select>
                         </div>
                     </div>
                     <!-- /.box-body -->
