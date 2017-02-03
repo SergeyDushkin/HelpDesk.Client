@@ -71,6 +71,11 @@ export class MenuAsideComponent implements OnInit {
       "title": "Статусы заявок",
       "icon": "cube",
       "link": ['/ticket-statuses']
+    },
+    {
+      "title": "Приоритеты заявок",
+      "icon": "cube",
+      "link": ['/ticket-prioritys']
     }
   ];
 

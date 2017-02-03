@@ -15,6 +15,7 @@ import { ServiceModule } from './service/service.module';
 import { StatusModule as WorkStatusModule } from './works/status/status.module';
 import { ContractModule } from './contracts/contract.module';
 import { StatusModule as TicketStatusModule } from './service-desk/tickets/status/status.module';
+import { PriorityModule as TicketPriorityModule } from './service-desk/tickets/prioritys/priority.module';
 
 let modules = [
   AlertModule,
@@ -32,6 +33,7 @@ let modules = [
   WorkStatusModule,
   ContractModule,
   TicketStatusModule,
+  TicketPriorityModule,
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
