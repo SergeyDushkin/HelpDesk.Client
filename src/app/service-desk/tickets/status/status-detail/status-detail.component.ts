@@ -5,7 +5,7 @@ import { Status } from '../status';
 import { StatusService } from '../status.service';
 
 @Component({
-  selector: 'app-work-status-detail',
+  selector: 'app-ticket-status-detail',
   templateUrl: './status-detail.component.html'
 })
 export class StatusDetailComponent implements OnInit {
@@ -15,7 +15,7 @@ export class StatusDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: StatusService) { }
 
   ngOnInit() {
-    this.data = this.route.snapshot.data['work-status'];
+    this.data = this.route.snapshot.data['ticket-status'];
   }
 
   onClickBack() {
@@ -24,16 +24,16 @@ export class StatusDetailComponent implements OnInit {
 
   onDelete() {
     this.service.delete(this.data.id).subscribe(
-      (response) => this.router.navigate(['/work-statuses']),
-      (err) => console.log("WorkStatusService delete: error " + err),
-      () => console.log("WorkStatusService delete done"));
+      (response) => this.router.navigate(['/ticket-statuses']),
+      (err) => console.log("Ticket delete: error " + err),
+      () => console.log("TicketStatusService delete done"));
   }
 
   onUpdate() {
     this.service.update(this.data).subscribe(
-      (response) => this.router.navigate(['/work-statuses']),
-      (err) => console.log("WorkStatusService update: error " + err),
-      () => console.log("WorkStatusService update done"));
+      (response) => this.router.navigate(['/ticket-statuses']),
+      (err) => console.log("TicketStatusService update: error " + err),
+      () => console.log("TicketStatusService update done"));
   }
 
 }
