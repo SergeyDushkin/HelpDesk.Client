@@ -12,6 +12,7 @@ import { OperatorModule } from './service-desk/operators/operator.module';
 import { ClientModule } from './clients/client.module';
 import { SupplierModule } from './suppliers/supplier.module';
 import { ServiceModule } from './service/service.module';
+import { StatusModule as WorkStatusModule } from './works/status/status.module';
 
 let modules = [
   AlertModule,
@@ -25,7 +26,8 @@ let modules = [
   OperatorModule,
   ClientModule,
   SupplierModule,
-  ServiceModule
+  ServiceModule,
+  WorkStatusModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
@@ -52,6 +54,7 @@ import { MessagesService } from "./services/messages.service";
 import { ConfigService } from "./services/config.service";
 
 import { BaseApiService } from "./services/base-api.service";
+import { TicketServiceApiService } from "./services/ticket-service-api.service";
 import { RequestService } from "./services/request.service";
 import { SignalRService } from "./services/signalr.service";
 
@@ -70,7 +73,8 @@ let services =  [
   RequestService, BaseApiService, SignalRService,
   AuthenticationService,
   AuthenticationGuard,
-  TicketService, TicketListResolve, TicketDetailResolve,SettingsService
+  TicketService, TicketListResolve, TicketDetailResolve,SettingsService,
+  TicketServiceApiService
 ];
 
 import { LoginComponent } from './pages/login/login.component';
