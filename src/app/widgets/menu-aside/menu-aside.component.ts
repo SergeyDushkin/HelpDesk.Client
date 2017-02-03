@@ -53,6 +53,11 @@ export class MenuAsideComponent implements OnInit {
 
     private directory_links: Array<any> = [
     {
+      "title": "Список договоров",
+      "icon": "cube",
+      "link": ['/contracts']
+    },
+    {
       "title": "Услуги",
       "icon": "cube",
       "link": ['/services']
