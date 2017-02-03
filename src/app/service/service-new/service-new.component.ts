@@ -24,7 +24,7 @@ export class ServiceNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this._service).subscribe(
-      (response) => this.router.navigate(['/services']),
+      (response) => this.router.navigate(['/services/' + response.id]),
       (err) => console.log("ServiceService create: error " + err),
       () => console.log("ServiceService create done"));
   }

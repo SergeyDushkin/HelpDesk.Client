@@ -18,8 +18,17 @@ export class OperatorDetailComponent implements OnInit {
     this.operator = this.route.snapshot.data['operator'];
   }
 
-  onClickBack() {
-    this.location.back();
+   onClickBack() {
+    //this.location.back();
+    this.router.navigate(['/operators']);
+  }
+  
+
+   onDelete() {
+    this.service.delete(this.operator.id).subscribe(
+      (response) => this.router.navigate(['/operators']),
+      (err) => console.log("OperatorService delete: error " + err),
+      () => console.log("OperatorService delete done"));
   }
 
   onUpdate() {

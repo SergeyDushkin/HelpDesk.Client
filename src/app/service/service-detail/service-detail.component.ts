@@ -24,14 +24,14 @@ export class ServiceDetailComponent implements OnInit {
 
   onDelete() {
     this.service.delete(this._service.id).subscribe(
-      (response) => this.router.navigate(['/service']),
+      (response) => this.router.navigate(['/services']),
       (err) => console.log("ServiceService delete: error " + err),
       () => console.log("ServiceService delete done"));
   }
 
   onUpdate() {
     this.service.update(this._service).subscribe(
-      (response) => this.router.navigate(['/service']),
+      (response) => this.router.navigate(['/services']),
       (err) => console.log("ServiceService update: error " + err),
       () => console.log("ServiceService update done"));
   }

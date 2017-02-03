@@ -19,12 +19,14 @@ export class SupplierNewComponent implements OnInit {
   }
 
   onClickBack() {
-    this.location.back();
+    //this.location.back();
+    this.router.navigate(['/suppliers']);
   }
+  
 
   onUpdate() {
     this.service.create(this.supplier).subscribe(
-      (response) => this.router.navigate(['/suppliers']),
+      (response) => this.router.navigate(['/suppliers/' + response.id]),
       (err) => console.log("SupplierService create: error " + err),
       () => console.log("SupplierService create done"));
   }

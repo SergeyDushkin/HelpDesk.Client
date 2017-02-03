@@ -1,33 +1,33 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    {{operator.name}}
-    <small></small>
-  </h1>
-</section>
-
-<!-- Main content -->
 <section class="content">
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">                   
+        
+            <li class="pull-left header"><h4>Заведение оператора</h4></li>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->            
+                <hr class="hr-header">
+                <!-- general form elements -->
+                <div class="box box-style">
+                    <!-- form start -->
+                    <div class="box-body">
+                        <div class="form-group">
+                          <label for="name">Имя</label>
+                          <input type="text" class="form-control" name="name" [(ngModel)]="operator.name">
+                        </div>                        
+                    </div>
+                    <!-- /.box-body -->
+                    <hr class="hr-body">
+                    <div class="box-footer">
+						<button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
 
-  <!-- general form elements -->
-  <div class="box box-primary">
-    <!-- form start -->
-    <form role="form">
-      <div class="box-body">
-        <div class="form-group">
-          <label for="name">Имя</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="operator.name">
+						<button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
+                    </div>
+                </div>
+                <!-- /.box -->
         </div>
-      </div>
-      <!-- /.box-body -->
+    </div>
+</section><!-- /.content  -->
 
-      <div class="box-footer">
-        <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
-
-        <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
-      </div>
-    </form>
-  </div>
-  <!-- /.box -->
-
-</section><!-- /.content -->

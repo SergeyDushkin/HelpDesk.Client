@@ -24,7 +24,7 @@ export class OperatorNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.operator).subscribe(
-      (response) => this.router.navigate(['/service/operators/']),
+      (response) => this.router.navigate(['/service/operators/'+ response.id]),
       (err) => console.log("OperatorService create: error " + err),
       () => console.log("OperatorService create done"));
   }
