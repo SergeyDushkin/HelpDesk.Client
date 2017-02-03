@@ -25,7 +25,7 @@ export class StatusDetailComponent implements OnInit {
   onDelete() {
     this.service.delete(this.data.id).subscribe(
       (response) => this.router.navigate(['/ticket-statuses']),
-      (err) => console.log("Ticket delete: error " + err),
+      (err) => console.log("TicketStatusService delete: error " + err),
       () => console.log("TicketStatusService delete done"));
   }
 
