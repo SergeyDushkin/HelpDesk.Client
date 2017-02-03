@@ -64,9 +64,6 @@ import { SignalRService } from "./services/signalr.service";
 
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './guards/authentication-guard';
-import { TicketService } from './tickets/ticket.service';
-import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
-import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 import { SettingsService } from './settings/settings.service';
 
 
@@ -77,7 +74,7 @@ let services =  [
   RequestService, BaseApiService, SignalRService,
   AuthenticationService,
   AuthenticationGuard,
-  TicketService, TicketListResolve, TicketDetailResolve,SettingsService,
+  SettingsService,
   TicketServiceApiService
 ];
 
@@ -90,13 +87,8 @@ let pages = [
 //main bootstrap
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
-import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
-import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
 import { StoreSelectComponent } from './stores/store-select/store-select.component';
-import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
- 
 
 import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
 
@@ -111,11 +103,7 @@ import { TicketDetailComponent as OperatorTicketDetailComponent } from './module
   declarations: [
     ...widgets,
     ...pages,
-    TicketListComponent,
-    TicketNewComponent,
-    TicketDetailComponent,
     StoreSelectComponent,
-    TicketArchListComponent,
     UserSelectComponent,
     LoginComponent,
     OperatorTicketDetailComponent,
