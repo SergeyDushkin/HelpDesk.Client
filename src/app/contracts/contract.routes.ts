@@ -18,7 +18,7 @@ const routes: Routes = [
     component:  ContractComponent, 
     children: [
       { path: '', component:  ContractListComponent, resolve: { contract: ContractListResolve } },
-      { path: 'create', component:  ContractNewComponent, resolve: { contract: ClientListResolve } },
+      { path: 'create', component:  ContractNewComponent, resolve: { clients: ClientListResolve } },
       { path: ':contract_id', component:  ContractDetailComponent, resolve: { contract: ContractDetailResolve } },  
     ]
   }
