@@ -16,10 +16,16 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserNewComponent } from './users/user-new/user-new.component';
 import { UserSelectComponent } from './users/user-select/user-select.component';
+
 import { AddressListComponent } from './address/address-list/address-list.component';
 import { AddressDetailComponent } from './address/address-detail/address-detail.component';
 import { AddressNewComponent } from './address/address-new/address-new.component';
 import { AddressSelectComponent } from './address/address-select/address-select.component';
+
+import { UnitListComponent } from './units/unit-list/unit-list.component';
+import { UnitDetailComponent } from './units/unit-detail/unit-detail.component';
+import { UnitNewComponent } from './units/unit-new/unit-new.component';
+import { UnitSelectComponent } from './units/unit-select/unit-select.component';
 
 let declarations = [
     ClientListComponent,
@@ -32,7 +38,11 @@ let declarations = [
     AddressListComponent,
     AddressDetailComponent,
     AddressNewComponent,
-    AddressSelectComponent
+    AddressSelectComponent,
+    UnitListComponent,
+    UnitDetailComponent,
+    UnitNewComponent,
+    UnitSelectComponent
 ];
 
 import { ClientService } from './client.service';
@@ -47,10 +57,15 @@ import { AddressService } from './address/address.service';
 import { AddressListResolve } from './address/address-list-resolve.service';
 import { AddressDetailResolve } from './address/address-detail-resolve.service';
 
+import { UnitService } from './units/unit.service';
+import { UnitListResolve } from './units/unit-list-resolve.service';
+import { UnitDetailResolve } from './units/unit-detail-resolve.service';
+
 let services = [
   ClientService, ClientListResolve, ClientDetailResolve,
   ClientUserService, UserListResolve, UserDetailResolve,
   AddressService, AddressListResolve, AddressDetailResolve,
+  UnitService, UnitListResolve, UnitDetailResolve,
 ];
 
 @NgModule({

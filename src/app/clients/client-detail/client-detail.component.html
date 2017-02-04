@@ -5,6 +5,7 @@
         <ul class="nav nav-tabs pull-right">
             <li><a href="#address" data-toggle="tab">Адреса</a></li>
             <li><a href="#persons" data-toggle="tab">Персоны</a></li>
+            <li><a href="#units" data-toggle="tab">Орг. структура</a></li>
             <li class="active"><a href="#description" data-toggle="tab">Клиенты</a></li>
             <li class="pull-left header"><h4> {{client.name}}</h4></li>
         </ul>
@@ -37,6 +38,10 @@
 
             <div class="chart tab-pane chart-style" id="persons" >
                <app-user-list></app-user-list>              
+            </div>
+
+            <div class="chart tab-pane chart-style" id="units" >
+               <app-unit-list></app-unit-list>              
             </div>
         </div>
     </div>
