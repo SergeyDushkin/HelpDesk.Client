@@ -22,10 +22,8 @@
             
                 <tr routerLink="{{item.id}}" *ngFor="let item of data" class="tr-cursor">
                     <td>{{item.number}}</td>
-                </tr>
-                <tr routerLink="{{item.id}}" *ngFor="let item of data" class="tr-cursor">
-                </tr>
-                <tr routerLink="{{item.id}}" *ngFor="let item of data" class="tr-cursor">
+                    <td>{{item.date | date: 'dd.MM.yyyy'}}</td>
+                    <td>{{item.client.Name}}</td>
                 </tr>
             </table>
         </div>

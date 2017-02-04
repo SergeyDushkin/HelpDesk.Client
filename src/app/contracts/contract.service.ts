@@ -38,6 +38,14 @@ export class ContractService {
   extractData = (item : any) : Contract =>
     new Contract({ 
         id: item.Id, 
-        name: item.Name
+        resource: item.Resource, 
+        referenceId: item.ReferenceId, 
+        name: item.Name, 
+        number: item.Number, 
+        date: item.Date, 
+        startDate: item.StartDate, 
+        endDate: item.EndDate, 
+        client: item.Client, 
+        clientId: item.Client.Id
       });
 }

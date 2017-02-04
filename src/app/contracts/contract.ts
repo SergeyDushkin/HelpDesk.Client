@@ -8,6 +8,7 @@ export class Contract {
     public startDate : Date;
     public endDate  : Date;
     public client  : any;
+    public clientId  : string;
 
     public constructor(data:any = {}) {
         this.resource = "ticket-service";
@@ -19,5 +20,6 @@ export class Contract {
         this.startDate = new Date(data.startDate) || undefined;
         this.endDate = new Date(data.endDate) || undefined;
         this.client = data.client || undefined;
+        this.clientId = data.clientId || undefined;
     }
 }
