@@ -15,8 +15,16 @@
     <form role="form">
       <div class="box-body">
         <div class="form-group">
+          <label for="name">Фамилия</label>
+          <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName">
+        </div>
+        <div class="form-group">
           <label for="name">Имя</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="user.name">
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName">
+        </div>
+        <div class="form-group">
+          <label for="name">Отчество</label>
+          <input type="text" class="form-control" name="middleName" [(ngModel)]="user.middleName">
         </div>
       </div>
       <!-- /.box-body -->

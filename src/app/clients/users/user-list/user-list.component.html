@@ -7,10 +7,14 @@
     <div class="box-body no-padding">
       <table class="table table-hover">
         <tr class="tr-style">
+          <th>Фамилия</th>
           <th>Имя</th>
+          <th>Отчество</th>
         </tr>
         <tr routerLink="users/{{user.id}}" *ngFor="let user of users" class="tr-cursor">
-          <td>{{user.name}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.middleName}}</td>
         </tr>
       </table>
     </div>

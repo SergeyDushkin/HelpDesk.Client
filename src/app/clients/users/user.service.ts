@@ -3,50 +3,47 @@ import { Response } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
 import { User } from './user';
-import { BaseApiService } from '../../services/base-api.service';
+import { TicketServiceApiService } from '../../services/ticket-service-api.service';
 
 @Injectable()
 export class UserService {
 
-  constructor(private apiService : BaseApiService) { 
+  private resource_url : string;
+
+  private resource = (id = "") : string => this.resource_url + id || "";
+
+  constructor(private api : TicketServiceApiService) { 
+    this.resource_url = 'users/';
   }
 
-  get(clientId : string) : Observable<User[]> {
-    
-    return this.apiService.get("clients/" + clientId + "/users/")
+  get = (referenceId: string) : Observable<User[]> =>
+    this.api.get(this.resource() + `?referenceId=${referenceId}`)
       .map(r => r.json()
       .map(item => this.extractData(item)));
-  }
 
-  getById(clientId : string, id : string) : Observable<User> {
-    
-    return this.apiService.get("clients/" + clientId + "/users/" + id)
+  getById = (referenceId: string, id : string) : Observable<User> =>
+    this.api.get(this.resource(id) + `?referenceId=${referenceId}`)
       .map(r => r.json())
       .map(item => this.extractData(item));
-  }
 
-  create(clientId : string, user : User) : Observable<User> {
-    
-    return this.apiService.post("clients/" + clientId + "/users/", user)
-      .map(r => r.json())
-      .map(item => this.extractData(item));
-  }
+  create = (create : User) : Observable<Response> =>
+    this.api.post(this.resource(), create);
 
-  update(clientId : string, user : User) : Observable<Response> {
-    
-    return this.apiService.put("clients/" + clientId + "/users/" + user.id, user);
-  }
+  update = (update : User) : Observable<Response> =>
+    this.api.put(this.resource(update.id), update);
 
-  delete(clientId : string, id : string) : Observable<Response> {
-    
-    return this.apiService.delete("clients/" + clientId + "/users/" + id);
-  }
+  delete = (id : string) : Observable<Response> =>
+    this.api.delete(this.resource(id));
 
-  extractData(item : any) : User {
-    return new User({ 
-        id: item.id, 
-        name: item.name
+  extractData = (item : any) : User =>
+    new User({ 
+        id: item.Id, 
+        resource: item.Resource, 
+        referenceId: item.ReferenceId, 
+        firstName: item.FirstName, 
+        middleName: item.MiddleName, 
+        lastName: item.LastName, 
+        genderCode: item.GenderCode, 
+        dateOfBirth: item.DateOfBirth
       });
-  }
-
 }
