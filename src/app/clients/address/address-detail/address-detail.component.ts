@@ -23,10 +23,8 @@ export class AddressDetailComponent implements OnInit {
   }
 
   onUpdate() {
-    let client_id = this.route.snapshot.params["client_id"];
-    
-    this.service.update(client_id, this.address).subscribe(
-      (response) => this.router.navigate(['/clients/' + client_id]),
+    this.service.update(this.address).subscribe(
+      (response) => this.router.navigate(['/clients/' + this.address.referenceId]),
       (err) => console.log("AddressService update: error " + err),
       () => console.log("AddressService update done"));
   }
