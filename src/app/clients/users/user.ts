@@ -18,4 +18,6 @@ export class User {
         this.genderCode = data.genderCode || "";
         this.dateOfBirth = data.dateOfBirth ? new Date(data.dateOfBirth) : new Date();
     }
+
+    public getName = () => `${this.lastName} ${this.firstName} ${this.middleName}`;
 }
