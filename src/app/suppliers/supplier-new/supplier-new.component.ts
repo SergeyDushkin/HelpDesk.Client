@@ -26,7 +26,7 @@ export class SupplierNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.supplier).subscribe(
-      (response) => this.router.navigate(['/suppliers/' + response.id]),
+      (response) => this.router.navigate(['/suppliers']),
       (err) => console.log("SupplierService create: error " + err),
       () => console.log("SupplierService create done"));
   }
