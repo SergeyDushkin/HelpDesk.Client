@@ -12,7 +12,7 @@
              <li class="active">
                 <a href="#main" data-toggle="tab">Основное</a>
             </li>
-            <li class="pull-left header"><h4> {{user.name}} </h4></li>
+            <li class="pull-left header"><h4>{{user.lastName}} {{user.firstName}} {{user.middleName}}</h4></li>
         </ul>
         <div class="tab-content no-padding">
             <!-- Morris chart - Sales -->
@@ -24,15 +24,15 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="name">Имя</label>
-                            <input type="text" class="form-control" name="name" [(ngModel)]="user.name">
+                            <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" placeholder="Имя">
                         </div>
                         <div class="form-group">
                             <label for="name">Фамилия</label>
-                            <input type="text" class="form-control" name="f" [(ngModel)]="user.name" placeholder="Фамилия">
+                            <input type="text" class="form-control" name="lastName"  [(ngModel)]="user.lastName" placeholder="Фамилия">
                         </div>
                         <div class="form-group">
                             <label for="name">Отчество</label>
-                            <input type="text" class="form-control" name="o" [(ngModel)]="user.name" placeholder="Отчество">
+                            <input type="text" class="form-control" name="middleName" [(ngModel)]="user.middleName" placeholder="Отчество">
                         </div>
                         <div class="form-group">
                             <label for="name">Логин</label>

@@ -19,6 +19,11 @@ export class TicketDetailComponent implements OnInit {
     this.ticket = this.route.snapshot.data['ticket'];
   }
 
+    onClickBack() {
+    //this.location.back();
+    this.router.navigate(['/service/tickets/']);
+  }
+
   onUpdate() {
     this.service.update(this.ticket).subscribe(
       (response) => this.router.navigate(['/service/tickets/']),

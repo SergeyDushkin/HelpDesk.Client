@@ -1,34 +1,29 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    {{unit.name}}
-    <small></small>
-  </h1>
-</section>
-
-<!-- Main content -->
 <section class="content">
-
-  <!-- general form elements -->
-  <div class="box box-primary">
-    <!-- form start -->
-    <form role="form">
-      <div class="box-body">
-        <div class="form-group">
-          <label for="name">Наименование</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="unit.name">
-        </div>
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">          
+            <li class="pull-left header"><h4>{{unit.name}}</h4></li>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->            
+                <hr class="hr-header">
+                <!-- general form elements -->
+                <div class="box box-style">              
+                    <!-- form start -->
+                    <div class="box-body">
+                       <label for="name">Наименование</label>
+					   <input type="text" class="form-control" name="name" [(ngModel)]="unit.name">
+                    </div>
+                    <!-- /.box-body -->
+                    <hr class="hr-body">
+                    <div class="box-footer">
+					    <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
+						<button type="submit" class="btn btn-danger btn-sm btn-flat" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
+						<button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
+                      </div>
+                </div>
+                <!-- /.box -->
+            </div>
       </div>
-      <!-- /.box-body -->
-
-      <div class="box-footer">
-        <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Отменить</button>
-        <button type="submit" class="btn btn-danger" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
-
-        <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
-      </div>
-    </form>
-  </div>
-  <!-- /.box -->
-
-</section><!-- /.content -->
+</section><!-- /.content  -->
