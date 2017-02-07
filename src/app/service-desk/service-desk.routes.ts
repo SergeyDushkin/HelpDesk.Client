@@ -26,13 +26,15 @@ import { ClientListResolve } from '../clients/client-list-resolve.service';
 import { SupplierListResolve } from '../suppliers/supplier-list-resolve.service';
 import { FileListResolve } from '../file/file-list-resolve.service';
 
+import { StatusListResolve } from './tickets/status/status-list-resolve.service';
+
 const routes: Routes = [
   { path: 'service',
     component: ServiceDeskComponent, 
     canActivate: [AuthenticationGuard],
     children: [
       { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } },
-      { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve } },
+      { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve, 'ticket-status': StatusListResolve } },
       { path: 'tickets/:ticket_id', component: TicketDetailComponent, 
         data : { parent : "ticket_id", referenceKey : "ticket_id" }, 
         resolve: { ticket: TicketDetailResolve, jobs: JobListResolve, files: FileListResolve } }, 

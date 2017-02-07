@@ -12,7 +12,7 @@ import { PriorityListResolve } from './priority-list-resolve.service';
 import { PriorityDetailResolve } from './priority-detail-resolve.service';
 
 const routes: Routes = [
-  { path: 'ticket-prioritys',
+  { path: 'ticket-priorities',
     component:  PriorityComponent, 
     children: [
       { path: '', component:  PriorityListComponent, resolve: { 'ticket-priority': PriorityListResolve } },

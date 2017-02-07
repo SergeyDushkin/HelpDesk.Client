@@ -34,6 +34,10 @@ export class TicketNewComponent implements OnInit {
     //this.ticket.addressId = val.id;
   }
 
+  onStatusChange(val) {
+    this.ticket.statusId = val;
+  }
+
   onUpdate() {
     this.service.create(this.ticket).subscribe(
       (response) => this.router.navigate(['/service/tickets/']),

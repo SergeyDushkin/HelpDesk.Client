@@ -1,6 +1,7 @@
 import { Client } from '../../clients/client';
 import { User } from '../../clients/users/user';
 import { Address } from '../../clients/address/address';
+import { Status } from './status/status';
 
 export class Ticket {
     id: string;
@@ -8,12 +9,14 @@ export class Ticket {
     clientId: string;
     addressId: string;
     userId: string;
+    statusId: string;
     description: string;
-    requestDate: Date;
-    completeDate?: any;
+    startDate: Date;
+    endDate?: any;
     client: Client;
     address: Address;
     user: User;
+    status: Status;
 
     public constructor(data:any = {}) {
         this.id = data.id || undefined;
@@ -21,11 +24,13 @@ export class Ticket {
         this.clientId = data.clientId || "";
         this.addressId = data.addressId || "";
         this.userId = data.userId || "";
+        this.statusId = data.statusId || undefined;
         this.description = data.description || "";
-        this.requestDate = data.requestDate ? new Date(data.requestDate) : undefined;
-        this.completeDate = data.completeDate ? new Date(data.completeDate) : undefined;
+        this.startDate = data.startDate ? new Date(data.startDate) : undefined;
+        this.endDate = data.endDate ? new Date(data.endDate) : undefined;
         this.client = data.client ? new Client(data.client) : undefined;
         this.address = data.address ? new Address(data.address) : new Address();
         this.user = data.user ? new User(data.user) : new User();
+        this.status = data.status ? new Status(data.status) : new Status();
     }
 }

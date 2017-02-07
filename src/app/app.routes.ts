@@ -20,7 +20,7 @@ export const routes: Routes = [
     { path: 'work-statuses', loadChildren: './works/status/status.module#StatusModule' }, 
     { path: 'contracts', loadChildren: './contracts/contract.module#ContractModule' }, 
     { path: 'ticket-statuses', loadChildren: './service-desk/tickets/status/status.module#StatusModule' },    
-    { path: 'ticket-prioritys', loadChildren: './service-desk/tickets/prioritys/priority.module#PriorityModule' },    
+    { path: 'ticket-priorities', loadChildren: './service-desk/tickets/priorities/priority.module#PriorityModule' },    
 
     { path: 'login', component: LoginComponent },
 ];
