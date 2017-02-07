@@ -5,7 +5,7 @@ import { Work } from '../work';
 import { WorkService } from '../work.service';
 
 @Component({
-  selector: 'app-work-work-new',
+  selector: 'app-work-new',
   templateUrl: './work-new.component.html'
 })
 export class WorkNewComponent implements OnInit {
@@ -24,9 +24,9 @@ export class WorkNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.data).subscribe(
-      (response) => this.router.navigate(['/work-workes']),
-      (err) => console.log("WorkWorkService create: error " + err),
-      () => console.log("WorkWorkService create done"));
+      (response) => this.router.navigate(['/works']),
+      (err) => console.log("WorkService create: error " + err),
+      () => console.log("WorkService create done"));
   }
 
 }

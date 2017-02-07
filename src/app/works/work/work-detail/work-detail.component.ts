@@ -5,7 +5,7 @@ import { Work } from '../work';
 import { WorkService } from '../work.service';
 
 @Component({
-  selector: 'app-work-work-detail',
+  selector: 'app-work-detail',
   templateUrl: './work-detail.component.html'
 })
 export class WorkDetailComponent implements OnInit {
@@ -15,7 +15,7 @@ export class WorkDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: WorkService) { }
 
   ngOnInit() {
-    this.data = this.route.snapshot.data['work-work'];
+    this.data = this.route.snapshot.data['work'];
   }
 
   onClickBack() {

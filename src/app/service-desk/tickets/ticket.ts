@@ -1,5 +1,5 @@
 import { Client } from '../../clients/client';
-import { User } from '../../clients/users/user';
+import { User } from '../../users/user';
 import { Address } from '../../clients/address/address';
 import { Status } from './status/status';
 

@@ -89,11 +89,6 @@ let pages = [
 //main bootstrap
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-import { StoreSelectComponent } from './stores/store-select/store-select.component';
-import { UserSelectComponent } from './users/user-select/user-select.component';
-
-import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
-
 
 //export function configServiceFactory(config: ConfigService) {
 //  return function() {
@@ -105,11 +100,7 @@ import { TicketDetailComponent as OperatorTicketDetailComponent } from './module
   declarations: [
     ...widgets,
     ...pages,
-    StoreSelectComponent,
-    UserSelectComponent,
-    LoginComponent,
-    OperatorTicketDetailComponent,
-    
+    LoginComponent,    
   ],
   imports: [
     ...modules,
