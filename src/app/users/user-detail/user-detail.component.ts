@@ -23,10 +23,8 @@ export class UserDetailComponent implements OnInit {
   }
 
   onUpdate() {
-    let client_id = this.route.snapshot.params["client_id"];
-    
     this.service.update(this.user).subscribe(
-      (response) => this.router.navigate(['/clients/' + client_id]),
+      (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),
       (err) => console.log("ClientService update: error " + err),
       () => console.log("ClientService update done"));
   }

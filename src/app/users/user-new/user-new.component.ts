@@ -16,7 +16,8 @@ export class UserNewComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    this.user.referenceId = this.route.snapshot.params["client_id"];
+    this.user.referenceId = this.route.parent.snapshot.params["referenceId"];
+    this.user.resource = this.route.parent.snapshot.params["resource"];
   }
 
   onClickBack() {
@@ -25,7 +26,7 @@ export class UserNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.user).subscribe(
-      (response) => this.router.navigate(['/clients/' + this.user.referenceId]),
+      (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),
       (err) => console.log("ClientService update: error " + err),
       () => console.log("ClientService update done"));
   }

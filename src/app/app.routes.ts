@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules  } from '@angular/router';
 
 // Components
 import { LoginComponent } from './pages/login/login.component';
@@ -13,6 +13,7 @@ export const routes: Routes = [
     
     { path: 'settings/smtp', component: SmtpSettingsComponent, canActivate: [AuthenticationGuard] },
     { path: 'clients', loadChildren: './clients/client.module#ClientModule' },
+    { path: ':resource/:referenceId/users', loadChildren: './users/user.module#UserModule' },
     { path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },
     { path: 'services', loadChildren: './service/service.module#ServiceModule' },
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
@@ -28,7 +29,7 @@ export const routes: Routes = [
 //export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

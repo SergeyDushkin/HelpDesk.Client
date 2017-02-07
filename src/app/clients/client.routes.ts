@@ -33,8 +33,6 @@ const routes: Routes = [
       { path: '', component: ClientListComponent, canActivate: [AuthenticationGuard], resolve: { clients: ClientListResolve } },
       { path: 'create', component: ClientNewComponent, canActivate: [AuthenticationGuard] },
       { path: ':client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve, address: AddressListResolve, unit: UnitListResolve  } },
-      
-      { path: ':client_id/users', canActivate: [AuthenticationGuard], loadChildren: '../users/user.module#UserModule' },
 
       { path: ':client_id/address/', component: AddressListComponent, canActivate: [AuthenticationGuard], resolve: { address: AddressListResolve } },
       { path: ':client_id/address/create', component: AddressNewComponent, canActivate: [AuthenticationGuard] },

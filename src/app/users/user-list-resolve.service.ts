@@ -10,7 +10,7 @@ export class UserListResolve implements Resolve<User[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.get(route.params["client_id"])
+    return this.service.get(route.params["referenceId"])
       .toPromise()
       .then(data => data);
   }

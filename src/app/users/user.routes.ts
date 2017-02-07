@@ -12,7 +12,7 @@ import { UserListResolve } from './user-list-resolve.service';
 import { UserDetailResolve } from './user-detail-resolve.service';
 
 const routes: Routes = [
-  { path: '',
+  { path: ':resource/:referenceId/users',
     component: UserComponent, 
     children: [
       { path: '', component: UserListComponent, resolve: { users: UserListResolve } },

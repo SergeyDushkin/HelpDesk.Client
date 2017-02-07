@@ -3,10 +3,10 @@
     <div class="nav-tabs-custom">
         <!-- Tabs within a box -->
         <ul class="nav nav-tabs pull-right">
-            <li><a href="#address" data-toggle="tab">Адреса</a></li>
-            <li><a href="#persons" data-toggle="tab">Персоны</a></li>
-            <li><a href="#units" data-toggle="tab">Орг. структура</a></li>
-            <li class="active"><a href="#description" data-toggle="tab">Клиенты</a></li>
+            <li><a [routerLink]="['/clients', client.id]" fragment="address" data-toggle="tab">Адреса</a></li>
+            <li><a [routerLink]="['/clients', client.id]" fragment="persons" data-toggle="tab">Персоны</a></li>
+            <li><a [routerLink]="['/clients', client.id]" fragment="units" data-toggle="tab">Орг. структура</a></li>
+            <li class="active"><a [routerLink]="['/clients', client.id]" fragment="description" data-toggle="tab">Клиенты</a></li>
             <li class="pull-left header"><h4> {{client.name}}</h4></li>
         </ul>
         <div class="tab-content no-padding">
@@ -37,7 +37,7 @@
             </div>
 
             <div class="chart tab-pane chart-style" id="persons" >
-               <app-user-list></app-user-list>              
+               <app-user-list [(referenceId)]="client.id"></app-user-list>              
             </div>
 
             <div class="chart tab-pane chart-style" id="units" >
