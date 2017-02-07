@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Priority } from '../priority';
-import { prioritieservice } from '../priority.service';
+import { PriorityService } from '../priority.service';
 
 @Component({
   selector: 'app-ticket-priority-detail',
@@ -12,7 +12,7 @@ export class PriorityDetailComponent implements OnInit {
 
   private data : Priority;
 
-  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: prioritieservice) { }
+  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: PriorityService) { }
 
   ngOnInit() {
     this.data = this.route.snapshot.data['ticket-priority'];
