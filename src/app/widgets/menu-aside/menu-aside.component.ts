@@ -47,7 +47,7 @@ export class MenuAsideComponent implements OnInit {
     {
       "title": "Заявки",
       "icon": "table",
-      "link": ['/service/tickets']
+      "link": ['/tickets']
     }
   ];
 

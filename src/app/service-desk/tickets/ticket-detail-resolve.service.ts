@@ -10,7 +10,7 @@ export class TicketDetailResolve implements Resolve<Ticket> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getById(route.params[route.data["parent"]])
+    return this.service.getById(route.params["id"])
       .toPromise()
       .then(data => data);
   }

@@ -1,9 +1,9 @@
 <div class="input-group">
-  <select class="form-control" [disabled]="disabled" [(ngModel)]="client" (change)="onChange($event.target.value)">
+  <select class="form-control" [disabled]="disabled" [(ngModel)]="status" (change)="onChange($event.target.value)">
     <option *ngFor="let item of data" [value]="item.id">{{item.name}}</option>
   </select>
   <span class="input-group-btn">
-    <a *ngIf="client" class="btn btn-flat" routerLink="/ticket-statuses/{{client.id}}"><i class="fa fa-sliders"></i></a>
+    <a *ngIf="status" class="btn btn-flat" routerLink="/ticket-statuses/{{status.id}}"><i class="fa fa-sliders"></i></a>
     <a class="btn btn-flat" routerLink="/ticket-statuses/create"><i class="fa fa-plus-circle"></i></a>
   </span>
 </div>

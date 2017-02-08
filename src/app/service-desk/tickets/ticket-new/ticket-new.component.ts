@@ -40,7 +40,7 @@ export class TicketNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.ticket).subscribe(
-      (response) => this.router.navigate(['/service/tickets/']),
+      (response) => this.router.navigate(['/tickets']),
       (err) => console.log("TicketService update: error " + err),
       () => console.log("TicketService update done"));
   }

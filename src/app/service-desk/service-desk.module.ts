@@ -12,26 +12,18 @@ import { StatusModule } from './tickets/status/status.module';
 import { UserModule } from '../users/user.module';
 import { AddressModule } from '../address/address.module';
 import { WorkModule } from '../work/work.module';
+import { TicketModule } from './tickets/ticket.module';
 
 let modules = [
-  FileModule, ClientModule, OperatorModule, StatusModule, UserModule, AddressModule, WorkModule,
+  FileModule, ClientModule, OperatorModule, StatusModule, UserModule, AddressModule, WorkModule, TicketModule
 ];
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';
 
 import { ServiceDeskComponent } from './service-desk.component';
-import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
-import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
-import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
 import { TicketFileNewComponent } from './tickets/file-new/file-new.component';
 
-
-import { TicketService } from './tickets/ticket.service';
-import { TicketListResolve } from './tickets/ticket-list-resolve.service';
-import { TicketDetailResolve } from './tickets/ticket-detail-resolve.service';
-
 let services = [
-  TicketService, TicketListResolve, TicketDetailResolve
 ];
 
 @NgModule({
@@ -41,7 +33,7 @@ let services = [
   ],
   declarations: [
     ServiceDeskComponent, 
-    TicketListComponent, TicketDetailComponent, TicketNewComponent, TicketFileNewComponent,
+    TicketFileNewComponent,
   ],
   providers: [
     ...services

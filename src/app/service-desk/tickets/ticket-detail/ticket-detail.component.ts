@@ -21,12 +21,12 @@ export class TicketDetailComponent implements OnInit {
 
     onClickBack() {
     //this.location.back();
-    this.router.navigate(['/service/tickets/']);
+    this.router.navigate(['/tickets']);
   }
 
   onUpdate() {
     this.service.update(this.ticket).subscribe(
-      (response) => this.router.navigate(['/service/tickets/']),
+      (response) => this.router.navigate(['/tickets']),
       (err) => console.log("TicketService update: error " + err),
       () => console.log("TicketService update done"));
   }

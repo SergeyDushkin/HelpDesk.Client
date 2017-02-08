@@ -48,11 +48,19 @@ export class StatusSelectComponent implements OnChanges, OnInit {
   onChange(value){
   }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private service: StatusService) { }
 
   ngOnInit() {
     this._source = this.route.snapshot.data['ticket-status'];
-    this.status = this._source[0];
+    
+    if (!this._source) {
+      this.service.get().toPromise().then(r => { 
+        this._source = r; 
+        this.status = this._source[0];
+      });
+    } else {
+      this.status = this._source[0];
+    }
 
   }
 
