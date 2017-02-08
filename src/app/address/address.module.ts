@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { AddressRoutingModule } from './address.routes';
 
-import { AddressComponent } from './address.component';
 import { AddressListComponent } from './address-list/address-list.component';
 import { AddressDetailComponent } from './address-detail/address-detail.component';
 import { AddressNewComponent } from './address-new/address-new.component';
@@ -27,7 +26,7 @@ let services = [
 
 @NgModule({
   imports: [ CommonModule, FormsModule, AddressRoutingModule ],
-  declarations: [ AddressComponent, declarations ],
+  declarations: [ declarations ],
   providers: [
     ...services
   ],

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { UnitRoutingModule } from './unit.routes';
 
-import { UnitComponent } from './unit.component';
 import { UnitListComponent } from './unit-list/unit-list.component';
 import { UnitDetailComponent } from './unit-detail/unit-detail.component';
 import { UnitNewComponent } from './unit-new/unit-new.component';
@@ -27,7 +26,7 @@ let services = [
 
 @NgModule({
   imports: [ CommonModule, FormsModule, UnitRoutingModule ],
-  declarations: [ UnitComponent, declarations ],
+  declarations: [ declarations ],
   providers: [
     ...services
   ],

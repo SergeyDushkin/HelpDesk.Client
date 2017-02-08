@@ -16,8 +16,8 @@ export class AddressNewComponent implements OnInit {
 
   ngOnInit() {
     this.address = new Address();
-    this.address.referenceId = this.route.parent.snapshot.params["referenceId"];
-    this.address.resource = this.route.parent.snapshot.params["resource"];
+    this.address.referenceId = this.route.snapshot.params["referenceId"];
+    this.address.resource = this.route.snapshot.params["resource"];
   }
 
   onClickBack() {

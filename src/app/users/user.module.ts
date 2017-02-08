@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user.routes';
 
-import { UserComponent } from './user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserNewComponent } from './user-new/user-new.component';
@@ -27,7 +26,7 @@ let services = [
 
 @NgModule({
   imports: [ CommonModule, FormsModule, UserRoutingModule ],
-  declarations: [ UserComponent, declarations ],
+  declarations: [ declarations ],
   providers: [
     ...services
   ],

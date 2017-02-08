@@ -10,7 +10,7 @@ export class UnitListResolve implements Resolve<Unit[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.get(route.params["client_id"])
+    return this.service.get(route.params["referenceId"])
       .toPromise()
       .then(data => data);
   }

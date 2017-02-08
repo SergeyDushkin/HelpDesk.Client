@@ -16,8 +16,8 @@ export class UnitNewComponent implements OnInit {
 
   ngOnInit() {
     this.unit = new Unit();
-    this.unit.referenceId = this.route.parent.snapshot.params["referenceId"];
-    this.unit.resource = this.route.parent.snapshot.params["resource"];
+    this.unit.referenceId = this.route.snapshot.params["referenceId"];
+    this.unit.resource = this.route.snapshot.params["resource"];
   }
 
   onClickBack() {

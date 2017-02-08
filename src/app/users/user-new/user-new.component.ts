@@ -16,8 +16,8 @@ export class UserNewComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    this.user.referenceId = this.route.parent.snapshot.params["referenceId"];
-    this.user.resource = this.route.parent.snapshot.params["resource"];
+    this.user.referenceId = this.route.snapshot.params["referenceId"];
+    this.user.resource = this.route.snapshot.params["resource"];
   }
 
   onClickBack() {
