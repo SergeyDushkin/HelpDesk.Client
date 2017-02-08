@@ -13,6 +13,7 @@ export class Ticket {
     description: string;
     startDate: Date;
     endDate?: any;    
+    createdAt: Date;
     clientId: string;
     addressId: string;
     contractId: string;
@@ -22,6 +23,7 @@ export class Ticket {
     operatorId: string; 
     businessUnitId: string;
     userId: string;
+    applicantId : string;
     
     client: Client;
     address: Address;
@@ -30,6 +32,7 @@ export class Ticket {
     status: Status;
     service: Service;
     user: User;
+    applicant : User;
     businessunit: Unit;
 
     public constructor(data:any = {}) {
@@ -37,7 +40,8 @@ export class Ticket {
         this.ticketNumber = data.ticketNumber || undefined;
         this.description = data.description || "";
         this.startDate = data.startDate ? new Date(data.startDate) : undefined;
-        this.endDate = data.endDate ? new Date(data.endDate) : undefined;       
+        this.endDate = data.endDate ? new Date(data.endDate) : undefined;   
+        this.createdAt = data.createdAt ? new Date(data.createdAt) : undefined;
         this.clientId = data.clientId || "";
         this.addressId = data.addressId || "";
         this.contractId = data.contractId || undefined;
@@ -47,6 +51,7 @@ export class Ticket {
         this.operatorId = data.operatorId || undefined;
         this.businessUnitId = data.businessUnitId || undefined;
         this.userId = data.userId || "";
+        this.applicantId = data.applicantId || undefined;
         
         this.client = data.client ? new Client(data.client) : undefined;
         this.address = data.address ? new Address(data.address) : new Address();
@@ -55,6 +60,7 @@ export class Ticket {
         this.status = data.status ? new Status(data.status) : new Status();
         this.service = data.service ? new Service(data.service) : new Service();
         this.user = data.user ? new User(data.user) : new User();
+        this.applicant = data.applicant ? new User(data.applicant) : new User();
         this.businessunit = data.businessunit ? new Unit(data.businessunit) : new Unit();
     }
 }

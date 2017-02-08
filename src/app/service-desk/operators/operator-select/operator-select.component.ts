@@ -34,9 +34,20 @@ export class OperatorSelectComponent implements OnChanges, OnInit {
   onChange(value){
   }
 
-  constructor(private route: ActivatedRoute, private operatorService: OperatorService) { }
+  constructor(private route: ActivatedRoute, private service: OperatorService) { }
 
-  ngOnInit() {
+    ngOnInit() {
+    this._source = this.route.snapshot.data['operators'];
+    
+    if (!this._source) {
+      this.service.get().toPromise().then(r => { 
+        this._source = r; 
+        this.operator = this._source[0];
+      });
+    } else {
+      this.operator = this._source[0];
+    }
+
   }
 
   ngOnChanges(changes) {
