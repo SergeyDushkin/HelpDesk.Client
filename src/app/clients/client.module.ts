@@ -7,9 +7,10 @@ import { Routes,
 /* Feature Modules */
 import { UserModule } from '../users/user.module';
 import { AddressModule } from '../address/address.module';
+import { UnitModule } from '../units/unit.module';
 
 let modules = [
-  UserModule, AddressModule
+  UserModule, AddressModule, UnitModule
 ];
 
 import { ClientRoutingModule } from './client.routes';
@@ -20,32 +21,18 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientNewComponent } from './client-new/client-new.component';
 import { ClientSelectComponent } from './client-select/client-select.component';
 
-import { UnitListComponent } from './units/unit-list/unit-list.component';
-import { UnitDetailComponent } from './units/unit-detail/unit-detail.component';
-import { UnitNewComponent } from './units/unit-new/unit-new.component';
-import { UnitSelectComponent } from './units/unit-select/unit-select.component';
-
 let declarations = [
     ClientListComponent,
     ClientDetailComponent,
     ClientNewComponent, ClientSelectComponent,
-    UnitListComponent,
-    UnitDetailComponent,
-    UnitNewComponent,
-    UnitSelectComponent
 ];
 
 import { ClientService } from './client.service';
 import { ClientListResolve } from './client-list-resolve.service';
 import { ClientDetailResolve } from './client-detail-resolve.service';
 
-import { UnitService } from './units/unit.service';
-import { UnitListResolve } from './units/unit-list-resolve.service';
-import { UnitDetailResolve } from './units/unit-detail-resolve.service';
-
 let services = [
   ClientService, ClientListResolve, ClientDetailResolve,
-  UnitService, UnitListResolve, UnitDetailResolve,
 ];
 
 @NgModule({

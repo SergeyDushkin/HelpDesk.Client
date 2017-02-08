@@ -16,7 +16,8 @@ export class UnitNewComponent implements OnInit {
 
   ngOnInit() {
     this.unit = new Unit();
-    this.unit.referenceId = this.route.snapshot.params["client_id"];
+    this.unit.referenceId = this.route.parent.snapshot.params["referenceId"];
+    this.unit.resource = this.route.parent.snapshot.params["resource"];
   }
 
   onClickBack() {
@@ -25,7 +26,7 @@ export class UnitNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.unit).subscribe(
-      (response) => this.router.navigate(['/clients/' + this.unit.referenceId]),
+      (response) => this.router.navigate(['/' + this.unit.resource + '/' + this.unit.referenceId]),
       (err) => console.log("UnitService update: error " + err),
       () => console.log("UnitService update done"));
   }

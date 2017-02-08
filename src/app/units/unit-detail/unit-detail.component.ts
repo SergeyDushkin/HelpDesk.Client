@@ -24,7 +24,7 @@ export class UnitDetailComponent implements OnInit {
 
   onUpdate() {
     this.service.update(this.unit).subscribe(
-      (response) => this.router.navigate(['/clients/' + this.unit.referenceId]),
+      (response) => this.router.navigate(['/' + this.unit.resource + '/' + this.unit.referenceId]),
       (err) => console.log("UnitService update: error " + err),
       () => console.log("UnitService update done"));
   }
