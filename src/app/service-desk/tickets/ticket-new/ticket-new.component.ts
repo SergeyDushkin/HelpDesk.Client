@@ -39,7 +39,7 @@ export class TicketNewComponent implements OnInit {
   }
 
    onPriorityChange(val) {
-    //this.ticket.statusId = val;
+    this.ticket.priorityId = val;
   }
 
 

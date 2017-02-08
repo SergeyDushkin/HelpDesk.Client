@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label for="requestDate">Приоритет по заявке</label>
-                            <app-ticket-priority-select [(priority)]="ticket.priorityId" (change)="onPriorityChange($event.target.value)"> </app-ticket-priority-select>
+                            <app-ticket-priority-select [(priority)]="ticket.priority" (change)="onPriorityChange($event.target.value)"> </app-ticket-priority-select>
                         </div>
                        <div class="form-group">
                             <label for="requestDate">Клиент</label>

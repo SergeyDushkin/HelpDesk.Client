@@ -21,6 +21,7 @@ let declarations = [
     PriorityListComponent,
     PriorityDetailComponent,
     PriorityNewComponent,
+    PrioritySelectComponent
 ];
 
 import { PriorityService } from './priority.service';
