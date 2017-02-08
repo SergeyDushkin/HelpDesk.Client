@@ -4,13 +4,13 @@ import { AddressService } from './address.service';
 import { Address } from './address';
 
 @Injectable()
-export class AddressDetailResolve implements Resolve<Address> {
+export class AddressListResolve implements Resolve<Address[]> {
 
   constructor(private route: ActivatedRoute, private service : AddressService) { 
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getById(route.params["client_id"], route.params["id"])
+    return this.service.get(route.params["referenceId"])
       .toPromise()
       .then(data => data);
   }

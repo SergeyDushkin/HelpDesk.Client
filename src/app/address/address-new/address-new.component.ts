@@ -16,7 +16,8 @@ export class AddressNewComponent implements OnInit {
 
   ngOnInit() {
     this.address = new Address();
-    this.address.referenceId = this.route.snapshot.params["client_id"];
+    this.address.referenceId = this.route.parent.snapshot.params["referenceId"];
+    this.address.resource = this.route.parent.snapshot.params["resource"];
   }
 
   onClickBack() {
@@ -25,7 +26,7 @@ export class AddressNewComponent implements OnInit {
 
   onUpdate() {
     this.service.create(this.address).subscribe(
-      (response) => this.router.navigate(['/clients/' + this.address.referenceId]),
+      (response) => this.router.navigate(['/' + this.address.resource + '/' + this.address.referenceId]),
       (err) => console.log("ClientService update: error " + err),
       () => console.log("ClientService update done"));
   }

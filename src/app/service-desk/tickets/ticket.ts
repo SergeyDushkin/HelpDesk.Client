@@ -1,6 +1,6 @@
 import { Client } from '../../clients/client';
 import { User } from '../../users/user';
-import { Address } from '../../clients/address/address';
+import { Address } from '../../address/address';
 import { Status } from './status/status';
 
 export class Ticket {

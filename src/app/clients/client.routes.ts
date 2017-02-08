@@ -13,12 +13,6 @@ import { ClientNewComponent } from './client-new/client-new.component';
 import { ClientListResolve } from './client-list-resolve.service';
 import { ClientDetailResolve } from './client-detail-resolve.service';
 
-import { AddressListComponent } from './address/address-list/address-list.component';
-import { AddressDetailComponent } from './address/address-detail/address-detail.component';
-import { AddressNewComponent } from './address/address-new/address-new.component';
-import { AddressListResolve } from './address/address-list-resolve.service';
-import { AddressDetailResolve } from './address/address-detail-resolve.service';
-
 import { UnitListComponent } from './units/unit-list/unit-list.component';
 import { UnitDetailComponent } from './units/unit-detail/unit-detail.component';
 import { UnitNewComponent } from './units/unit-new/unit-new.component';
@@ -32,11 +26,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ClientListComponent, canActivate: [AuthenticationGuard], resolve: { clients: ClientListResolve } },
       { path: 'create', component: ClientNewComponent, canActivate: [AuthenticationGuard] },
-      { path: ':client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve, address: AddressListResolve, unit: UnitListResolve  } },
-
-      { path: ':client_id/address/', component: AddressListComponent, canActivate: [AuthenticationGuard], resolve: { address: AddressListResolve } },
-      { path: ':client_id/address/create', component: AddressNewComponent, canActivate: [AuthenticationGuard] },
-      { path: ':client_id/address/:id', component: AddressDetailComponent, canActivate: [AuthenticationGuard], resolve: { address: AddressDetailResolve } },
+      { path: ':client_id', component: ClientDetailComponent, canActivate: [AuthenticationGuard], resolve: { client: ClientDetailResolve, unit: UnitListResolve  } },
 
       { path: ':client_id/units/', component: UnitListComponent, canActivate: [AuthenticationGuard], resolve: { unit: UnitListResolve } },
       { path: ':client_id/units/create', component: UnitNewComponent, canActivate: [AuthenticationGuard] },

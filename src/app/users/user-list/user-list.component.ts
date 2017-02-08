@@ -20,12 +20,6 @@ export class UserListComponent implements OnInit {
 
     if (!this.users) 
       this.service.get(this.referenceId).toPromise().then(r => this.users = r);
-
-    //if (!this.users) {
-    //  var referenceKey = this.route.snapshot.data["referenceKey"];
-    //  var referenceId = this.route.snapshot.params[referenceKey];
-    //  this.service.get(referenceId).toPromise().then(r => this.users = r);
-    //}
   }
 
 }
