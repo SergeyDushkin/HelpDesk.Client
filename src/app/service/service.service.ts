@@ -3,51 +3,45 @@ import { Response } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
 import { Service } from './service';
-import { BaseApiService } from '../services/base-api.service';
-
+import { TicketServiceApiService } from '../services/ticket-service-api.service';
 
 @Injectable()
 export class ServiceService {
 
-  constructor(private apiService : BaseApiService) { 
+  private resource_url : string;
+
+  private resource = (id = "") : string => this.resource_url + id || "";
+
+  constructor(private api : TicketServiceApiService) { 
+    this.resource_url = 'services/';
   }
 
-  get() : Observable<Service[]> {
-    
-    return this.apiService.get("service/")
+  get = (referenceId: string) : Observable<Service[]> =>
+    this.api.get(this.resource() + `?referenceId=${referenceId}`)
       .map(r => r.json()
       .map(item => this.extractData(item)));
-  }
 
-  getById(id : string) : Observable<Service> {
-    
-    return this.apiService.get("service/" + id)
+  getById = (referenceId: string, id : string) : Observable<Service> =>
+    this.api.get(this.resource(id) + `?referenceId=${referenceId}`)
       .map(r => r.json())
       .map(item => this.extractData(item));
-  }
 
-  create(supplier : Service) : Observable<Service> {
-    
-    return this.apiService.post("service/", supplier)
-      .map(r => r.json())
-      .map(item => this.extractData(item));
-  }
+  create = (create : Service) : Observable<Response> =>
+    this.api.post(this.resource(), create);
 
-  update(supplier : Service) : Observable<Response> {
-    
-    return this.apiService.put("service/" + supplier.id, supplier);
-  }
+  update = (update : Service) : Observable<Response> =>
+    this.api.put(this.resource(update.id), update);
 
-  delete(id : string) : Observable<Response> {
-    
-    return this.apiService.delete("service/" + id);
-  }
+  delete = (id : string) : Observable<Response> =>
+    this.api.delete(this.resource(id));
 
-  extractData(item : any) : Service {
-    return new Service({ 
-        id: item.id, 
-        name: item.name
+  extractData = (item : any) : Service =>
+    new Service({ 
+        id: item.Id, 
+        resource: item.Resource, 
+        referenceId: item.ReferenceId, 
+        name: item.Name, 
+        service: item.Service
       });
-  }
 
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Service } from '../service';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-service-list',
@@ -8,12 +9,17 @@ import { Service } from '../service';
 })
 export class ServiceListComponent implements OnInit {
 
-  private service : Service[];
+  @Input('referenceId') referenceId : string = undefined;
 
-  constructor(private route: ActivatedRoute) { }
+  private data : Service[];
+
+  constructor(private route: ActivatedRoute, private service: ServiceService) { }
 
   ngOnInit() {
-    this.service = this.route.snapshot.data['service'];
+    this.data = this.route.snapshot.data['services'];
+
+    if (!this.service) 
+      this.service.get(this.referenceId).toPromise().then(r => this.data = r);
   }
 
 }

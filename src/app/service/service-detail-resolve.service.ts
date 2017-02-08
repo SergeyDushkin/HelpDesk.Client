@@ -10,7 +10,7 @@ export class ServiceDetailResolve implements Resolve<Service> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getById(route.params["service_id"])
+    return this.service.getById(route.params["referenceId"], route.params["id"])
       .toPromise()
       .then(data => data);
   }

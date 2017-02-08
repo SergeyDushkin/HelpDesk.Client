@@ -10,12 +10,14 @@ import { ServiceService } from '../service.service';
 })
 export class ServiceNewComponent implements OnInit {
 
-  private _service : Service;
+  private data : Service;
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: ServiceService) { }
 
   ngOnInit() {
-    this._service = new Service();
+    this.data = new Service();
+    this.data.referenceId = this.route.snapshot.params["referenceId"];
+    this.data.resource = this.route.snapshot.params["resource"];
   }
 
   onClickBack() {
@@ -23,10 +25,10 @@ export class ServiceNewComponent implements OnInit {
   }
 
   onUpdate() {
-    this.service.create(this._service).subscribe(
-      (response) => this.router.navigate(['/services/' + response.id]),
-      (err) => console.log("ServiceService create: error " + err),
-      () => console.log("ServiceService create done"));
+    this.service.create(this.data).subscribe(
+      (response) => this.router.navigate(['/services']),
+      (err) => console.log("ClientService update: error " + err),
+      () => console.log("ClientService update done"));
   }
 
 }

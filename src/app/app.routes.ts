@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: 'settings/smtp', component: SmtpSettingsComponent, canActivate: [AuthenticationGuard] },
 
     { path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },
-    { path: 'services', loadChildren: './service/service.module#ServiceModule' },
+    //{ path: 'services', loadChildren: './service/service.module#ServiceModule' },
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
     { path: 'operators', loadChildren: './service-desk/operators/operator.module#OperatorModule' }, 
     { path: 'work-statuses', loadChildren: './work-status/status.module#WorkStatusModule' }, 

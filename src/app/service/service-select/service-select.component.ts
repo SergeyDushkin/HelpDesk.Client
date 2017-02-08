@@ -9,14 +9,38 @@ import { ServiceService } from '../service.service';
 })
 export class ServiceSelectComponent implements OnChanges, OnInit {
 
-  private data : Service[];
+  private _client : string;
 
   @Output() serviceChange = new EventEmitter();
   @Input('disabled') _disabled : boolean = false;
   @Input('service') _service : Service;
+  @Input('source') _source : Service[];
+
+  get data() {
+    return this._source;
+  }
 
   get disabled() : boolean {
     return this._disabled;
+  }
+
+  @Input('client')
+  get client() {
+    return this._client;
+  }
+
+  set client(val) {
+
+    if (!val) {
+      this._source = new Array<Service>();
+      return;
+    }
+
+    this._client = val;
+    this.serviceService.get(val).toPromise()
+      .then(r => this._source = r)
+      .then(r => r[0])
+      .then(r => this.service = r);
   }
 
   get service() {
@@ -29,12 +53,14 @@ export class ServiceSelectComponent implements OnChanges, OnInit {
   }
 
   onChange(value){
+    //let idx = this._source.findIndex(r => r.id == value);
+    //let val = this._source[idx];
+    //this.service = val;
   }
 
   constructor(private route: ActivatedRoute, private serviceService: ServiceService) { }
 
   ngOnInit() {
-    this.data = this.route.snapshot.data['service'];
   }
 
   ngOnChanges(changes) {
