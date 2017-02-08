@@ -52,15 +52,18 @@ export class PrioritySelectComponent implements OnChanges, OnInit {
 
   ngOnInit() {
     this._source = this.route.snapshot.data['ticket-priority'];
+
+    if (!this._source)
+      this.service.get().toPromise().then(r => this._source = r); 
     
-    if (!this._source) {
-      this.service.get().toPromise().then(r => { 
-        this._source = r; 
-        this.priority = this._source[0];
-      });
-    } else {
-      this.priority = this._source[0];
-    }
+    //if (!this._source) {
+    //  this.service.get().toPromise().then(r => { 
+    //    this._source = r; 
+    //    this.priority = this._source[0];
+    //  });
+    //} else {
+    //  this.priority = this._source[0];
+    //}
 
   }
 
