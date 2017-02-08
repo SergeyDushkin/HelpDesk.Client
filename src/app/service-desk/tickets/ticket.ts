@@ -1,11 +1,11 @@
-import { Client } from '../../clients/client';
-import { User } from '../../users/user';
-import { Address } from '../../address/address';
-import { Status } from './status/status';
-import { Contract } from '../../contracts/contract';
-import { Priority } from './priorities/priority';
-import { Service } from '../../service/service';
-import { Unit } from '../../units/unit';
+import { Client } from '../clients/client';
+import { User } from '../users/user';
+import { Address } from '../address/address';
+import { Status } from '../ticket-status/status';
+import { Contract } from '../contracts/contract';
+import { Priority } from './ticket-priority/priority';
+import { Service } from '../service/service';
+import { Unit } from '../units/unit';
 
 export class Ticket {
     id: string;

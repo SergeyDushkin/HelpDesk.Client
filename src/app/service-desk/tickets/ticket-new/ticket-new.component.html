@@ -11,10 +11,10 @@
                 <!-- general form elements -->
                 <div class="box box-style">              
                     <!-- form start -->
-                    <div class="box-body">
+                    <div class="box-body"> 
                          <div class="form-group">
                             <label for="requestDate">Статус заявки</label>
-                            <app-ticket-status-select [(status)]="ticket.statusId" (change)="onStatusChange($event.target.value)"> </app-ticket-status-select>
+                            <app-ticket-status-select [(status)]="ticket.status" (change)="onStatusChange($event.target.value)"> </app-ticket-status-select>
                         </div>
                         <div class="form-group">
                             <label for="requestDate">Приоритет по заявке</label>
