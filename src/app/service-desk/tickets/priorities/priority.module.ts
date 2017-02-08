@@ -15,6 +15,7 @@ import { PriorityComponent } from './priority.component';
 import { PriorityListComponent } from './priority-list/priority-list.component';
 import { PriorityDetailComponent } from './priority-detail/priority-detail.component';
 import { PriorityNewComponent } from './priority-new/priority-new.component';
+import { PrioritySelectComponent } from './priority-select/priority-select.component';
 
 let declarations = [
     PriorityListComponent,

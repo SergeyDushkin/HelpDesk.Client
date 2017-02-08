@@ -16,6 +16,10 @@
                             <label for="requestDate">Статус заявки</label>
                             <app-ticket-status-select [(status)]="ticket.statusId" (change)="onStatusChange($event.target.value)"> </app-ticket-status-select>
                         </div>
+                        <div class="form-group">
+                            <label for="requestDate">Приоритет по заявке</label>
+                            <app-ticket-priority-select [(priority)]="ticket.priorityId" (change)="onPriorityChange($event.target.value)"> </app-ticket-priority-select>
+                        </div>
                        <div class="form-group">
                             <label for="requestDate">Клиент</label>
                             <app-client-select [(client)]="ticket.clientId" (change)="onClientChange($event.target.value)"></app-client-select>

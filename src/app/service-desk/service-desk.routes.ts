@@ -21,6 +21,8 @@ import { SupplierListResolve } from '../suppliers/supplier-list-resolve.service'
 import { FileListResolve } from '../file/file-list-resolve.service';
 
 import { StatusListResolve } from './tickets/status/status-list-resolve.service';
+import { PriorityListResolve } from './tickets/priorities/priority-list-resolve.service';
+
 
 const routes: Routes = [
   { path: 'service',
@@ -28,7 +30,7 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     children: [
       { path: 'tickets', component: TicketListComponent, resolve: { tickets: TicketListResolve } },
-      { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve, 'ticket-status': StatusListResolve } },
+      { path: 'tickets/create', component: TicketNewComponent, resolve: { clients: ClientListResolve, 'ticket-status': StatusListResolve , 'ticket-priority': PriorityListResolve  } },
       { path: 'tickets/:ticket_id', component: TicketDetailComponent, 
         data : { parent : "ticket_id", referenceKey : "ticket_id" }, 
         resolve: { ticket: TicketDetailResolve, files: FileListResolve } }, //jobs: JobListResolve, 

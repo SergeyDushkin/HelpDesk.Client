@@ -9,12 +9,13 @@ import { FileModule } from '../file/file.module';
 import { ClientModule } from '../clients/client.module';
 import { OperatorModule } from './operators/operator.module';
 import { StatusModule } from './tickets/status/status.module';
+import { PriorityModule } from './tickets/priorities/priority.module';
 import { UserModule } from '../users/user.module';
 import { AddressModule } from '../address/address.module';
 import { WorkModule } from '../work/work.module';
 
 let modules = [
-  FileModule, ClientModule, OperatorModule, StatusModule, UserModule, AddressModule, WorkModule,
+  FileModule, ClientModule, OperatorModule, StatusModule, UserModule, AddressModule, WorkModule, PriorityModule,
 ];
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';
