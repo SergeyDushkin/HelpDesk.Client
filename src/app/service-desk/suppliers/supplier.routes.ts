@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Routes,
          RouterModule } from '@angular/router';
 
-import { AuthenticationGuard } from '../guards/authentication-guard';
-
 import { SupplierComponent } from './supplier.component';
 
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
@@ -16,13 +14,10 @@ import { SupplierDetailResolve } from './supplier-detail-resolve.service';
 const routes: Routes = [
   { path: 'suppliers',
     component: SupplierComponent, 
-    canActivate: [AuthenticationGuard],
     children: [
-      { path: '', component: SupplierListComponent, canActivate: [AuthenticationGuard], resolve: { suppliers: SupplierListResolve } },
-      { path: 'create', component: SupplierNewComponent, canActivate: [AuthenticationGuard] },
-      { path: ':supplier_id', component: SupplierDetailComponent, canActivate: [AuthenticationGuard], resolve: { supplier: SupplierDetailResolve } },  
-
-      //{ path: ':supplier_id/users/', component: UserListComponent, canActivate: [AuthenticationGuard], resolve: { users: UserListResolve } },
+      { path: '', component: SupplierListComponent, resolve: { suppliers: SupplierListResolve } },
+      { path: 'create', component: SupplierNewComponent},
+      { path: ':supplier_id', component: SupplierDetailComponent, resolve: { supplier: SupplierDetailResolve } }
     ]
   }
 ];

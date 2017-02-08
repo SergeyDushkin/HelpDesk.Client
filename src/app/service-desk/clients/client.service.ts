@@ -3,7 +3,7 @@ import { Response } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
 import { Client } from './client';
-import { TicketServiceApiService } from '../services/ticket-service-api.service';
+import { TicketServiceApiService } from '../ticket-service-api.service';
 
 @Injectable()
 export class ClientService {

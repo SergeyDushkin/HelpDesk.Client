@@ -24,13 +24,11 @@ let declarations = [
     StatusSelectComponent,
 ];
 
-import { TicketServiceApiService } from '../../../services/ticket-service-api.service';
 import { StatusService } from './status.service';
 import { StatusListResolve } from './status-list-resolve.service';
 import { StatusDetailResolve } from './status-detail-resolve.service';
 
 let services = [
-  TicketServiceApiService,
   StatusService, StatusListResolve, StatusDetailResolve
 ];
 

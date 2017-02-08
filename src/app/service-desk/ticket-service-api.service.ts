@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { RestApi } from '../services/rest-api.interface';
+import { RestApi } from './rest-api.interface';
 import { ConfigService } from '../services/config.service';
 
 @Injectable()

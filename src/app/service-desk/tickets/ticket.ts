@@ -1,7 +1,7 @@
-import { Client } from '../../clients/client';
-import { User } from '../../users/user';
-import { Address } from '../../address/address';
-import { Status } from './status/status';
+import { Client } from '../clients/client';
+import { User } from '../users/user';
+import { Address } from '../address/address';
+import { Status } from '../ticket-status/status';
 
 export class Ticket {
     id: string;

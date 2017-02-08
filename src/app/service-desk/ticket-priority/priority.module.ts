@@ -22,13 +22,11 @@ let declarations = [
     PriorityNewComponent,
 ];
 
-import { TicketServiceApiService } from '../../../services/ticket-service-api.service';
 import { PriorityService } from './priority.service';
 import { PriorityListResolve } from './priority-list-resolve.service';
 import { PriorityDetailResolve } from './priority-detail-resolve.service';
 
 let services = [
-  TicketServiceApiService,
   PriorityService, PriorityListResolve, PriorityDetailResolve
 ];
 

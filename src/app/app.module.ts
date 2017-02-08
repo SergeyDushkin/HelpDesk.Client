@@ -4,17 +4,10 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 /* Feature Modules */
+import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ServiceDeskModule } from './service-desk/service-desk.module';
-import { OperatorModule } from './service-desk/operators/operator.module';
-import { ClientModule } from './clients/client.module';
-import { SupplierModule } from './suppliers/supplier.module';
-import { ServiceModule } from './service/service.module';
-import { ContractModule } from './contracts/contract.module';
-import { StatusModule as TicketStatusModule } from './service-desk/tickets/status/status.module';
-import { PriorityModule as TicketPriorityModule } from './service-desk/tickets/priorities/priority.module';
 
 let modules = [
   AlertModule,
@@ -25,13 +18,6 @@ let modules = [
   RouterModule,
 
   ServiceDeskModule,
-  OperatorModule,
-  ClientModule,
-  SupplierModule,
-  ServiceModule,
-  ContractModule,
-  TicketStatusModule,
-  TicketPriorityModule,
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
@@ -58,7 +44,6 @@ import { MessagesService } from "./services/messages.service";
 import { ConfigService } from "./services/config.service";
 
 import { BaseApiService } from "./services/base-api.service";
-import { TicketServiceApiService } from "./services/ticket-service-api.service";
 import { RequestService } from "./services/request.service";
 import { SignalRService } from "./services/signalr.service";
 
@@ -75,7 +60,6 @@ let services =  [
   AuthenticationService,
   AuthenticationGuard,
   SettingsService,
-  TicketServiceApiService
 ];
 
 import { LoginComponent } from './pages/login/login.component';
