@@ -14,7 +14,6 @@ let modules = [
 ];
 
 import { ClientRoutingModule } from './client.routes';
-import { ClientComponent } from './client.component';
 
 import { ClientListComponent } from './client-list/client-list.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
@@ -39,14 +38,10 @@ let services = [
   imports: [ CommonModule, FormsModule, ClientRoutingModule, 
     modules 
   ],
-  declarations: [ClientComponent, 
-    declarations
-  ],
+  declarations: [ declarations ],
   providers: [
     ...services
   ],
-  exports: [
-    declarations
-  ]
+  exports: [ declarations ]
 })
 export class ClientModule { }
