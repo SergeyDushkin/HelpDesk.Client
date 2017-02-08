@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from '../client';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-client-select',
@@ -50,11 +51,20 @@ export class ClientSelectComponent implements OnChanges, OnInit {
     //this.client = val;
   }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private service: ClientService) { }
 
   ngOnInit() {
     this._source = this.route.snapshot.data['clients'];
-    this.client = this._source[0];
+
+    if (!this._source) {
+      this.service.get().toPromise().then(r => { 
+        this._source = r; 
+        this.client = this._source[0];
+    });
+    } else {
+      this.client = this._source[0];
+    }
+
     
     //this._source = new Array<Client>(new Client());
 

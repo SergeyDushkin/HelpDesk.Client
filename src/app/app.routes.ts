@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'service', loadChildren: './service-desk/service-desk.module#ServiceDeskModule' },
     { path: 'operators', loadChildren: './service-desk/operators/operator.module#OperatorModule' }, 
     { path: 'work-statuses', loadChildren: './work-status/status.module#WorkStatusModule' }, 
-    { path: 'contracts', loadChildren: './contracts/contract.module#ContractModule' }, 
+    //{ path: 'contracts', loadChildren: './contracts/contract.module#ContractModule' }, 
     { path: 'ticket-statuses', loadChildren: './service-desk/tickets/status/status.module#StatusModule' },    
     { path: 'ticket-priorities', loadChildren: './service-desk/tickets/priorities/priority.module#PriorityModule' },    
 
