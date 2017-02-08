@@ -12,7 +12,6 @@ import { OperatorModule } from './service-desk/operators/operator.module';
 import { ClientModule } from './clients/client.module';
 import { SupplierModule } from './suppliers/supplier.module';
 import { ServiceModule } from './service/service.module';
-import { StatusModule as WorkStatusModule } from './works/status/status.module';
 import { ContractModule } from './contracts/contract.module';
 import { StatusModule as TicketStatusModule } from './service-desk/tickets/status/status.module';
 import { PriorityModule as TicketPriorityModule } from './service-desk/tickets/priorities/priority.module';
@@ -30,7 +29,6 @@ let modules = [
   ClientModule,
   SupplierModule,
   ServiceModule,
-  WorkStatusModule,
   ContractModule,
   TicketStatusModule,
   TicketPriorityModule,

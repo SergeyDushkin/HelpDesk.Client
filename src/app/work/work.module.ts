@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 /* Feature Modules */
-import { SupplierModule } from '../../suppliers/supplier.module';
-import { ClientModule } from '../../clients/client.module';
-import { StatusModule } from '../status/status.module';
+import { SupplierModule } from '../suppliers/supplier.module';
+import { ClientModule } from '../clients/client.module';
+import { WorkStatusModule } from '../work-status/status.module';
 
 let modules = [
-  StatusModule, 
+  WorkStatusModule, 
   SupplierModule,
   ClientModule
 ];
@@ -24,27 +24,21 @@ let declarations = [
     WorkNewComponent,
 ];
 
-import { TicketServiceApiService } from '../../services/ticket-service-api.service';
 import { WorkService } from './work.service';
 import { WorkListResolve } from './work-list-resolve.service';
 import { WorkDetailResolve } from './work-detail-resolve.service';
 
 let services = [
-  TicketServiceApiService,
   WorkService, WorkListResolve, WorkDetailResolve
 ];
 
 @NgModule({
   imports: [ 
     ...modules, CommonModule, FormsModule, RouterModule ],
-  declarations: [
-    declarations
-  ],
+  declarations: [ declarations ],
   providers: [
     ...services
   ],
-  exports: [
-    declarations
-  ]
+  exports: [ declarations ]
 })
 export class WorkModule { }

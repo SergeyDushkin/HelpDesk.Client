@@ -11,7 +11,7 @@ import { OperatorModule } from './operators/operator.module';
 import { StatusModule } from './tickets/status/status.module';
 import { UserModule } from '../users/user.module';
 import { AddressModule } from '../address/address.module';
-import { WorkModule } from '../works/work/work.module';
+import { WorkModule } from '../work/work.module';
 
 let modules = [
   FileModule, ClientModule, OperatorModule, StatusModule, UserModule, AddressModule, WorkModule,

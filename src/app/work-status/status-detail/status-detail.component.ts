@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Status } from '../status';
-import { StatusService } from '../status.service';
+import { WorkStatusService } from '../status.service';
 
 @Component({
   selector: 'app-work-status-detail',
@@ -12,7 +12,7 @@ export class StatusDetailComponent implements OnInit {
 
   private data : Status;
 
-  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: StatusService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: WorkStatusService) { }
 
   ngOnInit() {
     this.data = this.route.snapshot.data['work-status'];

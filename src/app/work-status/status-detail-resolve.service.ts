@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { StatusService } from './status.service';
+import { WorkStatusService } from './status.service';
 import { Status } from './status';
 
 @Injectable()
 export class StatusDetailResolve implements Resolve<Status> {
 
-  constructor(private route: ActivatedRoute, private service : StatusService) { 
+  constructor(private route: ActivatedRoute, private service : WorkStatusService) { 
   }
 
   resolve(route: ActivatedRouteSnapshot) {
