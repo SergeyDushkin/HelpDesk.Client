@@ -54,7 +54,7 @@ export class WorkStatusSelectComponent implements OnChanges, OnInit {
     this._source = this.route.snapshot.data['work-status'];
     
     if (!this._source)
-      this.service.get().toPromise().then(r => this._source = r; 
+      this.service.get().toPromise().then(r => this._source = r); 
   }
 
   ngOnChanges(changes) {

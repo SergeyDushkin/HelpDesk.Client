@@ -40,7 +40,7 @@ export class TicketNewComponent implements OnInit {
   }
 
   onStatusChange(val) {
-    //this.ticket.statusId = val;
+    this.ticket.statusId = this.ticket.status.id;
   }
 
    onPriorityChange(val) {

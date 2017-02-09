@@ -12,9 +12,9 @@
                 <div class="box box-style">              
                     <!-- form start -->
                     <div class="box-body"> 
-                         <div class="form-group">
+                       <div class="form-group">
                             <label for="requestDate">Статус заявки</label>
-                            <app-ticket-status-select [(status)]="ticket.statusId" (change)="onStatusChange($event.target.value)"> </app-ticket-status-select>
+                            <app-ticket-status-select [(status)]="ticket.status" (change)="onStatusChange($event.target.value)"> </app-ticket-status-select>
                         </div>
                         <div class="form-group">
                             <label for="requestDate">Приоритет по заявке</label>
@@ -28,7 +28,7 @@
                             <label for="address">Адрес</label>
                             <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.addressId" (change)="onAddressChange($event.target.value)"></app-address-select>
                         </div>
-                        <div class="form-group">
+                         <div class="form-group">
                             <label for="user">Заявитель</label>
                             <app-user-select [(client)]="ticket.clientId" [(user)]="ticket.applicantId" (change)="onUserChange($event.target.value)"></app-user-select>
                         </div>
@@ -36,6 +36,14 @@
                             <label for="operator">Оператор</label>
                             <app-user-select [(client)]="companyId" [(user)]="ticket.operatorId" (change)="onOperatorChange($event.target.value)"></app-user-select>
                         </div>
+                        <div class="form-group">
+                              <label for="startDate">Дата подачи заявки</label>
+							  <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="ticket.startDate">
+                        </div>
+                        <div class="form-group">
+                              <label for="endDate">Дата закрытия заявки</label>
+							  <input type="datetime-local" class="form-control" name="endDate" [(ngModel)]="ticket.endDate">
+                        </div> 
                         <div class="form-group">
                             <label for="description">Описание</label>
                             <textarea class="form-control" rows="3" [(ngModel)]="ticket.description" name="description" placeholder="Опишите проблему ..." required></textarea>
