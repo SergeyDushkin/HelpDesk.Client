@@ -12,8 +12,7 @@ import { WorkRoutingModule } from './work.routes';
 let modules = [
   WorkStatusModule, 
   SupplierModule,
-  ClientModule,
-  WorkRoutingModule
+  ClientModule
 ];
 
 import { WorkListComponent } from './work-list/work-list.component';
@@ -35,8 +34,8 @@ let services = [
 ];
 
 @NgModule({
-  imports: [ 
-    ...modules, CommonModule, FormsModule, RouterModule ],
+  imports: [ CommonModule, FormsModule, RouterModule, WorkRoutingModule,
+    ...modules ],
   declarations: [ declarations ],
   providers: [
     ...services

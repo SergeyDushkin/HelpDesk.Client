@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Work } from '../work';
+import { Work, CreateWork } from '../work';
 import { WorkService } from '../work.service';
 
 @Component({
@@ -15,7 +15,10 @@ export class WorkNewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: WorkService) { }
 
   ngOnInit() {
-    this.data = new Work();
+    this.data = new Work({
+      referenceId: this.route.snapshot.params["referenceId"],
+      resource: this.route.snapshot.params["resource"]
+    });
   }
 
   onClickBack() {
@@ -23,11 +26,13 @@ export class WorkNewComponent implements OnInit {
   }
 
   onStatusChange(val) {
-    //this.ticket.statusId = val;
+    this.data.statusId = this.data.status.id;
   }
 
   onUpdate() {
-    this.service.create(this.data).subscribe(
+    var create = new CreateWork(this.data);
+
+    this.service.create(create).subscribe(
       (response) => this.router.navigate(['/works']),
       (err) => console.log("WorkService create: error " + err),
       () => console.log("WorkService create done"));

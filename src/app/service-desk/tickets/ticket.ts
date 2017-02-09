@@ -33,6 +33,7 @@ export class Ticket {
     service: Service;
     user: User;
     applicant : User;
+    operator : User;
     businessunit: Unit;
 
     public constructor(data:any = {}) {
@@ -60,6 +61,7 @@ export class Ticket {
         this.status = data.status ? new Status(data.status) : new Status();
         this.service = data.service ? new Service(data.service) : new Service();
         this.user = data.user ? new User(data.user) : new User();
+        this.operator = data.operator ? new User(data.operator) : new User();
         this.applicant = data.applicant ? new User(data.applicant) : new User();
         this.businessunit = data.businessunit ? new Unit(data.businessunit) : new Unit();
     }

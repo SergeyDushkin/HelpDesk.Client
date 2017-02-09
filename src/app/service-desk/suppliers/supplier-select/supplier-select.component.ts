@@ -31,10 +31,13 @@ export class SupplierSelectComponent implements OnChanges, OnInit {
   onChange(value){
   }
 
-  constructor(private route: ActivatedRoute, private supplierService: SupplierService) { }
+  constructor(private route: ActivatedRoute, private service: SupplierService) { }
 
   ngOnInit() {
     this.data = this.route.snapshot.data['suppliers'];
+    
+    if (!this.data)
+      this.service.get().toPromise().then(r => this.data = r); 
   }
 
   ngOnChanges(changes) {
