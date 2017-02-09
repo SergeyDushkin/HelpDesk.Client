@@ -16,8 +16,8 @@ export class WorkService {
     this.resource_url = 'works/';
   }
 
-  get = () : Observable<Work[]> =>
-    this.api.get(this.resource())
+  get = (referenceId: string) : Observable<Work[]> =>
+    this.api.get(this.resource() + `?referenceId=${referenceId}`)
       .map(r => r.json()
       .map(item => this.extractData(item)));
 
