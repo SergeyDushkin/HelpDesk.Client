@@ -22,6 +22,10 @@ export class WorkNewComponent implements OnInit {
     this.location.back();
   }
 
+  onStatusChange(val) {
+    //this.ticket.statusId = val;
+  }
+
   onUpdate() {
     this.service.create(this.data).subscribe(
       (response) => this.router.navigate(['/works']),

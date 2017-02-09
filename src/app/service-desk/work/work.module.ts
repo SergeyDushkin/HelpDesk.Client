@@ -7,11 +7,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { SupplierModule } from '../suppliers/supplier.module';
 import { ClientModule } from '../clients/client.module';
 import { WorkStatusModule } from '../work-status/status.module';
+import { WorkRoutingModule } from './work.routes';
 
 let modules = [
   WorkStatusModule, 
   SupplierModule,
-  ClientModule
+  ClientModule,
+  WorkRoutingModule
 ];
 
 import { WorkListComponent } from './work-list/work-list.component';

@@ -22,8 +22,20 @@
                             <app-user-select [(client)]="data.supplierId" [(user)]="data.workerId"></app-user-select>
                         </div>
                         <div class="form-group">
+                            <label for="user">Дата начала работ</label>
+                            <input type="datetime" name="startDate"  [(ngModel)]="data.startDate" required /> 
+                        </div>
+                        <div class="form-group">
+                            <label for="user">Дата завершения работ</label>
+                            <input type="datetime" name="startDate"  [(ngModel)]="data.startDate" required /> 
+                        </div>
+                        <div class="form-group">
                             <label for="description">Описание</label>
                             <textarea class="form-control" rows="3" [(ngModel)]="data.description" name="description" placeholder="Опишите проблему ..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <app-work-status-select [(status)]="data.statusId" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
                         </div>
                     </div>
                     <!-- /.box-body -->
