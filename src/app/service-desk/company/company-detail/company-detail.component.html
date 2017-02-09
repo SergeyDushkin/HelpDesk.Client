@@ -3,10 +3,14 @@
     <div class="nav-tabs-custom">
         <!-- Tabs within a box -->
         <ul class="nav nav-tabs pull-right">                    
+            <li>   
+                <a href="#persons" data-toggle="tab">Персоны</a>
+            </li>
             <li class="active">
                 <a href="#description" data-toggle="tab">Описание</a>
-            </li>            
-            <li class="pull-left header"><h4>  {{operator.name}} </h4></li>
+            </li>
+            
+            <li class="pull-left header"><h4> {{company.name}}</h4></li>
         </ul>
         <div class="tab-content no-padding">
             <!-- Morris chart - Sales -->            
@@ -18,21 +22,24 @@
                     <!-- form start -->
                     <div class="box-body">
                         <div class="form-group">
-                           <label for="name">Имя</label>
-						   <input type="text" class="form-control" name="name" [(ngModel)]="operator.name">
+                            <label for="name">Имя</label>
+							<input type="text" class="form-control" name="name" [(ngModel)]="company.name">
                         </div>                        
                     </div>
                     <!-- /.box-body -->
                     <hr class="hr-body">
                     <div class="box-footer">
-						<button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
-						<button type="submit" class="btn btn-danger btn-sm btn-flat" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
-
-						<button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
+                        <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
+                        <button type="submit" class="btn btn-danger btn-sm btn-flat" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
                     </div>
                 </div>
                 <!-- /.box -->
             </div>
+            <div class="chart tab-pane chart-style" id="persons">
+                <app-user-list [(referenceId)]="company.id"></app-user-list>    
+            </div>
         </div>
     </div>
 </section><!-- /.content  -->
+

@@ -8,7 +8,6 @@ import { Routes,
 import { FileModule } from '../file/file.module';
 import { ClientModule } from './clients/client.module';
 import { ContractModule } from './contracts/contract.module';
-import { OperatorModule } from './operators/operator.module';
 
 import { StatusModule } from './ticket-status/status.module';
 import { PriorityModule } from './ticket-priority/priority.module';
@@ -17,9 +16,10 @@ import { AddressModule } from './address/address.module';
 import { WorkModule } from './work/work.module';
 import { TicketModule } from './tickets/ticket.module';
 import { ServiceModule } from './service/service.module';
+import { CompanyModule } from './company/company.module';
 
 let modules = [
-  FileModule, ClientModule, ContractModule, OperatorModule, StatusModule, PriorityModule, UserModule, AddressModule, WorkModule, TicketModule, ServiceModule
+  FileModule, ClientModule, ContractModule, StatusModule, PriorityModule, UserModule, AddressModule, WorkModule, TicketModule, ServiceModule, CompanyModule
 ];
 
 import { ServiceDeskRoutingModule } from './service-desk.routes';

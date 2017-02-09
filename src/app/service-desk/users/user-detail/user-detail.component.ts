@@ -22,6 +22,13 @@ export class UserDetailComponent implements OnInit {
     this.location.back();
   }
 
+  onDelete() {
+    this.service.delete(this.user.id).subscribe(
+      (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),
+      (err) => console.log("ClientService delete: error " + err),
+      () => console.log("ClientService delete done"));
+  }
+
   onUpdate() {
     this.service.update(this.user).subscribe(
       (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),

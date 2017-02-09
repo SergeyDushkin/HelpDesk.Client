@@ -34,7 +34,7 @@
                         </div>
                          <div class="form-group">
                             <label for="operator">Оператор</label>
-                            <app-operator-select [(operator)]="ticket.operator" [(operator)]="ticket.operatorId" (change)="onOperatorChange($event.target.value)"></app-operator-select>
+                            <app-user-select [(client)]="companyId" [(user)]="ticket.operatorId" (change)="onOperatorChange($event.target.value)"></app-user-select>
                         </div>
                         <div class="form-group">
                             <label for="description">Описание</label>

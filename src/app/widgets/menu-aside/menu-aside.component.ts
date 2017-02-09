@@ -27,14 +27,14 @@ export class MenuAsideComponent implements OnInit {
   
   private adm_links: Array<any> = [
     {
+      "title": "Моя компания",
+      "icon": "users",
+      "link": ['/company']
+    },
+    {
       "title": "Клиенты",
       "icon": "child",
       "link": ['/clients']
-    },
-    {
-      "title": "Операторы",
-      "icon": "users",
-      "link": ['/operators']
     },
     {
       "title": "Контрагенты",

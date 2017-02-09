@@ -12,7 +12,11 @@ import { UserDetailResolve } from './user-detail-resolve.service';
 const routes: Routes = [
   { path: ':resource/:referenceId/users', component: UserListComponent, resolve: { users: UserListResolve } },
   { path: ':resource/:referenceId/users/create', component: UserNewComponent },
-  { path: ':resource/:referenceId/users/:id', component: UserDetailComponent, resolve: { user: UserDetailResolve } }
+  { path: ':resource/:referenceId/users/:id', component: UserDetailComponent, resolve: { user: UserDetailResolve } },
+
+  { path: ':resource/users', component: UserListComponent, resolve: { users: UserListResolve } },
+  { path: ':resource/users/create', component: UserNewComponent },
+  { path: ':resource/users/:id', component: UserDetailComponent, resolve: { user: UserDetailResolve } }
 ];
 
 @NgModule({

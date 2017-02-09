@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { OperatorService } from './operator.service';
-import { Operator } from './operator';
+import { CompanyService } from './company.service';
+import { Company } from './company';
 
 @Injectable()
-export class OperatorDetailResolve implements Resolve<Operator> {
+export class CompanyDetailResolve implements Resolve<Company> {
 
-  constructor(private route: ActivatedRoute, private service : OperatorService) { 
+  constructor(private route: ActivatedRoute, private service : CompanyService) { 
   }
 
   resolve(route: ActivatedRouteSnapshot) {

@@ -11,6 +11,7 @@ import { TicketService } from '../ticket.service';
 export class TicketNewComponent implements OnInit {
 
   private ticket : Ticket;
+  private companyId : string = "00000000-0000-0000-0000-000000000000";
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: TicketService) { }
 

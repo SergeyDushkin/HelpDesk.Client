@@ -15,9 +15,10 @@ export class UserNewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: UserService) { }
 
   ngOnInit() {
-    this.user = new User();
-    this.user.referenceId = this.route.snapshot.params["referenceId"];
-    this.user.resource = this.route.snapshot.params["resource"];
+    this.user = new User({
+      referenceId: this.route.snapshot.params["referenceId"],
+      resource: this.route.snapshot.params["resource"]
+    });
   }
 
   onClickBack() {

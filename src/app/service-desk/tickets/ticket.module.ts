@@ -10,10 +10,9 @@ import { PriorityModule } from '../ticket-priority/priority.module';
 import { ClientModule } from '../clients/client.module';
 import { AddressModule } from '../address/address.module';
 import { UserModule } from '../users/user.module';
-import { OperatorModule } from '../operators/operator.module';
 
 let modules = [
-  FileModule, WorkModule, StatusModule, ClientModule, AddressModule, PriorityModule, UserModule, OperatorModule
+  FileModule, WorkModule, StatusModule, ClientModule, AddressModule, PriorityModule, UserModule
 ];
 
 import { TicketRoutingModule } from './ticket.routes';
