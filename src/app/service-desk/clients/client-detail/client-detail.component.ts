@@ -10,11 +10,12 @@ import { ClientService } from '../client.service';
 })
 export class ClientDetailComponent implements OnInit {
 
-  private address_length : number = 0;
-  private user_length : number = 0;
-  private unit_length : number = 0;
+  private address_length: number = 0;
+  private user_length: number = 0;
+  private unit_length: number = 0;
+  private contract_length: number = 0;
 
-  private client : Client;
+  private client: Client;
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: ClientService) { }
 

@@ -10,7 +10,7 @@ export class ContractDetailResolve implements Resolve<Contract> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.getById(route.params["referenceId"], route.params["contract_id"])
+    return this.service.getById(route.params["referenceId"], route.params["id"])
       .toPromise()
       .then(data => data);
   }

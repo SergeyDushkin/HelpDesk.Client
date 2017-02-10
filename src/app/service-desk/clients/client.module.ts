@@ -8,9 +8,10 @@ import { Routes,
 import { UserModule } from '../users/user.module';
 import { AddressModule } from '../address/address.module';
 import { UnitModule } from '../units/unit.module';
+import { ContractModule } from '../contracts/contract.module';
 
 let modules = [
-  UserModule, AddressModule, UnitModule
+  UserModule, AddressModule, UnitModule, ContractModule
 ];
 
 import { ClientRoutingModule } from './client.routes';

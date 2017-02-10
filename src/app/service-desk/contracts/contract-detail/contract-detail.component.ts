@@ -23,17 +23,15 @@ export class ContractDetailComponent implements OnInit {
   }
 
   onDelete() {
-    this.service.delete(this.data.id).subscribe(
-      (response) => this.router.navigate(['/contracts']),
-      (err) => console.log("ContractService delete: error " + err),
-      () => console.log("ContractService delete done"));
+    this.service.delete(this.data.id).toPromise()
+      .then(r => 'Contract was deleted')
+      .then(() => this.location.back());
   }
 
   onUpdate() {
-    this.service.update(this.data).subscribe(
-      (response) => this.router.navigate(['/contracts']),
-      (err) => console.log("ContractService update: error " + err),
-      () => console.log("ContractService update done"));
+    this.service.update(this.data).toPromise()
+      .then(r => 'Contract was updated')
+      .then(() => this.location.back());
   }
 
 }

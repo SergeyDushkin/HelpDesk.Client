@@ -15,23 +15,21 @@ export class ContractNewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: ContractService) { }
 
   ngOnInit() {
-    this.data = new Contract();
+    this.data = new Contract({
+      clientId: this.route.snapshot.params["referenceId"],
+      referenceId: this.route.snapshot.params["referenceId"],
+      resource: this.route.snapshot.params["resource"]
+    });
   }
 
   onClickBack() {
     this.location.back();
   }
-  
-  onClientChange(val) {
-    this.data.clientId = this.data.client.id;
-    this.data.referenceId = this.data.client.id;
-  }
 
   onUpdate() {
-    this.service.create(this.data).subscribe(
-      (response) => this.router.navigate(['/contracts']),
-      (err) => console.log("ContractService create: error " + err),
-      () => console.log("ContractService create done"));
+    this.service.create(this.data).toPromise()
+      .then(r => 'Contract was created')
+      .then(() => this.location.back());
   }
 
 }

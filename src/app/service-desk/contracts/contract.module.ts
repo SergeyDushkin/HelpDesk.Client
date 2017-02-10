@@ -4,10 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 /* Feature Modules */
-import { ClientModule } from '../clients/client.module';
-
 let modules = [
-  ClientModule
 ];
 
 import { ContractRoutingModule } from './contract.routes';
@@ -36,9 +33,7 @@ let services = [
   imports: [ 
     ...modules, CommonModule, FormsModule, ContractRoutingModule ],
   declarations: [ declarations ],
-  providers: [
-    ...services
-  ],
+  providers: [ ...services ],
   exports: [ declarations ]
 })
 export class ContractModule { }

@@ -29,10 +29,6 @@
                               <label for="name">Дата дата завершения</label>
 							  <input type="date" class="form-control" name="endDate" [(ngModel)]="data.endDate">
                         </div>
-                        <div class="form-group">
-                            <label for="client">Клиент</label>
-                            <app-client-select [(client)]="data.client" (change)="onClientChange($event.target.value)"></app-client-select>
-                        </div>
                     </div>
                     <!-- /.box-body -->
                     <hr class="hr-body">
