@@ -3,9 +3,9 @@
     <div class="nav-tabs-custom">
         <!-- Tabs within a box -->
         <ul class="nav nav-tabs pull-right">
-            <li><a [routerLink]="['/clients', client.id]" fragment="address" data-toggle="tab">Адреса <small *ngIf="address_length > 0"><span class="label label-success" [innerHTML]="address_length"></span></small></a></li>
-            <li><a [routerLink]="['/clients', client.id]" fragment="persons" data-toggle="tab">Персоны <small *ngIf="user_length > 0"><span class="label label-success" [innerHTML]="user_length"></span></small></a></li>
-            <li><a [routerLink]="['/clients', client.id]" fragment="units" data-toggle="tab">Орг. структура <small *ngIf="unit_length > 0"><span class="label label-success" [innerHTML]="unit_length"></span></small></a></li>
+            <li><a [routerLink]="['/clients', client.id]" fragment="address" class="tab" data-toggle="tab">Адреса <span *ngIf="address_length > 0" class="badge bg-red" [innerHTML]="address_length"></span></a></li>
+            <li><a [routerLink]="['/clients', client.id]" fragment="persons" class="tab" data-toggle="tab">Персоны <span *ngIf="user_length > 0" class="badge bg-red" [innerHTML]="user_length"></span></a></li>
+            <li><a [routerLink]="['/clients', client.id]" fragment="units" class="tab" data-toggle="tab">Орг. структура <span *ngIf="unit_length > 0" class="badge bg-red" [innerHTML]="unit_length"></span></a></li>
             <li class="active"><a [routerLink]="['/clients', client.id]" fragment="description" data-toggle="tab">Клиенты</a></li>
             <li class="pull-left header"><h4> {{client.name}}</h4></li>
         </ul>
@@ -33,7 +33,7 @@
                 <!-- /.box -->
             </div>
             <div class="chart tab-pane chart-style" id="address">
-                 <app-address-list [(referenceId)]="client.id"></app-address-list>
+                 <app-address-list [(referenceId)]="client.id" [(count)]="address_length" (change)="onAddressListChange($event.target.value)"></app-address-list>
             </div>
 
             <div class="chart tab-pane chart-style" id="persons" >
@@ -41,7 +41,7 @@
             </div>
 
             <div class="chart tab-pane chart-style" id="units" >
-               <app-unit-list [(referenceId)]="client.id"></app-unit-list>              
+               <app-unit-list [(referenceId)]="client.id" [(count)]="unit_length" (change)="onUnitListChange($event.target.value)"></app-unit-list>              
             </div>
         </div>
     </div>
