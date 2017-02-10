@@ -37,7 +37,17 @@ export class WorkService {
 
   extractData = (item : any) : Work =>
     new Work({ 
-        id: item.Id, 
-        name: item.Name
+        resource: item.Resource, 
+        referenceId: item.ReferenceId,
+        id: item.Id,
+        supplier: item.Supplier,
+        worker: item.Worker,
+        status: item.Status,
+        supplierId: item.SupplierId,
+        workerId: item.WorkerId,
+        statusId: item.StatusId,
+        startDate: item.StartDate,
+        endDate: item.EndDate,
+        description: item.Description
       });
 }

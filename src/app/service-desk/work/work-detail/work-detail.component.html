@@ -10,7 +10,6 @@
         </ul>
         <div class="tab-content no-padding">
             <!-- Morris chart - Sales -->            
-            <div class="chart tab-pane active chart-style" id="description">
                 <hr class="hr-header">
                 <!-- general form elements -->
                 <div class="box box-style">
@@ -18,21 +17,39 @@
                     <!-- form start -->
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="name">Имя</label>
-                            <input type="text" class="form-control" name="name" [(ngModel)]="data.name">
+                            <label for="supplierId">Сервисная компания</label>
+                            <app-supplier-select [(supplier)]="data.supplierId"></app-supplier-select>
                         </div>
+                        <div class="form-group">
+                            <label for="workerId">Исполнитель</label>
+                            <app-user-select [(client)]="data.supplierId" [(user)]="data.workerId"></app-user-select>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Дата начала работ</label>
+                            <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="data.startDate" required /> 
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">Дата завершения работ</label>
+                            <input type="datetime-local" class="form-control" name="endDate"  [(ngModel)]="data.endDate" required /> 
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea class="form-control" rows="3" [(ngModel)]="data.description" name="description" placeholder="Опишите проблему ..." required></textarea>
+                        </div> 
+                        <div class="form-group">
+                            <label for="statusId">Статус</label>
+                            <app-work-status-select [(status)]="data.status" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
+                        </div><!---->
                     </div>
                     <!-- /.box-body -->
                     <hr class="hr-body">
                     <div class="box-footer">
                         <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
-                        <button type="submit" class="btn btn-danger btn-sm btn-flat" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
-                        <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
-                    </div>
+                        <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Создать</button>
+                      </div>
                 </div>
                 <!-- /.box -->
-            </div>
-        </div>
+            </div> 
     </div>
 </section><!-- /.content  -->
 

@@ -32,10 +32,9 @@ export class WorkNewComponent implements OnInit {
   onUpdate() {
     var create = new CreateWork(this.data);
 
-    this.service.create(create).subscribe(
-      (response) => this.router.navigate(['/works']),
-      (err) => console.log("WorkService create: error " + err),
-      () => console.log("WorkService create done"));
+    this.service.create(create).toPromise()
+      .then(r => 'Work was created')
+      .then(() => this.location.back());
   }
 
 }

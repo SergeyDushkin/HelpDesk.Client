@@ -23,17 +23,15 @@ export class WorkDetailComponent implements OnInit {
   }
 
   onDelete() {
-    this.service.delete(this.data.id).subscribe(
-      (response) => this.router.navigate(['/work-workes']),
-      (err) => console.log("WorkWorkService delete: error " + err),
-      () => console.log("WorkWorkService delete done"));
+    this.service.delete(this.data.id).toPromise()
+      .then(r => 'Work was deleted')
+      .then(() => this.location.back());
   }
 
   onUpdate() {
-    this.service.update(this.data).subscribe(
-      (response) => this.router.navigate(['/work-workes']),
-      (err) => console.log("WorkWorkService update: error " + err),
-      () => console.log("WorkWorkService update done"));
+    this.service.update(this.data).toPromise()
+      .then(r => 'Work was updated')
+      .then(() => this.location.back());
   }
 
 }
