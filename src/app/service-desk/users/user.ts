@@ -20,4 +20,6 @@ export class User {
     }
 
     public getName = () => `${this.lastName} ${this.firstName} ${this.middleName}`;
+    public getShortName = () => `${this.lastName} ${this.firstName.substring(0,1)} ${this.middleName.substring(0,1)}`;
 }
+

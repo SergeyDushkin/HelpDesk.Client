@@ -16,4 +16,5 @@ export class User{
   public getName(){
     return this.firstname+" "+this.lastname;
   }
+
 }

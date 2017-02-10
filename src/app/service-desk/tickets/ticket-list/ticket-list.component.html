@@ -27,9 +27,9 @@
                     <td>{{ticket.ticketNumber}}</td>
                     <td>{{ticket.client.name}}</td>
                     <td>{{ticket.address.name}}</td>
-                    <td>{{ticket.user.name}}</td>
+                    <td>{{ticket.applicant.getShortName()}}</td>
                     <td>{{ticket.description}}</td>
-                    <td>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+                    <td>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>
                 </tr>
             </table>
         </div>

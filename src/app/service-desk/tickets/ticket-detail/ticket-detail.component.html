@@ -26,8 +26,12 @@
                     <!-- form start -->
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="requestDate">Клиент</label>
+                            <label for="client">Клиент</label>
                             <span>{{ticket.client.name}}</span>
+                        </div>
+                         <div class="form-group">
+                            <label for="contract">Договор на оказание услуг №</label>
+                            <span>{{ticket.contract.number}}</span>
                         </div>
                         <div class="form-group">
                             <label for="address">Адрес</label>
@@ -38,17 +42,21 @@
                             <span>{{ticket.applicant.getName()}}</span>
                         </div>
                         <div class="form-group">
-                            <label for="requestDate">Дата подачи заявки</label>
+                            <label for="operator">Оператор</label>
+                            <span>{{ticket.operator.getName()}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Дата подачи заявки</label>
                             <span>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</span>
                         </div>
                         <div class="form-group">
                             <label for="createdAt">Дата заведения заявки</label>
                             <span>{{ticket.createdAt | date: 'dd.MM.yyyy HH:mm'}}</span>
-                        </div>
+                        </div>  
                         <div class="form-group">
-                            <label for="operator">Оператор</label>
-                            <span>{{ticket.operator.getName()}}</span>
-                        </div>
+                            <label for="endDate">Дата закрытия заявки</label>
+                            <span>{{ticket.endDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+                        </div>                        
                         <div class="form-group">
                             <label for="status">Статус заявки</label>
                             <span>{{ticket.status.name}}</span>
