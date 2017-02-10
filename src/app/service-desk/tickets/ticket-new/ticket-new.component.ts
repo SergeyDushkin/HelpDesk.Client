@@ -26,7 +26,7 @@ export class TicketNewComponent implements OnInit {
   }
 
   onClientChange(val) {
-    //this.ticket.clientId = val;
+    this.ticket.clientId = this.ticket.client.id;
   }
 
   onUserChange(val) {

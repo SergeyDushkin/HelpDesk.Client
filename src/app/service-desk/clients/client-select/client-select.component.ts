@@ -46,9 +46,6 @@ export class ClientSelectComponent implements OnChanges, OnInit {
   }
 
   onChange(value){
-    //let idx = this._source.findIndex(r => r.id == value);
-    //let val = this._source[idx];
-    //this.client = val;
   }
 
   constructor(private route: ActivatedRoute, private service: ClientService) { }
@@ -56,22 +53,8 @@ export class ClientSelectComponent implements OnChanges, OnInit {
   ngOnInit() {
     this._source = this.route.snapshot.data['clients'];
 
-    if (!this._source) {
-      this.service.get().toPromise().then(r => { 
-        this._source = r; 
-        this.client = this._source[0];
-    });
-    } else {
-      this.client = this._source[0];
-    }
-
-    
-    //this._source = new Array<Client>(new Client());
-
-    //let clients: Client[] = this.route.snapshot.data['clients'];
-    //clients.forEach(r => this._source.push(r));
-
-    //this.client = this._source[0];
+    if (!this._source)
+      this.service.get().toPromise().then(r => this._source = r);
   }
 
   ngOnChanges(changes) {
