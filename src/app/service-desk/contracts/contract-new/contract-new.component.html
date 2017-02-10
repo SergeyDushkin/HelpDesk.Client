@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                               <label for="name">Дата</label>
-							  <input type="date" class="form-control" name="date" [(ngModel)]="data.date">
+							  <input type="date" class="form-control" name="date" [(ngModel)]="contractDate">
                         </div>
                         <div class="form-group">
                               <label for="name">Дата начала</label>
@@ -33,8 +33,8 @@
                     <!-- /.box-body -->
                     <hr class="hr-body">
                     <div class="box-footer">
-					            <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
-						          <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Создать</button>
+                        <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Создать</button>
                       </div>
                 </div>
                 <!-- /.box -->
