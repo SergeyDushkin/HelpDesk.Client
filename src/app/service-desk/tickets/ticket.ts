@@ -54,7 +54,7 @@ export class Ticket {
         this.userId = data.userId || "";
         this.applicantId = data.applicantId || undefined;
         
-        this.client = data.client ? new Client(data.client) : new Address();
+        this.client = data.client ? new Client(data.client) : new Client();
         this.address = data.address ? new Address(data.address) : new Address();
         this.contract = data.contract ? new Contract(data.contract) : new Contract();
         this.priority = data.priority ? new Priority(data.priority) : new Priority();
