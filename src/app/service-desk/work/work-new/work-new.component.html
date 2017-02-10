@@ -15,7 +15,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="supplierId">Сервисная компания</label>
-                            <app-supplier-select [(supplier)]="data.supplierId"></app-supplier-select>
+                            <app-supplier-select [(supplier)]="data.supplier" (change)="onSupplierChange($event.target.value)"></app-supplier-select>
                         </div>
                         <div class="form-group">
                             <label for="workerId">Исполнитель</label>

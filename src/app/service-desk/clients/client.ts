@@ -3,7 +3,7 @@ export class Client {
     public name : string;
 
     public constructor(data:any = {}) {
-        this.id = data.id || "";
+        this.id = data.id || undefined;
         this.name = data.name || "";
     }
 }

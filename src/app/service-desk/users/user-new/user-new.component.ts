@@ -26,10 +26,9 @@ export class UserNewComponent implements OnInit {
   }
 
   onUpdate() {
-    this.service.create(this.user).subscribe(
-      (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),
-      (err) => console.log("ClientService update: error " + err),
-      () => console.log("ClientService update done"));
+    this.service.create(this.user).toPromise()
+      .then(r => 'User was created')
+      .then(() => this.location.back());
   }
 
 }

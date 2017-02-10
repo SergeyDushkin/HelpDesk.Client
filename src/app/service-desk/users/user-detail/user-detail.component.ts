@@ -23,17 +23,15 @@ export class UserDetailComponent implements OnInit {
   }
 
   onDelete() {
-    this.service.delete(this.user.id).subscribe(
-      (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),
-      (err) => console.log("ClientService delete: error " + err),
-      () => console.log("ClientService delete done"));
+    this.service.delete(this.user.id).toPromise()
+      .then(r => 'User was deleted')
+      .then(() => this.location.back());
   }
 
   onUpdate() {
-    this.service.update(this.user).subscribe(
-      (response) => this.router.navigate(['/' + this.user.resource + '/' + this.user.referenceId]),
-      (err) => console.log("ClientService update: error " + err),
-      () => console.log("ClientService update done"));
+    this.service.update(this.user).toPromise()
+      .then(r => 'User was updated')
+      .then(() => this.location.back());
   }
 
 }

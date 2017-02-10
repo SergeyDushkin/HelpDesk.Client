@@ -25,6 +25,10 @@ export class WorkNewComponent implements OnInit {
     this.location.back();
   }
 
+  onSupplierChange(val) {
+    this.data.supplierId = this.data.supplier.id;
+  }
+  
   onStatusChange(val) {
     this.data.statusId = this.data.status.id;
   }
