@@ -39,6 +39,11 @@ export class MenuAsideComponent implements OnInit {
       "title": "Контрагенты",
       "icon": "truck ",
       "link": ['/suppliers']
+    },
+    {
+      "title": "Настройки",
+      "icon": "truck ",
+      "link": ['/settings/smtp']
     }
   ];
   

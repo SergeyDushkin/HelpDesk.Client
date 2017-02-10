@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Создание заявки
+   Настройки SMTP
     <small></small>
   </h1>
 </section>
@@ -9,29 +9,29 @@
 <!-- Main content -->
 <section class="content">
 
-  <!-- general form elements disabled -->
-  <div class="box box-warning">
-
-    <div class="box-body">
-      <form role="form">
-
-        <app-store-select name="storeId" (onStoreSelect)="onSelect($event)" required></app-store-select>
-
-        <!-- textarea -->
+  <!-- general form elements -->
+  <div class="box box-primary">
+    <!-- form start -->
+    <form role="form">
+      <div class="box-body">
         <div class="form-group">
-          <label>Описание</label>
-          <textarea class="form-control" rows="3" [(ngModel)]="comments" name="comments" placeholder="Опишите проблему ..." required></textarea>
+          <label for="name">Сервер</label>
+          <input type="text" class="form-control" name="server" [(ngModel)]="SmtpSettings.server">
         </div>
+        <div class="form-group">
+          <label for="name">Порт</label>
+          <input type="text" class="form-control" name="port" [(ngModel)]="SmtpSettings.port">
+        </div>
+      </div>
 
-      </form>
-    </div>
-    <!-- /.box-body -->
+      <!-- /.box-body -->
 
-    <div class="box-footer">
-      <button type="submit" class="btn btn-default" (click)="onClickBack()">Отмена</button>
-      <button type="submit" class="btn btn-info pull-right" (click)="onSave()">Подать заявку</button>
-    </div>
-    <!-- /.box-footer -->
+      <div class="box-footer">
+        <button type="submit" class="btn btn-default" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
+        
+        <button type="submit" class="btn btn-info pull-right" (click)="onUpdate()"><i class="glyphicon glyphicon-save"></i> Сохранить</button>
+      </div>
+    </form>
   </div>
   <!-- /.box -->
 

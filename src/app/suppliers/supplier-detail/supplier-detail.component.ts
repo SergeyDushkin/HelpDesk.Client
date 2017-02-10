@@ -20,7 +20,7 @@ export class SupplierDetailComponent implements OnInit {
 
   onClickBack() {
     this.location.back();
-  }
+  }
 
   onDelete() {
     this.service.delete(this.supplier.id).subscribe(

@@ -22,4 +22,7 @@ export class SmtpSettingsComponent implements OnInit {
     
   }
 
+  onClickBack() {
+    this.location.back();
+  }
 }
