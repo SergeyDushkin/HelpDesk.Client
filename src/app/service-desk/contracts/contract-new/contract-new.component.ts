@@ -22,6 +22,11 @@ export class ContractNewComponent implements OnInit {
     this.location.back();
   }
 
+    onClientChange(val) {
+    this.data.clientId = val;
+     this.data.referenceId = val;
+   }
+
   onUpdate() {
     this.service.create(this.data).subscribe(
       (response) => this.router.navigate(['/contracts']),

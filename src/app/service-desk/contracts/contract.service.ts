@@ -16,13 +16,13 @@ export class ContractService {
     this.resource_url = 'contracts/';
   }
 
-  get = () : Observable<Contract[]> =>
-    this.api.get(this.resource())
+  get = (referenceId: string) : Observable<Contract[]> =>
+    this.api.get(this.resource() + `?referenceId=${referenceId}`)
       .map(r => r.json()
       .map(item => this.extractData(item)));
 
-  getById = (id : string) : Observable<Contract> =>
-    this.api.get(this.resource(id))
+  getById = (referenceId: string, id : string) : Observable<Contract> =>
+    this.api.get(this.resource(id) + `?referenceId=${referenceId}`)
       .map(r => r.json())
       .map(item => this.extractData(item));
 

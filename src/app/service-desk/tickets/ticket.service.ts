@@ -53,6 +53,7 @@ export class TicketService {
         priorityId : item.priorityId,
         statusId : item.statusId,
         userId: item.userId,
+        contractId: item.contractId,
         description: item.description,
         requestDate: item.requestDate,
         completeDate: item.completeDate,
@@ -62,6 +63,7 @@ export class TicketService {
         applicantId: item.applicantId,
         operatorId: item.operatorId,
 
+        contract: item.contract,
         operator: item.operator,
         priority: item.priority,
         status: item.status,

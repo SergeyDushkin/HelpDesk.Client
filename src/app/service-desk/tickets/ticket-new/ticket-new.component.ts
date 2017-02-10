@@ -13,10 +13,12 @@ export class TicketNewComponent implements OnInit {
   private ticket : Ticket;
   private companyId : string = "00000000-0000-0000-0000-000000000000";
 
-  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: TicketService) { }
+
+  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: TicketService) {       }
 
   ngOnInit() {
     this.ticket = new Ticket();
+    this.ticket.startDate = new Date();
   }
 
   onClickBack() {
@@ -39,8 +41,13 @@ export class TicketNewComponent implements OnInit {
     //this.ticket.addressId = val.id;
   }
 
+  onContractChange(val) {
+    this.ticket.contractId = this.ticket.contract.id;
+  }
+
+
   onStatusChange(val) {
-    this.ticket.statusId = this.ticket.status.id;
+    //this.ticket.statusId = this.ticket.status.id;
   }
 
    onPriorityChange(val) {

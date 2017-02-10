@@ -14,12 +14,14 @@ import { ContractRoutingModule } from './contract.routes';
 
 import { ContractListComponent } from './contract-list/contract-list.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { ContractSelectComponent } from './contract-select/contract-select.component';
 import { ContractNewComponent } from './contract-new/contract-new.component';
 
 let declarations = [
     ContractListComponent,
     ContractDetailComponent,
     ContractNewComponent,
+    ContractSelectComponent,
 ];
 
 import { ContractService } from './contract.service';

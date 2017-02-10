@@ -10,7 +10,7 @@ export class ContractListResolve implements Resolve<Contract[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.service.get()
+    return this.service.get(route.params["referenceId"])
       .toPromise()
       .then(data => data);
   }

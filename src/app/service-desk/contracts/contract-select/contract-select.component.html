@@ -1,0 +1,9 @@
+<div class="input-group">
+  <select class="form-control" [disabled]="disabled" [(ngModel)]="contract" (change)="onChange($event.target.value)">
+    <option *ngFor="let item of data" [ngValue]="item">{{item.number}}</option>
+  </select>
+  <span class="input-group-btn">
+    <a *ngIf="contract" class="btn btn-flat" routerLink="/contract/{{contract.id}}"><i class="fa fa-sliders"></i></a>
+    <a class="btn btn-flat" routerLink="/contract/create"><i class="fa fa-plus-circle"></i></a>
+  </span>
+</div>

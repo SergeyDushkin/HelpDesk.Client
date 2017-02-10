@@ -13,17 +13,21 @@
                     <!-- form start -->
                     <div class="box-body"> 
                        <div class="form-group">
-                            <label for="requestDate">Статус заявки</label>
+                            <label for="status">Статус заявки</label>
                             <app-ticket-status-select [(status)]="ticket.status" (change)="onStatusChange($event.target.value)"> </app-ticket-status-select>
                         </div>
                         <div class="form-group">
-                            <label for="requestDate">Приоритет по заявке</label>
+                            <label for="priority">Приоритет по заявке</label>
                             <app-ticket-priority-select [(priority)]="ticket.priority" (change)="onPriorityChange($event.target.value)"> </app-ticket-priority-select>
                         </div>
                        <div class="form-group">
-                            <label for="requestDate">Клиент</label>
+                            <label for="client">Клиент</label>
                             <app-client-select [(client)]="ticket.clientId" (change)="onClientChange($event.target.value)"></app-client-select>
                         </div>
+                       <div class="form-group">
+                            <label for="contract">Договор на оказание услуг</label>
+                            <app-contract-select [(client)]="ticket.clientId"  [(contract)]="ticket.contract" (change)="onContractChange($event.target.value)"></app-contract-select>
+                        </div> 
                         <div class="form-group">
                             <label for="address">Адрес</label>
                             <app-address-select [(client)]="ticket.clientId" [(address)]="ticket.addressId" (change)="onAddressChange($event.target.value)"></app-address-select>

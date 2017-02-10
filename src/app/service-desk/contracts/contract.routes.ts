@@ -6,6 +6,7 @@ import { Routes,
 import { ContractListComponent } from './contract-list/contract-list.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
 import { ContractNewComponent } from './contract-new/contract-new.component';
+import { ContractSelectComponent } from './contract-select/contract-select.component';
 import { ContractListResolve } from './contract-list-resolve.service';
 import { ContractDetailResolve } from './contract-detail-resolve.service';
 
