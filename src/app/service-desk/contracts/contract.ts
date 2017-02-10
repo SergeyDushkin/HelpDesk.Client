@@ -1,3 +1,5 @@
+import { Client } from '../clients/client';
+
 export class Contract {
     public resource : string;
     public referenceId : string;
@@ -7,7 +9,7 @@ export class Contract {
     public date : Date;
     public startDate : Date;
     public endDate  : Date;
-    public client  : any;
+    public client  : Client;
     public clientId  : string;
 
     public constructor(data:any = {}) {
@@ -19,7 +21,7 @@ export class Contract {
         this.date = new Date(data.date) || undefined;
         this.startDate = new Date(data.startDate) || undefined;
         this.endDate = new Date(data.endDate) || undefined;
-        this.client = data.client || undefined;
+        this.client = data.client || new Client();
         this.clientId = data.clientId || undefined;
     }
 }

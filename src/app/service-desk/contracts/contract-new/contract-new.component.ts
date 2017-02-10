@@ -21,11 +21,11 @@ export class ContractNewComponent implements OnInit {
   onClickBack() {
     this.location.back();
   }
-
-    onClientChange(val) {
-    this.data.clientId = val;
-     this.data.referenceId = val;
-   }
+  
+  onClientChange(val) {
+    this.data.clientId = this.data.client.id;
+    this.data.referenceId = this.data.client.id;
+  }
 
   onUpdate() {
     this.service.create(this.data).subscribe(
