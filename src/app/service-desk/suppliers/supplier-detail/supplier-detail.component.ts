@@ -23,17 +23,14 @@ export class SupplierDetailComponent implements OnInit {
   }
 
   onDelete() {
-    this.service.delete(this.supplier.id).subscribe(
-      (response) => this.router.navigate(['/suppliers']),
-      (err) => console.log("SupplierService delete: error " + err),
-      () => console.log("SupplierService delete done"));
+    this.service.delete(this.supplier.id).toPromise()
+      .then(r => console.log("SupplierService delete done"))
+      .then(() => this.router.navigate(['/suppliers']));
   }
 
   onUpdate() {
-    this.service.update(this.supplier).subscribe(
-      (response) => this.router.navigate(['/suppliers']),
-      (err) => console.log("SupplierService update: error " + err),
-      () => console.log("SupplierService update done"));
+    this.service.update(this.supplier).toPromise()
+      .then(r => console.log("SupplierService suppliers done"))
+      .then(() => this.router.navigate(['/suppliers']));
   }
-
 }
