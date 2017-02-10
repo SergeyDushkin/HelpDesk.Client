@@ -2,7 +2,7 @@
 <aside class="main-sidebar">
 
   <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">
+  <section class="sidebar" *ngIf="current_user">
 
     <!-- search form (Optional) -->
     <form action="#" method="get" class="sidebar-form">
@@ -16,7 +16,7 @@
     <!-- /.search form -->
 
     <!-- Sidebar Menu -->
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu" >
 
       <!-- 
       <li class="header">Меню клиента</li>
@@ -33,9 +33,9 @@
       </template>
       <!-- Optionally, you can add icons to the links -->
 
-      <li class="header">Сервис</li>
+      <li class="header"  >Сервис</li>
       <template ngFor let-item [ngForOf]="service_links" >
-        <template [ngIf]="!item.sublinks">
+        <template [ngIf]="!item.sublinks"  >
           <li [class.active]="item.link[0] === current_url" >
             <a [routerLink]="item.link">
               <i class="fa fa-{{item.icon}}"></i>

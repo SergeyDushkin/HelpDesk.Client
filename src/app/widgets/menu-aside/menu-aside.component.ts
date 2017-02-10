@@ -3,6 +3,7 @@ import {User} from "../../models/user";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 
+
 @Component({
   selector: 'menu-aside',
   templateUrl: './menu-aside.component.html'
@@ -26,14 +27,14 @@ export class MenuAsideComponent implements OnInit {
   
   private adm_links: Array<any> = [
     {
+      "title": "Моя компания",
+      "icon": "users",
+      "link": ['/company']
+    },
+    {
       "title": "Клиенты",
       "icon": "child",
       "link": ['/clients']
-    },
-    {
-      "title": "Операторы",
-      "icon": "users",
-      "link": ['/operators']
     },
     {
       "title": "Контрагенты",
@@ -51,15 +52,35 @@ export class MenuAsideComponent implements OnInit {
     {
       "title": "Заявки",
       "icon": "table",
-      "link": ['/service/tickets']
+      "link": ['/tickets']
     }
   ];
 
     private directory_links: Array<any> = [
     {
+      "title": "Список договоров",
+      "icon": "cube",
+      "link": ['/contracts']
+    },
+    {
       "title": "Услуги",
       "icon": "cube",
       "link": ['/services']
+    },
+    {
+      "title": "Статусы работ",
+      "icon": "cube",
+      "link": ['/work-statuses']
+    },
+    {
+      "title": "Статусы заявок",
+      "icon": "cube",
+      "link": ['/ticket-statuses']
+    },
+    {
+      "title": "Приоритеты заявок",
+      "icon": "cube",
+      "link": ['/ticket-priorities']
     }
   ];
 

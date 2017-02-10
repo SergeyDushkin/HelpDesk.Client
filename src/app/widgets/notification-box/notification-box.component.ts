@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from "../../models/message";
-import { MessagesService } from "../../services/messages.service"
+import { MessagesService } from "../../services/messages.service";
+import { User } from "../../models/user";
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: '.notificationsBox',
@@ -9,9 +11,11 @@ import { MessagesService } from "../../services/messages.service"
 export class NotificationBoxComponent implements OnInit {
 
   private messages: Message[];
+  current_user: User;
 
-  constructor( private _msg_serv:MessagesService ){
+  constructor( private _user_serv : UserService, private _msg_serv:MessagesService ){
     this.messages = [];
+    this._user_serv.current_user.subscribe((user: User) => this.current_user = user);
   }
 
   public ngOnInit() {

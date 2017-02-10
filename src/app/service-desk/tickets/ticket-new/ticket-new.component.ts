@@ -11,6 +11,7 @@ import { TicketService } from '../ticket.service';
 export class TicketNewComponent implements OnInit {
 
   private ticket : Ticket;
+  private companyId : string = "00000000-0000-0000-0000-000000000000";
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: TicketService) { }
 
@@ -27,16 +28,30 @@ export class TicketNewComponent implements OnInit {
   }
 
   onUserChange(val) {
-    //this.ticket.userId = val.id;
+    //this.ticket.applicantId = val;
+  }
+
+  onOperatorChange(val) {
+    //this.ticket.operatorId = val;
   }
 
   onAddressChange(val) {
     //this.ticket.addressId = val.id;
   }
 
+  onStatusChange(val) {
+    this.ticket.statusId = this.ticket.status.id;
+  }
+
+   onPriorityChange(val) {
+    this.ticket.priorityId = this.ticket.priority.id;
+  }
+
+
+
   onUpdate() {
     this.service.create(this.ticket).subscribe(
-      (response) => this.router.navigate(['/service/tickets/']),
+      (response) => this.router.navigate(['/tickets']),
       (err) => console.log("TicketService update: error " + err),
       () => console.log("TicketService update done"));
   }

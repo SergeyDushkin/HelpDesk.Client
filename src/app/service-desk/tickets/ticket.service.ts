@@ -50,13 +50,25 @@ export class TicketService {
         ticketNumber: item.ticketNumber,
         clientId: item.clientId,
         addressId: item.addressId,
+        priorityId : item.priorityId,
+        statusId : item.statusId,
         userId: item.userId,
         description: item.description,
         requestDate: item.requestDate,
         completeDate: item.completeDate,
+        startDate: item.startDate,
+        endDate: item.endDate,
+        createdAt: item.createdAt,
+        applicantId: item.applicantId,
+        operatorId: item.operatorId,
+
+        operator: item.operator,
+        priority: item.priority,
+        status: item.status,
         client: item.client,
         address: item.address,
-        user: item.user
+        user: item.user,
+        applicant: item.applicant
       });
   }
 

@@ -3,7 +3,7 @@
         border: none; /* Убираем границу */
         background-color: #3c8dbc; /* Цвет линии */
         color: #3c8dbc; /* Цвет линии для IE6-7 */
-        height: 2px; /* Толщина линии */
+        height: 1px; /* Толщина линии */
         margin-top: 0px;
         margin-bottom: 0px;
     }
@@ -27,7 +27,7 @@
         border-top-width: 0px;   
     }
     .box-header-style {
-         padding-bottom: 0px; 
+         padding-bottom: 1px; 
         padding-top: 0px;
      }
     .h4{

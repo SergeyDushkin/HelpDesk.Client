@@ -1,0 +1,9 @@
+<div class="input-group">
+  <select class="form-control" [disabled]="disabled" [(ngModel)]="priority" (change)="onChange($event.target.value)">
+    <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
+  </select>
+  <span class="input-group-btn">
+    <a *ngIf="priority" class="btn btn-flat" routerLink="/ticket-priority/{{priority.id}}"><i class="fa fa-sliders"></i></a>
+    <a class="btn btn-flat" routerLink="/ticket-priority/create"><i class="fa fa-plus-circle"></i></a>
+  </span>
+</div>

@@ -1,0 +1,54 @@
+<section class="content">
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">
+            <li class="active">
+                <a href="#description" data-toggle="tab">Описание</a>
+            </li>            
+            <li class="pull-left header"><h4> {{data.name}} </h4></li>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->            
+            <div class="chart tab-pane active chart-style" id="description">
+                <hr class="hr-header">
+                <!-- general form elements -->
+                <div class="box box-style">
+                
+                    <!-- form start -->
+                    <div class="box-body">
+                        <div class="form-group">
+                              <label for="name">Номер</label>
+							  <input type="text" class="form-control" name="number" [(ngModel)]="data.number">
+                        </div>
+                        <div class="form-group">
+                              <label for="name">Дата</label>
+							  <input type="date" class="form-control" name="date" [(ngModel)]="data.date">
+                        </div>
+                        <div class="form-group">
+                              <label for="name">Дата начала</label>
+							  <input type="date" class="form-control" name="startDate" [(ngModel)]="data.startDate">
+                        </div>
+                        <div class="form-group">
+                              <label for="name">Дата дата завершения</label>
+							  <input type="date" class="form-control" name="endDate" [(ngModel)]="data.endDate">
+                        </div>
+                        <div class="form-group">
+                              <label for="name">Клиент</label>
+                              <app-client-select [(client)]="data.clientId" (change)="onClientChange($event.target.value)"></app-client-select>
+                        </div><!---->
+                    </div> 
+                    <!-- /.box-body -->
+                    <hr class="hr-body">
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
+                        <button type="submit" class="btn btn-danger btn-sm btn-flat" (click)="onDelete()"><i class="glyphicon glyphicon-remove"></i> Удалить</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </div>
+</section><!-- /.content  -->
+

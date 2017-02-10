@@ -5,14 +5,15 @@
         <ul class="nav nav-tabs pull-right">
               
             <li>            
-                <a href="#file" data-toggle="tab">Файлы</a>                
+                <a href="#files" data-toggle="tab">Файлы</a>                
             </li>           
             <li>   
-                <a href="#work" data-toggle="tab">Работы</a>
+                <a href="#works" data-toggle="tab">Работы</a>
             </li>
             <li class="active">
                 <a href="#description" data-toggle="tab">Описание</a>
             </li>
+            
             <li class="pull-left header"><h4> Заявка №{{ticket.ticketNumber}}</h4></li>
         </ul>
         <div class="tab-content no-padding">
@@ -33,12 +34,28 @@
                             <span>{{ticket.address.name}}: {{ticket.address.address}}</span>
                         </div>
                         <div class="form-group">
-                            <label for="user">Заявитель</label>
-                            <span>{{ticket.user.name}}</span>
+                            <label for="applicant">Заявитель</label>
+                            <span>{{ticket.applicant.getName()}}</span>
                         </div>
                         <div class="form-group">
                             <label for="requestDate">Дата подачи заявки</label>
-                            <span>{{ticket.requestDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+                            <span>{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="createdAt">Дата заведения заявки</label>
+                            <span>{{ticket.createdAt | date: 'dd.MM.yyyy HH:mm'}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="operator">Оператор</label>
+                            <span>{{ticket.operator.getName()}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Статус заявки</label>
+                            <span>{{ticket.status.name}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Приоритет по заявке</label>
+                            <span>{{ticket.priority.name}}</span>
                         </div>
                         <div class="form-group">
                             <label for="description">Описание</label>
@@ -49,21 +66,25 @@
                     <hr class="hr-body">
                     <div class="box-footer">
                         <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
-                        
-                
                         <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
                     </div>
                 </div>
                 <!-- /.box -->
             </div>
-            <div class="chart tab-pane chart-style" id="file">
+
+            <!---->
+            <div class="chart tab-pane chart-style" id="files">
                 <app-file-list></app-file-list>
             </div>
 
-            <div class="chart tab-pane chart-style" id="work">
-                <app-job-list ></app-job-list>
+            <div class="chart tab-pane chart-style" id="works">
+                <app-work-list [(referenceId)]="ticket.id"></app-work-list>
+            </div>
+            
+            <div class="chart tab-pane chart-style" id="jobfiles">
+                <app-file-list></app-file-list>
             </div>
         </div>
     </div>
-</section><!-- /.content -->
+</section><!-- /.content  -->
 

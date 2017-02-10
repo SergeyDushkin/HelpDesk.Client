@@ -1,10 +1,10 @@
 <!-- Menu toggle button -->
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<a *ngIf="current_user" href="#" class="dropdown-toggle" data-toggle="dropdown" >
   <i class="fa fa-bell-o"></i>
   <span class="label label-warning">{{messages.length}}</span>
 </a>
-<ul class="dropdown-menu">
-  <li class="header">You have {{messages.length}} messages</li>
+<ul *ngIf="current_user" class="dropdown-menu" >
+  <li class="header">У вас {{messages.length}} сообщений</li>
   <li>
     <!-- Inner Menu: contains the notifications -->
     <ul class="menu">
@@ -21,5 +21,5 @@
       </li><!-- end notification -->
     </ul>
   </li>
-  <li class="footer"><a href="#">View all</a></li>
+  <li class="footer"><a href="#">Посмотреть все</a></li>
 </ul>

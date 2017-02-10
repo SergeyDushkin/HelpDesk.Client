@@ -1,0 +1,20 @@
+<div class="box box-style">
+    <hr class="hr-header ">
+    <div class="box-header with-border">
+        <a routerLink="works/create" class="btn btn-primary btn-flat btn-sm"><i class="glyphicon glyphicon-plus"></i>Добавить</a>
+    </div>
+    <hr class="hr-body">
+    <div class="box-body no-padding">
+        <table class="table table-hover">
+        <tr class="tr-style">
+            <th>Наименование</th>
+        </tr>
+        <tr routerLink="works/{{item.id}}" *ngFor="let item of data" class="tr-cursor">
+            <td>{{item.id}}</td>
+        </tr>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+ 

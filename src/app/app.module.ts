@@ -4,14 +4,10 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 /* Feature Modules */
+import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ServiceDeskModule } from './service-desk/service-desk.module';
-import { OperatorModule } from './service-desk/operators/operator.module';
-import { ClientModule } from './clients/client.module';
-import { SupplierModule } from './suppliers/supplier.module';
-import { ServiceModule } from './service/service.module';
 
 let modules = [
   AlertModule,
@@ -22,10 +18,6 @@ let modules = [
   RouterModule,
 
   ServiceDeskModule,
-  OperatorModule,
-  ClientModule,
-  SupplierModule,
-  ServiceModule
 ];
 
 import { AppHeaderComponent } from "./widgets/app-header/app-header.component";
@@ -57,9 +49,6 @@ import { SignalRService } from "./services/signalr.service";
 
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './guards/authentication-guard';
-import { TicketService } from './tickets/ticket.service';
-import { TicketListResolve } from './tickets/ticket-list/ticket-list-resolve.service';
-import { TicketDetailResolve } from './tickets/ticket-detail/ticket-detail-resolve.service';
 import { SettingsService } from './settings/settings.service';
 
 
@@ -70,7 +59,7 @@ let services =  [
   RequestService, BaseApiService, SignalRService,
   AuthenticationService,
   AuthenticationGuard,
-  TicketService, TicketListResolve, TicketDetailResolve,SettingsService
+  SettingsService,
 ];
 
 import { LoginComponent } from './pages/login/login.component';
@@ -82,16 +71,6 @@ let pages = [
 //main bootstrap
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-import { TicketListComponent } from './tickets/ticket-list/ticket-list.component';
-import { TicketNewComponent } from './tickets/ticket-new/ticket-new.component';
-import { TicketDetailComponent } from './tickets/ticket-detail/ticket-detail.component';
-import { StoreSelectComponent } from './stores/store-select/store-select.component';
-import { TicketArchListComponent } from './tickets/ticket-arch-list/ticket-arch-list.component';
-import { UserSelectComponent } from './users/user-select/user-select.component';
- 
-
-import { TicketDetailComponent as OperatorTicketDetailComponent } from './modules/operator/tickets/ticket-detail/ticket-detail.component';
-
 
 //export function configServiceFactory(config: ConfigService) {
 //  return function() {
@@ -103,15 +82,7 @@ import { TicketDetailComponent as OperatorTicketDetailComponent } from './module
   declarations: [
     ...widgets,
     ...pages,
-    TicketListComponent,
-    TicketNewComponent,
-    TicketDetailComponent,
-    StoreSelectComponent,
-    TicketArchListComponent,
-    UserSelectComponent,
-    LoginComponent,
-    OperatorTicketDetailComponent,
-    
+    LoginComponent,    
   ],
   imports: [
     ...modules,

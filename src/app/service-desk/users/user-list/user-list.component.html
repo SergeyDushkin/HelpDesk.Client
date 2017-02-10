@@ -1,0 +1,23 @@
+<div class="box box-style">
+   <hr class="hr-header">
+   <div class="box-header with-border">
+        <a routerLink="users/create" class="btn btn-primary btn-flat btn-sm"><i class="glyphicon glyphicon-plus"></i>Добавить</a>
+    </div>
+    <hr class="hr-body">
+    <div class="box-body no-padding">
+      <table class="table table-hover">
+        <tr class="tr-style">
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+        </tr>
+        <tr routerLink="users/{{user.id}}" *ngFor="let user of users" class="tr-cursor">
+          <td>{{user.lastName}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.middleName}}</td>
+        </tr>
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
