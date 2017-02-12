@@ -35,5 +35,9 @@ export class ContractListComponent implements OnInit {
     if (!this.data) 
       this.service.get(this.referenceId).toPromise().then(r => this.data = r).then(r => this.count = r.length);
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

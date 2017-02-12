@@ -18,7 +18,7 @@
                     </tr>                
                 </thead>
             
-                <tr routerLink="{{supplier.id}}" *ngFor="let supplier of suppliers" class="tr-cursor">
+                <tr routerLink="{{supplier.id}}" *ngFor="let supplier of suppliers; trackBy: trackById" class="tr-cursor">
                      <td>{{supplier.name}}</td>
                 </tr>
             </table>

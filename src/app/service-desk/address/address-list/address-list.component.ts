@@ -35,5 +35,9 @@ export class AddressListComponent implements OnInit {
     if (!this.address) 
       this.service.get(this.referenceId).toPromise().then(r => this.address = r).then(r => this.count = r.length);
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

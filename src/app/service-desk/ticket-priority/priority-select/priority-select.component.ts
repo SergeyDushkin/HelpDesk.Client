@@ -69,6 +69,10 @@ export class PrioritySelectComponent implements OnChanges, OnInit {
 
   ngOnChanges(changes) {
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }
 

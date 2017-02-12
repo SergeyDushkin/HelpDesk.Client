@@ -20,5 +20,9 @@ export class WorkListComponent implements OnInit {
     if (!this.data) 
       this.service.get(this.referenceId).toPromise().then(r => this.data = r);
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

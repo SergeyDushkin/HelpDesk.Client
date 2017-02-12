@@ -10,7 +10,7 @@
           <th>Наименование</th>
           <th>Адрес</th>
         </tr>
-        <tr routerLink="address/{{a.id}}" *ngFor="let a of address" class="tr-cursor">
+        <tr routerLink="address/{{a.id}}" *ngFor="let a of address; trackBy: trackById" class="tr-cursor">
           <td>{{a.name}}</td>
           <td>{{a.address}}</td>
         </tr>

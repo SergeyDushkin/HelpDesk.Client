@@ -15,5 +15,9 @@ export class ClientListComponent implements OnInit {
   ngOnInit() {
     this.clients = this.route.snapshot.data['clients'];
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

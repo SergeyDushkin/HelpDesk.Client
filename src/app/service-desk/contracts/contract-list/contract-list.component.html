@@ -11,7 +11,7 @@
         <th>Дата</th>
         <th>Клиент</th>
       </tr>
-      <tr routerLink="contracts/{{item.id}}" *ngFor="let item of data" class="tr-cursor">
+      <tr routerLink="contracts/{{item.id}}" *ngFor="let item of data; trackBy: trackById" class="tr-cursor">
         <td>{{item.number}}</td>
         <td>{{item.date | date: 'dd.MM.yyyy'}}</td>
         <td>{{item.client.Name}}</td>

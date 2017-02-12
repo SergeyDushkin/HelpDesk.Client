@@ -1,6 +1,6 @@
 <div class="input-group">
   <select class="form-control" [disabled]="disabled" [(ngModel)]="unit" (change)="onChange($event.target.value)">
-    <option *ngFor="let record of data" [value]="record.id">{{record.name}}</option>
+    <option *ngFor="let record of data; trackBy: trackById" [value]="record.id">{{record.name}}</option>
   </select>
   <span class="input-group-btn">
     <a *ngIf="unit" class="btn btn-flat" routerLink="/clients/{{client}}/units/{{unit.id}}"><i class="fa fa-sliders"></i></a>

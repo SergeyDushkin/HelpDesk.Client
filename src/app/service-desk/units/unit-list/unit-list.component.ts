@@ -36,5 +36,9 @@ export class UnitListComponent implements OnInit {
     if (!this.unit) 
       this.service.get(this.referenceId).toPromise().then(r => this.unit = r).then(r => this.count = r.length);
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

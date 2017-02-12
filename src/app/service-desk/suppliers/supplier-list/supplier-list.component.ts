@@ -15,5 +15,9 @@ export class SupplierListComponent implements OnInit {
   ngOnInit() {
     this.suppliers = this.route.snapshot.data['suppliers'];
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

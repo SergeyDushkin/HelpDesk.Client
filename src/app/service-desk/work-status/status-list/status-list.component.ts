@@ -15,5 +15,9 @@ export class StatusListComponent implements OnInit {
   ngOnInit() {
     this.data = this.route.snapshot.data['work-status'];
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

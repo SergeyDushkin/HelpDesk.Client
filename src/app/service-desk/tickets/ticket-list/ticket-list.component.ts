@@ -15,5 +15,9 @@ export class TicketListComponent implements OnInit {
   ngOnInit() {
     this.tickets = this.route.snapshot.data['tickets'];
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

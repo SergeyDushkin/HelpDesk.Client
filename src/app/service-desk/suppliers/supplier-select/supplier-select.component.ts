@@ -42,5 +42,9 @@ export class SupplierSelectComponent implements OnChanges, OnInit {
 
   ngOnChanges(changes) {
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

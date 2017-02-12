@@ -11,7 +11,7 @@
           <th>Имя</th>
           <th>Отчество</th>
         </tr>
-        <tr routerLink="users/{{user.id}}" *ngFor="let user of users" class="tr-cursor">
+        <tr routerLink="users/{{user.id}}" *ngFor="let user of users; trackBy: trackById" class="tr-cursor">
           <td>{{user.lastName}}</td>
           <td>{{user.firstName}}</td>
           <td>{{user.middleName}}</td>

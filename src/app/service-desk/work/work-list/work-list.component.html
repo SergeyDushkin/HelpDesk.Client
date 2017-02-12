@@ -9,7 +9,7 @@
         <tr class="tr-style">
             <th>Наименование</th>
         </tr>
-        <tr routerLink="works/{{item.id}}" *ngFor="let item of data" class="tr-cursor">
+        <tr routerLink="works/{{item.id}}" *ngFor="let item of data; trackBy: trackById" class="tr-cursor">
             <td>{{item.id}}</td>
         </tr>
         </table>

@@ -15,5 +15,9 @@ export class PriorityListComponent implements OnInit {
   ngOnInit() {
     this.data = this.route.snapshot.data['ticket-priority'];
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

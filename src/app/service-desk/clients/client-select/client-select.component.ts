@@ -59,5 +59,9 @@ export class ClientSelectComponent implements OnChanges, OnInit {
 
   ngOnChanges(changes) {
   }
+  
+  trackById(index, item) {
+    return item.id;
+  }
 
 }

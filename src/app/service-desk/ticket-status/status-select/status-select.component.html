@@ -1,6 +1,6 @@
 <div class="input-group">
   <select class="form-control" [disabled]="disabled" [(ngModel)]="status" (change)="onChange($event.target.value)">
-    <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
+    <option *ngFor="let item of data; trackBy: trackById" [ngValue]="item">{{item.name}}</option>
   </select>
   <span class="input-group-btn">
     <a *ngIf="status" class="btn btn-flat" routerLink="/ticket-statuses/{{status.id}}"><i class="fa fa-sliders"></i></a>
