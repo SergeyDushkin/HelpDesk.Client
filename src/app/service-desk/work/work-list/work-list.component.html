@@ -7,10 +7,18 @@
     <div class="box-body no-padding">
         <table class="table table-hover">
         <tr class="tr-style">
-            <th>Наименование</th>
+            <th>Номер работы</th>
+            <th>Исполнитель</th>
+            <th>Описание</th>
+            <th>Дата начала</th>
+            <th>Дата закрытия</th>
         </tr>
         <tr routerLink="works/{{item.id}}" *ngFor="let item of data; trackBy: trackById" class="tr-cursor">
             <td>{{item.id}}</td>
+            <td>{{item.status.id}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.startDate | date: 'dd.MM.yyyy HH:mm'}}</td>
+            <td>{{item.endDate | date: 'dd.MM.yyyy HH:mm'}}</td>
         </tr>
         </table>
     </div>
