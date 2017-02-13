@@ -9,6 +9,68 @@ import { WorkStatusService } from '../status.service';
 })
 export class WorkStatusSelectComponent implements OnChanges, OnInit {
 
+  private _status: Status;
+  private _source: Status[] = new Array<Status>();
+  private _disabled: boolean = false;
+
+  @Output() statusChange = new EventEmitter();
+  
+  @Input('disabled') 
+  set disabled(val: boolean) {
+    this._disabled = val;
+  }
+  get disabled() {
+    return this._disabled;
+  }
+
+  @Input('status') 
+  set status(val: Status) {
+    this._status = val;
+    this.statusChange.emit(val);
+  }
+  get status() {
+    return this._status;
+  }
+
+  @Input('source')
+  set source(val: Status[]) {
+    this._source = val;
+  }
+  get source() {
+    return this._source;
+  }
+
+  constructor(private route: ActivatedRoute, private service: WorkStatusService) { }
+
+  ngOnInit() {
+    this.source = this.route.snapshot.data['work-status'];
+    
+    if (!this.source)
+      this.service.get().toPromise().then(r => this.source = r); 
+  }
+
+  ngOnChanges(changes) {
+  }
+  
+  trackById(index, item) {
+    return item.id;
+  }
+
+  getInfoDisabled () : boolean {
+    return false;
+  }
+
+}
+
+
+/*
+
+@Component({
+  selector: 'app-work-status-select',
+  templateUrl: './status-select.component.html'
+})
+export class WorkStatusSelectComponent implements OnChanges, OnInit {
+
   @Output() statusChange = new EventEmitter();
   @Input('disabled') _disabled : boolean;
   @Input('status') _status : Status;
@@ -65,5 +127,5 @@ export class WorkStatusSelectComponent implements OnChanges, OnInit {
   }
 
 }
-
+*/
 
