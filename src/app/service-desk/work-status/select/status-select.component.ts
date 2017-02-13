@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Status } from '../status';
 import { WorkStatusService } from '../status.service';
@@ -7,7 +7,7 @@ import { WorkStatusService } from '../status.service';
   selector: 'app-work-status-select',
   templateUrl: './status-select.component.html'
 })
-export class WorkStatusSelectComponent implements OnChanges, OnInit {
+export class WorkStatusSelectComponent implements OnInit {
 
   private _value: string;
   private _source: any[] = new Array<any>();
@@ -47,9 +47,6 @@ export class WorkStatusSelectComponent implements OnChanges, OnInit {
     
     if (!this.source)
       this.service.get().toPromise().then(r => this.source = r); 
-  }
-
-  ngOnChanges(changes) {
   }
   
   trackById(index, item) {
