@@ -24,4 +24,6 @@ export class Contract {
         this.client = data.client || new Client();
         this.clientId = data.clientId || undefined;
     }
+
+    public getName = () => this.number + ' от ' + this.date.toDateString()
 }
