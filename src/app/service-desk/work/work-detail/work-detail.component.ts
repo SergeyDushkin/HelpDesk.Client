@@ -53,12 +53,12 @@ export class WorkDetailComponent implements OnInit {
 
   get workStartDate() {
     let date = this.data.startDate;
-    return (date.getFullYear().toString() + '-' 
-           + ("0" + (date.getMonth() + 1)).slice(-2) + '-' 
-           + ("0" + (date.getDate())).slice(-2))
+    return (date.getUTCFullYear().toString() + '-' 
+           + ("0" + (date.getUTCMonth() + 1)).slice(-2) + '-' 
+           + ("0" + (date.getUTCDate())).slice(-2))
            + 'T' 
-           + ("0" + (date.getHours())).slice(-2) + ':' 
-           + ("0" + (date.getMinutes())).slice(-2);
+           + ("0" + (date.getUTCHours())).slice(-2) + ':' 
+           + ("0" + (date.getUTCMinutes())).slice(-2);
   }
 
   set workEndDate(e: any) {
@@ -73,11 +73,11 @@ export class WorkDetailComponent implements OnInit {
   get workEndDate() {
     let date = this.data.endDate;
     return (date.getUTCFullYear().toString() + '-' 
-           + ("0" + (date.getMonth() + 1)).slice(-2) + '-' 
-           + ("0" + (date.getDate())).slice(-2))
+           + ("0" + (date.getUTCMonth() + 1)).slice(-2) + '-' 
+           + ("0" + (date.getUTCDate())).slice(-2))
            + 'T' 
-           + ("0" + (date.getHours())).slice(-2) + ':' 
-           + ("0" + (date.getMinutes())).slice(-2);
+           + ("0" + (date.getUTCHours())).slice(-2) + ':' 
+           + ("0" + (date.getUTCMinutes())).slice(-2);
   }
 
 }

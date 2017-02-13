@@ -42,7 +42,7 @@ export class WorkService {
         id: item.Id,
         supplier: item.Supplier,
         worker: item.Worker,
-        status: item.status,
+        status: item.Status,
         supplierId: item.SupplierId,
         workerId: item.WorkerId,
         statusId: item.StatusId,
