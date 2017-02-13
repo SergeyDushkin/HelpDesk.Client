@@ -26,7 +26,7 @@ export class WorkNewComponent implements OnInit {
   }
 
   onSupplierChange(val) {
-    this.data.supplierId = this.data.supplier.id;
+    this.data.supplierId = val;
   }
   
   onStatusChange(val) {

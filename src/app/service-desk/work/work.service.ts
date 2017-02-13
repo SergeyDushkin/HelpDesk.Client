@@ -43,9 +43,9 @@ export class WorkService {
         supplier: item.supplier,
         worker: item.worker,
         status: item.status,
-        supplierId: item.supplierId,
-        workerId: item.workerId,
-        statusId: item.statusId,
+        supplierId: item.supplier.id,
+        workerId: item.worker.id,
+        statusId: item.status.id,
         startDate: item.startDate,
         endDate: item.endDate,
         description: item.description

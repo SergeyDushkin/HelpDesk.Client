@@ -3,7 +3,7 @@
     <option *ngFor="let item of source; trackBy: trackById" [value]="item.id">{{item.name}}</option>
   </select>
   <span class="input-group-btn">
-    <a *ngIf="status" class="btn btn-flat" routerLink="/work-statuses/{{value}}"><i class="fa fa-sliders"></i></a>
+    <a *ngIf="value" class="btn btn-flat" routerLink="/work-statuses/{{value}}"><i class="fa fa-sliders"></i></a>
     <a class="btn btn-flat" routerLink="/work-statuses/create"><i class="fa fa-plus-circle"></i></a>
   </span>
 </div>
