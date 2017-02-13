@@ -37,15 +37,15 @@ export class ContractService {
 
   extractData = (item : any) : Contract =>
     new Contract({ 
-        id: item.Id, 
-        resource: item.Resource, 
-        referenceId: item.ReferenceId, 
-        name: item.Name, 
-        number: item.Number, 
-        date: item.Date, 
-        startDate: item.StartDate, 
-        endDate: item.EndDate, 
-        client: item.Client, 
-        clientId: item.Client.Id
+        id: item.id, 
+        resource: item.resource, 
+        referenceId: item.referenceId, 
+        name: item.name, 
+        number: item.number, 
+        date: item.date, 
+        startDate: item.startDate, 
+        endDate: item.endDate, 
+        client: item.client, 
+        clientId: item.client.id
       });
 }

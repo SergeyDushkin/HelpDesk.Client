@@ -37,11 +37,11 @@ export class AddressService {
 
   extractData = (item : any) : Address =>
     new Address({ 
-        id: item.Id, 
-        resource: item.Resource, 
-        referenceId: item.ReferenceId, 
-        name: item.Name, 
-        address: item.Address
+        id: item.id, 
+        resource: item.resource, 
+        referenceId: item.referenceId, 
+        name: item.name, 
+        address: item.address
       });
 
 }

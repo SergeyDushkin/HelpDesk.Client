@@ -37,11 +37,11 @@ export class ServiceService {
 
   extractData = (item : any) : Service =>
     new Service({ 
-        id: item.Id, 
-        resource: item.Resource, 
-        referenceId: item.ReferenceId, 
-        name: item.Name, 
-        service: item.Service
+        id: item.id, 
+        resource: item.resource, 
+        referenceId: item.referenceId, 
+        name: item.name, 
+        service: item.service
       });
 
 }

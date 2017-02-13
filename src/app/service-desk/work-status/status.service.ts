@@ -37,7 +37,7 @@ export class WorkStatusService {
 
   extractData = (item : any) : Status =>
     new Status({ 
-        id: item.Id, 
-        name: item.Name
+        id: item.id, 
+        name: item.name
       });
 }

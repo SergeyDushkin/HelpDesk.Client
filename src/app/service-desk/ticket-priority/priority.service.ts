@@ -37,7 +37,7 @@ export class PriorityService {
 
   extractData = (item : any) : Priority =>
     new Priority({ 
-        id: item.Id, 
-        name: item.Name
+        id: item.id, 
+        name: item.name
       });
 }

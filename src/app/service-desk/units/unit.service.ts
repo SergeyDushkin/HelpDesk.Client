@@ -37,10 +37,10 @@ export class UnitService {
 
   extractData = (item : any) : Unit =>
     new Unit({ 
-        id: item.Id, 
-        resource: item.Resource, 
-        referenceId: item.ReferenceId, 
-        name: item.Name
+        id: item.id, 
+        resource: item.resource, 
+        referenceId: item.referenceId, 
+        name: item.name
       });
 
 }

@@ -37,8 +37,8 @@ export class ClientService {
 
   extractData = (item : any) : Client =>
     new Client({ 
-        id: item.Id, 
-        name: item.Name
+        id: item.id, 
+        name: item.name
       });
 
   /*

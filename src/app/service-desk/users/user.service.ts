@@ -37,13 +37,13 @@ export class UserService {
 
   extractData = (item : any) : User =>
     new User({ 
-        id: item.Id, 
-        resource: item.Resource, 
-        referenceId: item.ReferenceId, 
-        firstName: item.FirstName, 
-        middleName: item.MiddleName, 
-        lastName: item.LastName, 
-        genderCode: item.GenderCode, 
-        dateOfBirth: item.DateOfBirth
+        id: item.id, 
+        resource: item.resource, 
+        referenceId: item.referenceId, 
+        firstName: item.firstName, 
+        middleName: item.middleName, 
+        lastName: item.lastName, 
+        genderCode: item.genderCode, 
+        dateOfBirth: item.dateOfBirth
       });
 }
