@@ -39,7 +39,7 @@ export class WorkDetailComponent implements OnInit {
   }
 
   onStatusChange(val) {
-    this.data.statusId = this.data.status.id;
+    this.data.statusId = val;
   }
 
   set workStartDate(e: any) {

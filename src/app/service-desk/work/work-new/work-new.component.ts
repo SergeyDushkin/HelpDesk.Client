@@ -30,7 +30,7 @@ export class WorkNewComponent implements OnInit {
   }
   
   onStatusChange(val) {
-    this.data.statusId = this.data.status.id;
+    this.data.statusId = val;
   }
 
   onUpdate() {

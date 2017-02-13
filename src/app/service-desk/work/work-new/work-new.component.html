@@ -35,7 +35,7 @@
                         </div> 
                         <div class="form-group">
                             <label for="statusId">Статус</label>
-                            <app-work-status-select [(status)]="data.status" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
+                            <app-work-status-select [(value)]="data.status.id" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
                         </div><!---->
                     </div>
                     <!-- /.box-body -->
