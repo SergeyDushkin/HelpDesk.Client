@@ -7,7 +7,7 @@
             <li>            
                 <a href="#files" data-toggle="tab">Файлы</a>                
             </li>           
-            <li>   
+            <li>  
                 <a href="#works" data-toggle="tab">Работы</a>
             </li>
             <li class="active">
@@ -31,7 +31,7 @@
                         </div>
                          <div class="form-group">
                             <label for="contract">Договор на оказание услуг №</label>
-                            <span>{{ticket.contract.number}}</span>
+                            <span>{{ticket.contract.getName()}}</span>
                         </div>
                         <div class="form-group">
                             <label for="address">Адрес</label>
@@ -86,7 +86,7 @@
             </div>
 
             <div class="chart tab-pane chart-style" id="works">
-                <app-work-list [(referenceId)]="ticket.id"></app-work-list>
+                    <app-work-list [(referenceId)]="ticket.id"></app-work-list>
             </div>
             
             <div class="chart tab-pane chart-style" id="jobfiles">

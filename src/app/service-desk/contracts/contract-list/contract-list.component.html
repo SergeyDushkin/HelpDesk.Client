@@ -9,12 +9,14 @@
       <tr class="tr-style">
         <th>Номер</th>
         <th>Дата</th>
-        <th>Клиент</th>
+        <th>Дата начала</th>
+        <th>Дата дата завершения</th>
       </tr>
       <tr routerLink="contracts/{{item.id}}" *ngFor="let item of data; trackBy: trackById" class="tr-cursor">
         <td>{{item.number}}</td>
         <td>{{item.date | date: 'dd.MM.yyyy'}}</td>
-        <td>{{item.client.Name}}</td>
+        <td>{{item.startDate | date: 'dd.MM.yyyy'}}</td>
+        <td>{{item.endDate | date: 'dd.MM.yyyy'}}</td>
       </tr>
     </table>
   </div>

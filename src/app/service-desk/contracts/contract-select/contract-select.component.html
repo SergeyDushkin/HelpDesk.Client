@@ -1,9 +1,9 @@
 <div class="input-group">
-  <select class="form-control" [disabled]="disabled" [(ngModel)]="contract" (change)="onChange($event.target.value)">
-    <option *ngFor="let item of data; trackBy: trackById" [ngValue]="item">{{item.getName()}}</option>
+  <select class="form-control" [disabled]="disabled" [(ngModel)]="value">
+    <option *ngFor="let item of source; trackBy: trackById" [value]="item.id">{{item.getName()}}</option>
   </select>
   <span class="input-group-btn">
-    <a *ngIf="contract" class="btn btn-flat" routerLink="/contract/{{contract.id}}"><i class="fa fa-sliders"></i></a>
+    <a *ngIf="value" class="btn btn-flat" routerLink="/contract/{{value.id}}"><i class="fa fa-sliders"></i></a>
     <a class="btn btn-flat" routerLink="/contract/create"><i class="fa fa-plus-circle"></i></a>
   </span>
 </div>

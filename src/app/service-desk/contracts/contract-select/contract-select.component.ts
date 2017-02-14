@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Contract } from '../contract';
 import { ContractService } from '../contract.service';
@@ -7,68 +7,61 @@ import { ContractService } from '../contract.service';
   selector: 'app-contract-select',
   templateUrl: './contract-select.component.html'
 })
-export class ContractSelectComponent implements OnChanges, OnInit {
+export class ContractSelectComponent implements  OnInit {
 
- 
-  private _client : string;
+  private _value: string;
+  private _reference: string;
+  private _source: any[] = new Array<any>();
+  private _disabled: boolean = false;
 
-  @Output() contractChange = new EventEmitter();
-  @Input('disabled') _disabled : boolean = false;
-  @Input('contract') _contract : Contract;
-  @Input('source') _source : Contract[];
-
-  get data() {
-    return this._source;
+  @Output() statusChange = new EventEmitter();
+  
+  @Input('disabled') 
+  set disabled(val: boolean) {
+    this._disabled = val;
   }
-
-  get disabled() : boolean {
+  get disabled() {
     return this._disabled;
   }
 
-  @Input('client')
-  get client() {
-    return this._client;
+  @Input('value') 
+  set value(val: string) {
+    this._value = val;
+    this.statusChange.emit(val);
+  }
+  get value() {
+    return this._value;
   }
 
-  set client(val) {
+  @Input('source')
+  set source(val: any[]) {
+    this._source = val;
+  }
+  get source() {
+    return this._source;
+  }
 
-    if (!val) {
-      this._source = new Array<Contract>();
-      return;
-    }
+  @Input('reference')
+    set reference(val: string) {
+    this._reference = val;
     
-    this._client = val;
-    this.contractService.get(val).toPromise()
-      .then(r => this._source = r);
+    this.service.get(this._reference).toPromise()
+      .then(r => this.source = r)
+  }
+  get reference() {
+    return this._reference;
   }
 
-  get contract() {
-    return this._contract;
-  }
 
-  set contract(val) {
-    this._contract = val;
-    this.contractChange.emit(this._contract);
-  }
-
-  onChange(value){
-    //let idx = this._source.findIndex(r => r.id == value);
-    //let val = this._source[idx];
-    //this.contract = val;
-  }
-
-  constructor(private route: ActivatedRoute, private contractService: ContractService) { }
+  constructor(private route: ActivatedRoute, private service: ContractService) { }
 
   ngOnInit() {
-
- 
+   
   }
 
-  ngOnChanges(changes) {
-  }
-  
   trackById(index, item) {
     return item.id;
   }
 
 }
+
