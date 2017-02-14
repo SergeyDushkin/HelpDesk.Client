@@ -81,8 +81,9 @@
 	
 	.badge-border{
 		border-radius: 2.25px;
-		border-top-left-radius: 2.25px;
-		border-top-right-radius: 2.25px;
-		border-bottom-right-radius: 2.25px;
-		border-bottom-left-radius: 2.25px;
     }
+	
+	pre{
+	    border-radius: 0px;
+	}
+	

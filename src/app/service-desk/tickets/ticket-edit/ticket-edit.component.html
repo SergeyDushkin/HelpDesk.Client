@@ -1,0 +1,98 @@
+<section class="content">
+    <!-- Custom tabs (Charts with tabs)-->
+    <div class="nav-tabs-custom">
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">
+              
+            <li>            
+                <a href="#files" data-toggle="tab">Файлы</a>                
+            </li>           
+            <li>  
+                <a href="#works" data-toggle="tab">Работы</a>
+            </li>
+            <li class="active">
+                <a href="#description" data-toggle="tab">Описание</a>
+            </li>
+            
+            <li class="pull-left header"><h4> Заявка №{{ticket.ticketNumber}}</h4></li>
+        </ul>
+        <div class="tab-content no-padding">
+            <!-- Morris chart - Sales -->            
+            <div class="chart tab-pane active chart-style" id="description">
+                <hr class="hr-header">
+                <!-- general form elements -->
+                <div class="box box-style">
+                
+                    <!-- form start -->
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="client">Клиент</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.client.name}}</span>                       
+                        </div>
+                         <div class="form-group">
+                            <label for="contract">Договор на оказание услуг №</label> 
+                            <span class="form-control" disabled="isDisabled">{{ticket.contract.getName()}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Адрес</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.address.name}}: {{ticket.address.address}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="applicant">Заявитель</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.applicant.getName()}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="operator">Оператор</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.operator.getName()}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Дата подачи заявки</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.startDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="createdAt">Дата заведения заявки</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.createdAt | date: 'dd.MM.yyyy HH:mm'}}</span>
+                        </div>  
+                        <div class="form-group">
+                            <label for="endDate">Дата закрытия заявки</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.endDate | date: 'dd.MM.yyyy HH:mm'}}</span>
+                        </div>                        
+                        <div class="form-group">
+                            <label for="status">Статус заявки</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.status.name}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Приоритет по заявке</label>
+                            <span class="form-control" disabled="isDisabled">{{ticket.priority.name}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea class="form-control" rows="5" disabled="isDisabled">{{ticket.description}}</textarea>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <hr class="hr-body">
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
+                        <button type="submit" class="btn btn-primary pull-right btn-sm btn-flat" (click)="onUpdate()"><i class="glyphicon glyphicon-floppy-disk"></i> Сохранить</button>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+
+            <!---->
+            <div class="chart tab-pane chart-style" id="files">
+                <app-file-list></app-file-list>
+            </div>
+
+            <div class="chart tab-pane chart-style" id="works">
+                    <app-work-list [(referenceId)]="ticket.id"></app-work-list>
+            </div>
+            
+            <div class="chart tab-pane chart-style" id="jobfiles">
+                <app-file-list></app-file-list>
+            </div>
+        </div>
+    </div>
+</section><!-- /.content  -->
+

@@ -30,11 +30,11 @@ export class TicketNewComponent implements OnInit {
   }
 
   onUserChange(val) {
-    //this.ticket.applicantId = val;
+    this.ticket.applicantId = val;
   }
 
   onOperatorChange(val) {
-    //this.ticket.operatorId = val;
+    this.ticket.operatorId = val;
   }
 
   onAddressChange(val) {

@@ -65,4 +65,6 @@ export class Ticket {
         this.applicant = data.applicant ? new User(data.applicant) : new User();
         this.businessunit = data.businessunit ? new Unit(data.businessunit) : new Unit();
     }
+
+      public getDescriptionName = () => this.description.length > 255 ? `${this.description.substring(0,255)} ...` : `${this.description}`;
 }
