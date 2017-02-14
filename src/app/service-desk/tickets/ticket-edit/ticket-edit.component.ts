@@ -8,7 +8,7 @@ import { TicketService } from '../ticket.service';
   selector: 'app-ticket-edit',
   templateUrl: './ticket-edit.component.html'
 })
-export class TicketEitComponent implements OnInit {
+export class TicketEditComponent implements OnInit {
 
   private disabled: boolean = true;
   private ticket : Ticket;

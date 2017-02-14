@@ -21,11 +21,13 @@ import { TicketRoutingModule } from './ticket.routes';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 import { TicketNewComponent } from './ticket-new/ticket-new.component';
+import { TicketEditComponent } from './ticket-edit/ticket-edit.component';
 
 let declarations = [
     TicketListComponent,
     TicketDetailComponent,
     TicketNewComponent,
+    TicketEditComponent
 ];
 
 import { TicketService } from './ticket.service';
