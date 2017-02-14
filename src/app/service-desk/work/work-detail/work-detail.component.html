@@ -18,19 +18,19 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="supplierId">Сервисная компания</label>
-                            <app-supplier-select [(value)]="data.supplierId" (change)="onSupplierChange($event.target.value)"></app-supplier-select>
+                            <app-supplier-select [(value)]="data.supplierId" (change)="onSupplierChange($event.target.value)" disabled="isDisabled"></app-supplier-select>
                         </div>
                         <div class="form-group">
                             <label for="workerId">Исполнитель</label>
-                            <app-user-select [(client)]="data.supplierId" [(user)]="data.workerId"></app-user-select>
+                            <app-user-select [(reference)]="data.supplierId" [(value)]="data.workerId" (change)="onWorkerChange($event.target.value)" disabled="isDisabled" ></app-user-select>
                         </div>
                         <div class="form-group">
                             <label for="startDate">Дата начала работ</label>
-                            <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="workStartDate" required /> 
+                            <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="workStartDate" required disabled="isDisabled" /> 
                         </div>
                         <div class="form-group">
                             <label for="endDate">Дата завершения работ</label>
-                            <input type="datetime-local" class="form-control" name="endDate"  [(ngModel)]="workEndDate" required /> 
+                            <input type="datetime-local" class="form-control" name="endDate"  [(ngModel)]="workEndDate" required [disabled]="workEndDate" /> 
                         </div>
                         <div class="form-group">
                             <label for="description">Описание</label>
@@ -38,7 +38,7 @@
                         </div> 
                         <div class="form-group">
                             <label for="statusId">Статус</label>
-                            <app-work-status-select [(value)]="data.status.id" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
+                            <app-work-status-select [(value)]="data.statusId" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
                         </div><!---->
                     </div>
                     <!-- /.box-body -->

@@ -19,23 +19,23 @@
                         </div>
                         <div class="form-group">
                             <label for="workerId">Исполнитель</label>
-                            <app-user-select [(client)]="data.supplierId" [(user)]="data.workerId"></app-user-select>
+                            <app-user-select [(reference)]="data.supplierId" [(value)]="data.workerId" (change)="onWorkerChange($event.target.value)"></app-user-select>
                         </div>
                         <div class="form-group">
                             <label for="startDate">Дата начала работ</label>
                             <input type="datetime-local" class="form-control" name="startDate" [(ngModel)]="data.startDate" required /> 
                         </div>
-                        <div class="form-group">
+                      <!--  <div class="form-group">
                             <label for="endDate">Дата завершения работ</label>
                             <input type="datetime-local" class="form-control" name="endDate"  [(ngModel)]="data.endDate" required /> 
-                        </div>
+                        </div>   -->
                         <div class="form-group">
                             <label for="description">Описание</label>
                             <textarea class="form-control" rows="3" [(ngModel)]="data.description" name="description" placeholder="Опишите проблему ..." required></textarea>
                         </div> 
                         <div class="form-group">
                             <label for="statusId">Статус</label>
-                            <app-work-status-select [(value)]="data.status.id" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
+                            <app-work-status-select [(value)]="data.statusId" (change)="onStatusChange($event.target.value)"> </app-work-status-select>
                         </div><!---->
                     </div>
                     <!-- /.box-body -->

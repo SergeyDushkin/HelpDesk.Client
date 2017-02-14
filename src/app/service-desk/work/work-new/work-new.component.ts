@@ -28,7 +28,11 @@ export class WorkNewComponent implements OnInit {
   onSupplierChange(val) {
     this.data.supplierId = val;
   }
-  
+
+  onWorkerChange(val) {
+    this.data.workerId = val;
+  }
+    
   onStatusChange(val) {
     this.data.statusId = val;
   }

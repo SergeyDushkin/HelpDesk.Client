@@ -38,6 +38,10 @@ export class WorkDetailComponent implements OnInit {
     this.data.supplierId = val;
   }
 
+  onWorkerChange(val) {
+    this.data.workerId = val;
+  }
+
   onStatusChange(val) {
     this.data.statusId = val;
   }
@@ -72,12 +76,18 @@ export class WorkDetailComponent implements OnInit {
 
   get workEndDate() {
     let date = this.data.endDate;
-    return (date.getUTCFullYear().toString() + '-' 
+    if (!date)
+    {
+       return null;
+    }
+    else
+    {  return (date.getUTCFullYear().toString() + '-' 
            + ("0" + (date.getUTCMonth() + 1)).slice(-2) + '-' 
            + ("0" + (date.getUTCDate())).slice(-2))
            + 'T' 
            + ("0" + (date.getUTCHours())).slice(-2) + ':' 
            + ("0" + (date.getUTCMinutes())).slice(-2);
+    }
   }
 
 }

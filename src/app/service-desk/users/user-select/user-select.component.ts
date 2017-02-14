@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -7,61 +7,57 @@ import { UserService } from '../user.service';
   selector: 'app-user-select',
   templateUrl: './user-select.component.html'
 })
-export class UserSelectComponent implements OnChanges, OnInit {
+export class UserSelectComponent implements  OnInit {
 
-  private _client : string;
+  private _value: string;
+  private _reference: string;
+  private _source: any[] = new Array<any>();
+  private _disabled: boolean = false;
 
-  @Output() userChange = new EventEmitter();
-  @Input('disabled') _disabled : boolean = false;
-  @Input('user') _user : User;
-  @Input('source') _source : User[];
-
-  get data() {
-    return this._source;
+  @Output() statusChange = new EventEmitter();
+  
+  @Input('disabled') 
+  set disabled(val: boolean) {
+    this._disabled = val;
   }
-
-  get disabled() : boolean {
+  get disabled() {
     return this._disabled;
   }
 
-  @Input('client')
-  set client(val) {
+  @Input('value') 
+  set value(val: string) {
+    this._value = val;
+    this.statusChange.emit(val);
+  }
+  get value() {
+    return this._value;
+  }
+
+  @Input('source')
+  set source(val: any[]) {
+    this._source = val;
+  }
+  get source() {
+    return this._source;
+  }
+
+  @Input('reference')
+  set reference(val: string) {
+    this._reference = val;
     
-    if (!val) {
-      this._source = new Array<User>();
-      return;
-    }
-
-    this._client = val;
-    this.userService.get(val).toPromise()
-      .then(r => this._source = r)
-      .then(r => r[0])
-      .then(r => this.user = r);
+    this.service.get(this._reference).toPromise()
+      .then(r => this.source = r)
+  }
+  get reference() {
+    return this._reference;
   }
 
-  get user() {
-    return this._user;
-  }
-
-  set user(val) {
-    this._user = val;
-    this.userChange.emit(this._user);
-  }
-
-  onChange(value){
-    //let idx = this._source.findIndex(r => r.id == value);
-    //let val = this._source[idx];
-    //this.user = val;
-  }
-
-  constructor(private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private service: UserService) { }
 
   ngOnInit() {
+    this.source = this.route.snapshot.data['user'];
   }
 
-  ngOnChanges(changes) {
-  }
-  
   trackById(index, item) {
     return item.id;
   }
