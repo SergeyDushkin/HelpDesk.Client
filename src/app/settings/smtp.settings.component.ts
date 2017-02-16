@@ -13,17 +13,32 @@ import { SettingsService } from './settings.service';
 
 export class SmtpSettingsComponent implements OnInit {
   
-  SmtpSettings: SmtpSettings;
+  smtpSettings: SmtpSettings;
   
-  constructor(private route: ActivatedRoute, private location: Location) { }
+  constructor(private route: ActivatedRoute, private location: Location, private settingsService: SettingsService) { 
+    this.smtpSettings = new SmtpSettings();
+  }
 
   ngOnInit() {
-    //this.SmtpSettings = this.route.snapshot.data['tickets'];
-
-    
+    this.settingsService.getSmtpSetting().subscribe(
+          (response) => this.smtpSettings = response,
+          (err) => console.log("SMTP settings extract error " + err),
+          () => console.log("SMTP settings extracted") );
   }
 
   onClickBack() {
-    this.location.back();
+      this.location.back();
+  }
+
+   onUpdate() {
+      this.settingsService.putSmtpSetting(this.smtpSettings).toPromise(); 
+      
+      /*
+      subscribe(
+          (response) => (),
+          (err) => console.log("SMTP settings save error " + err),
+          () => console.log("SMTP settings saved"));
+
+      */
   }
 }
