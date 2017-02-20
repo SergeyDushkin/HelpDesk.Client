@@ -1,57 +1,52 @@
 import { Injectable } from '@angular/core';
-import { Response } from '@angular/http';
-import { Observable, ReplaySubject } from 'rxjs/Rx';
-
-import { File} from './file';
-import { BaseApiService } from '../services/base-api.service';
+import { Headers, Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import { ConfigService } from '../services/config.service';
+import { File } from './file';
 
 @Injectable()
 export class FileService {
 
-  constructor(private apiService : BaseApiService) { 
-  }
+  constructor(private http: Http, private configService : ConfigService) { }
 
-  getById(referenceId : string, id : string) : Observable<File> {
+  public getBaseUrl = () => this.configService.get("APP_DRIVE_SERVICE_API_URI");
+
+  getById(resource: string, referenceId: string, id : string) : Observable<File> {
     
-    return this.apiService.get("tickets/" + referenceId  + "/files/" + id)
+    return this.http.get(this.getBaseUrl() + "files/" + id)
       .map(r => r.json())
       .map(item => this.extractData(item));
   }
 
-  get(referenceId : string) : Observable<File[]> {
+  get(resource: string, referenceId: string) : Observable<File[]> {
     
-    return this.apiService.get("tickets/" + referenceId  + "/files/")
+    return this.http.get(this.getBaseUrl() + "files/?resource=" + resource + '&referenceId=' + referenceId)
       .map(r => r.json()
       .map(item => this.extractData(item)));
   }
 
-  create(referenceId : string, file : File) : Observable<File> {
+  create(resource: string, referenceId: string, file : File) : Observable<File> {
     
-    return this.apiService.post("tickets/" + referenceId  + "/files/", file)
+    return this.http.post(this.getBaseUrl() + "files/?resource=" + resource + '&referenceId=' + referenceId, file)
       .map(r => r.json())
       .map(item => this.extractData(item));
   }
 
-  update(referenceId : string, file : File) : Observable<File> {
+  delete(resource: string, referenceId: string, id : string) : Observable<Response> {
     
-    return this.apiService.put("tickets/" + referenceId  + "/files/" + file.id, file)
-      .map(r => r.json())
-      .map(item => this.extractData(item));
+    return this.http.delete(this.getBaseUrl() + "files/" +id);
   }
 
-  delete(referenceId : string, id : string) : Observable<Response> {
-    
-    return this.apiService.delete("tickets/" + referenceId  + "/files/" + id);
-  }
+  download(resource: string, referenceId: string, id : string) {
 
-  download(referenceId : string, id : string) {
+    window.location.href = this.getBaseUrl() + "files/" + id + "/download?postback=true";
 
-    return this.apiService.get("tickets/" + referenceId  + "/files/" + id + "/download/?postback=true")
-      .map(r => r.json())
-      .toPromise()
-      .then(r => {
-        window.location.href = this.apiService.getBaseUrl() + r.url
-      });
+    //return this.http.get(this.getBaseUrl() + "files/" + id + "/download?postback=true")
+    //  .map(r => r.json())
+    //  .toPromise()
+    //  .then(r => {
+    //    window.location.href = this.getBaseUrl() + r.url
+    //  });
   }
 
   extractData(item : any) : File {

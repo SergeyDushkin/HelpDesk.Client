@@ -1,22 +1,25 @@
-<hr class="hr-header">
 <div class="box box-style">
-    <div class="box-header with-border ">
-        <button type="submit" class="btn btn-default btn-sm btn-flat" (click)="onClickBack()"><i class="glyphicon glyphicon-menu-left"></i> Назад</button>
-        <a routerLink="files/create" class="btn btn-primary btn-sm btn-flat"><i class="glyphicon glyphicon-plus"></i> Загрузить файл</a>
-    </div>    
-    <div class="box-body no-padding ">       
-                <ul class="mailbox-attachments clearfix mailbox-style">
-                <li  *ngFor="let file of files">
-                  <span class="mailbox-attachment-icon"><i class="fa {{file.fileImg}}"></i></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a  class="mailbox-attachment-name"><i class="fa {{file.icon}}"></i> {{file.name}}</a>
-                        <span class="mailbox-attachment-size">
-                          {{file.size}} КБ
-                          <a (click)="onClick(file)" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
-                        </span>
-                  </div>
-                </li>
-               </ul>
+    <hr class="hr-header ">
+    <div class="box-header with-border">
+        <app-file-new [(resource)]="resource" [(referenceId)]="referenceId"></app-file-new>
     </div>
+    <hr class="hr-body">
+    <div class="box-body no-padding">
+      <ul class="mailbox-attachments clearfix mailbox-style">
+        <li  *ngFor="let file of files">
+          <span class="mailbox-attachment-icon"><i class="fa {{file.fileImg}}"></i></span>
+
+          <div class="mailbox-attachment-info">
+            <a  class="mailbox-attachment-name"><i class="fa {{file.icon}}"></i> {{file.name}}</a>
+                <span class="mailbox-attachment-size">
+                  {{file.size}} КБ
+                  <a (click)="onClick(file)" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
+                </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- /.box-body -->
 </div>
+<!-- /.box -->
+ 

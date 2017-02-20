@@ -19,10 +19,9 @@ let declarations = [
 ];
 
 import { FileService } from './file.service';
-import { FileListResolve } from './file-list-resolve.service';
 
 let services = [
-  FileService, FileListResolve,
+  FileService
 ];
 
 @NgModule({

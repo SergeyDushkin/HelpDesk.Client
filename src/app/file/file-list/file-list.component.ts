@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FileService } from '../file.service';
 import { File } from '../file';
@@ -9,20 +9,19 @@ import { File } from '../file';
 })
 export class FileListComponent implements OnInit {
 
+  @Input('resource') resource : string;
+  @Input('referenceId') referenceId : string;
+
   private files : File[];
 
   constructor(private route: ActivatedRoute, private fileService: FileService) { }
 
   onClick(file : File) {
-
-    var referenceKey = this.route.snapshot.data["referenceKey"];
-    var referenceId = this.route.snapshot.params[referenceKey];
-
-    this.fileService.download(referenceId, file.id);
+    this.fileService.download(this.resource, this.referenceId, file.id);
   }
 
   ngOnInit() {
-    this.files = this.route.snapshot.data['files'];
+    this.fileService.get(this.resource, this.referenceId).toPromise().then(r => this.files = r);
   }
 
 }

@@ -12,6 +12,7 @@ export class TicketDetailComponent implements OnInit {
 
   private disabled: boolean = true;
   private ticket : Ticket;
+  private resource: string = "ticket";
 
   constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: TicketService) { }
 

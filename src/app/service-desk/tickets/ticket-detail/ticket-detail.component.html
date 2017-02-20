@@ -82,7 +82,7 @@
 
             <!---->
             <div class="chart tab-pane chart-style" id="files">
-                <app-file-list></app-file-list>
+                <app-file-list [(resource)]="resource" [(referenceId)]="ticket.id"></app-file-list>
             </div>
 
             <div class="chart tab-pane chart-style" id="works">

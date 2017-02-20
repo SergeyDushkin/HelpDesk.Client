@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { File } from '../file';
 import { FileService } from '../file.service';
 import { FileUploader } from 'ng2-file-upload';
-import { BaseApiService } from '../../services/base-api.service';
 
 @Component({
   selector: 'app-file-new',
   templateUrl: './file-new.component.html'
 })
 export class FileNewComponent implements OnInit {
+
+  @Input('resource') resource : string;
+  @Input('referenceId') referenceId : string;
 
   public uploader:FileUploader;
   public hasBaseDropZoneOver:boolean = false;
@@ -26,21 +28,17 @@ export class FileNewComponent implements OnInit {
 
   private file : File;
 
-  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private apiService : BaseApiService, private service: FileService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private router: Router, private service: FileService) { }
 
   ngOnInit() {
     this.file = new File();
     
-    var headers : any[] = new Array<any>();
+    //var headers : any[] = new Array<any>();
+    //for(var value in this.apiService.getHeaders().toJSON()) {
+    //  headers.push({ name : value, value : this.apiService.getHeaders().toJSON()[value][0]});
+    //}
 
-    for(var value in this.apiService.getHeaders().toJSON()) {
-      headers.push({ name : value, value : this.apiService.getHeaders().toJSON()[value][0]});
-    }
-
-    var referenceKey = this.route.snapshot.data["referenceKey"];
-    var referenceId = this.route.snapshot.params[referenceKey];
-
-    this.uploader = new FileUploader({url: this.apiService.getBaseUrl() + "tickets/" + referenceId + "/files/", headers: headers });
+    this.uploader = new FileUploader({url: this.service.getBaseUrl() + "files/?resource=" + this.resource + '&referenceId=' + this.referenceId }); //, headers: headers 
   }
 
 }
