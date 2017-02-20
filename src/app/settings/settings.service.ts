@@ -1,48 +1,31 @@
 
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
-
+import { Headers, Http, Response, RequestOptions, ResponseContentType } from '@angular/http';
 import { SmtpSettings } from './smtp.settings';
 import { BaseApiService } from '../services/base-api.service';
 
 
 @Injectable()
 export class SettingsService {
+  
+  //private resource_url : string;
+  //private resource = (id = "") : string => this.resource_url + id || "";
 
   constructor(private apiService : BaseApiService) { 
+
   }
 
-  getSmtpSettingValue(id : string) : Observable<SmtpSettings> {
+  getSmtpSetting() : Observable<SmtpSettings> {
     
-    return this.apiService.get("/api/settings/?id=" + id)
-      .map(r => r.json().Data)
+    return this.apiService.get("settings/smtp")
+      .map(r => r.json())
       .map(item => this.extractData(item));
   }
 
-/*
-  getArchivedTickets() : Observable<Ticket[]> {
-    
-    return this.requestService
-      .get("api/tickets/archived/?$orderby=RequestDate desc")
-      .map(r => r.json().Data.map(item => this.extractData(item)));
-  }
-
-  getTickets() : Observable<Ticket[]> {
-    
-    return this.requestService
-      .get("api/tickets/?$orderby=RequestDate desc")
-      .map(r => r.json().Data.map(item => this.extractData(item)));
-  }
-
-  createTicket(ticket : any) : Observable<Ticket> {
-    
-    return this.requestService.post("api/tickets/", ticket)
-      .map(r => r.json().Data)
-      .map(item => this.extractData(item));
-  }
-
-*/
-
+  putSmtpSetting = (smtpSettings : SmtpSettings) : Observable<Response> =>
+    this.apiService.put("settings/smtp", smtpSettings);
+   
   extractData(item : any) : SmtpSettings{
     return new SmtpSettings({ 
         server: item.server, 
