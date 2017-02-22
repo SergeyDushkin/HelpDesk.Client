@@ -1,6 +1,6 @@
 <div class="box box-style">
     <hr class="hr-header ">
-    <div class="box-header with-border">
+    <div class="with-border">
         <app-file-new [(resource)]="resource" [(referenceId)]="referenceId"></app-file-new>
     </div>
     <hr class="hr-body">
@@ -9,8 +9,8 @@
         <li  *ngFor="let file of files">
           <span class="mailbox-attachment-icon"><i class="fa {{file.fileImg}}"></i></span>
 
-          <div class="mailbox-attachment-info">
-            <a  class="mailbox-attachment-name"><i class="fa {{file.icon}}"></i> {{file.name}}</a>
+          <div class="mailbox-attachment-info" style="height: 85px">
+            <div class="mailbox-attachment-height" ><i class="fa {{file.icon}}"></i><a class="mailbox-attachment-name" (click)="onClick(file)"> {{file.name}}</a></div>
                 <span class="mailbox-attachment-size">
                   {{file.size}} КБ
                   <a (click)="onClick(file)" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
