@@ -83,14 +83,14 @@ export class FileService {
      return icon;
   }
 
-   fileImgs (format: string, referenceId: string) {
+   fileImgs (format: string, id: string) {
       var img = "";      
     switch (format) {
             case "image/jpeg":
-            img = "http://52.178.193.205:10030/files/"+referenceId +"/download?size=S";
+            img = this.getBaseUrl() + "files/" + id + "/download?size=S";
             break;
             case "image/png":
-             img = "http://52.178.193.205:10030/files/"+referenceId +"/download?size=S";
+            img = this.getBaseUrl() + "files/" + id + "/download?size=S";
             break;      
       };  
      return img;
