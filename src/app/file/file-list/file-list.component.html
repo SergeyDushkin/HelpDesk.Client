@@ -7,8 +7,10 @@
     <div class="box-body no-padding">
       <ul class="mailbox-attachments clearfix mailbox-style">
         <li  *ngFor="let file of files">
-          <span class="mailbox-attachment-icon"><i class="fa {{file.fileImg}}"></i></span>
-
+          <span class="mailbox-attachment-icon" style="height: 135px">
+          <i *ngIf="file.fileIcon" class="fa {{file.fileIcon}}" height="90"></i>
+          <img *ngIf="file.fileImg" src="{{file.fileImg}}" height="90">
+          </span>
           <div class="mailbox-attachment-info" style="height: 85px">
             <div class="mailbox-attachment-height" ><i class="fa {{file.icon}}"></i><a class="mailbox-attachment-name" (click)="onClick(file)"> {{file.name}}</a></div>
                 <span class="mailbox-attachment-size">

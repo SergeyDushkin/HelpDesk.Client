@@ -58,7 +58,8 @@ export class FileService {
         fileType: item.fileType,
         size: (item.size / 1000).toFixed(2), 
         icon: this.icons(item.fileType),
-        fileImg:this.fileImgs(item.fileType),
+        fileImg:this.fileImgs(item.fileType, item.id),
+        fileIcon:this.fileIcons(item.fileType),
       });
   }
   
@@ -82,14 +83,26 @@ export class FileService {
      return icon;
   }
 
-   fileImgs (format: string) {
+   fileImgs (format: string, referenceId: string) {
+      var img = "";      
+    switch (format) {
+            case "image/jpeg":
+            img = "http://52.178.193.205:10030/files/"+referenceId +"/download?size=S";
+            break;
+            case "image/png":
+             img = "http://52.178.193.205:10030/files/"+referenceId +"/download?size=S";
+            break;      
+      };  
+     return img;
+   }
+   fileIcons (format: string) {
     var img = "";      
     switch (format) {
             case "image/jpeg":
-            img = "fa-file-image-o";
+            img = "";
             break;
             case "image/png":
-            img = "fa-file-image-o";
+            img = "";
             break;
             case "application/zip":
             img = "fa-file-archive-o";
