@@ -87,10 +87,10 @@ export class FileService {
       var img = "";      
     switch (format) {
             case "image/jpeg":
-            img = this.getBaseUrl() + "files/" + id + "/download?size=S";
+            img = this.getBaseUrl() + "files/" + id + "/download?size=M";
             break;
             case "image/png":
-            img = this.getBaseUrl() + "files/" + id + "/download?size=S";
+            img = this.getBaseUrl() + "files/" + id + "/download?size=M";
             break;      
       };  
      return img;
