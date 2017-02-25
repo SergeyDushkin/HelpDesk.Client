@@ -7,7 +7,7 @@
     <div class="box-body no-padding">
       <ul class="mailbox-attachments clearfix mailbox-style">
         <li  *ngFor="let file of files">
-          <span class="mailbox-attachment-icon" style="height: 135px">
+          <span class="mailbox-attachment-icon has-img" style="height: 135px">
           <i *ngIf="file.fileIcon" class="fa {{file.fileIcon}}" height="90"></i>
           <img *ngIf="file.fileImg" src="{{file.fileImg}}" height="90">
           </span>
