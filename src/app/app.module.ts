@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
 /* Feature Modules */
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { ServiceDeskModule } from './service-desk/service-desk.module';
@@ -90,6 +93,22 @@ import { AppRoutingModule } from './app.routes';
   ],
   providers: [
     ...services
+    //, {
+    //  provide: APP_INITIALIZER,
+    //  useFactory: configServiceFactory,
+    //  deps: [ ConfigService ],
+    //  multi: true
+    //}
+    //, {
+    //  provide: JwtHttp,
+    //  useFactory: getJwtHttp,
+    //  deps: [ Http ]
+    //}
+    , {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [ Http, RequestOptions ]
+    }
       //, {
       //provide: APP_INITIALIZER,
       //useFactory: configServiceFactory,
@@ -100,3 +119,53 @@ import { AppRoutingModule } from './app.routes';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig(), http, options);
+}
+
+/*
+export function configServiceFactory(config: ConfigService) {
+  return function() {
+    return new ConfigService();
+  }
+};
+
+export function getJwtHttp(http: Http, options: RequestOptions) {
+  let config = new ConfigService().get("AuthenticationServer");
+  let url = config.url + 'connect/token/';
+  let jwtOptions = {
+    endPoint: url,
+    // optional
+    payload: { type: 'refresh' },
+    beforeSeconds: 10, // refresh tokeSn before 10 min
+    tokenName: 'refresh_token',
+    refreshTokenGetter: (() => localStorage.getItem('refresh_token')),
+    tokenSetter: ((res: Response): boolean | Promise<void> => {
+      res = res.json();
+ 
+      if (!res['access_token'] || !res['refresh_token']) {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+ 
+        return false;
+      }
+ 
+      localStorage.setItem('access_token', res['access_token']);
+      localStorage.setItem('refresh_token', res['refresh_token']);
+ 
+      return true;
+    })
+  };
+  let authConfig = new AuthConfig({
+    noJwtError: true,
+    globalHeaders: [{'Accept': 'application/json'}],
+    tokenGetter: (() => localStorage.getItem('access_token')),
+  });
+ 
+  return new JwtHttp(
+    new JwtConfigService(jwtOptions, authConfig),
+    http,
+    options
+  );
+}*/
