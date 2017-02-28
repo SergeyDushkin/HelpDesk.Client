@@ -9,10 +9,12 @@
         <li  *ngFor="let file of files">
           <span class="mailbox-attachment-icon has-img" style="height: 135px">
           <i *ngIf="file.fileIcon" class="fa {{file.fileIcon}}" height="90"></i>
-          <img *ngIf="file.fileImg" src="{{file.fileImg}}" height="90">
+          <div *ngIf="file.fileImg" class="thumbnail">
+             <img  src="{{file.fileImg}}" class="portrait"  >
+          </div>
           </span>
           <div class="mailbox-attachment-info" style="height: 85px">
-            <div class="mailbox-attachment-height" ><i class="fa {{file.icon}}"></i><a class="mailbox-attachment-name" (click)="onClick(file)"> {{file.name}}</a></div>
+            <div class="mailbox-attachment-height" ><i class="fa {{file.icon}}"></i><a class="mailbox-attachment-name content" (click)="onClick(file)">{{file.name}}</a></div>
                 <span class="mailbox-attachment-size">
                   {{file.size}} КБ
                   <a (click)="onClick(file)" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>

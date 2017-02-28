@@ -88,5 +88,31 @@
 	 cursor: pointer;
 	 color: #333;
 	 }
+	 
+ .thumbnail {
+  position: relative;
+  width: 200px;
+  height: 130px;
+  overflow: hidden;
+  border-radius: 0px;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.content{
+word-wrap: break-word;
+}
 	
 
