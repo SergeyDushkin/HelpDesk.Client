@@ -9,8 +9,8 @@ import { AuthenticationGuard } from './guards/authentication-guard';
 
 export const routes: Routes = [
     // Root
-    { path: '', redirectTo: 'tickets', pathMatch: 'full', canActivate: [AuthenticationGuard] },
-    { path: 'settings/smtp', component: SmtpSettingsComponent, canActivate: [AuthenticationGuard] },
+    { path: '', redirectTo: 'tickets', pathMatch: 'full'},
+    { path: 'settings/smtp', component: SmtpSettingsComponent },
     { path: 'login', component: LoginComponent }
 
     //{ path: 'suppliers', loadChildren: './suppliers/supplier.module#SupplierModule' },

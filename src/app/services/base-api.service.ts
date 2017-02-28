@@ -4,57 +4,38 @@ import { Observable, ReplaySubject } from 'rxjs/Rx';
 import { ConfigService } from '../services/config.service';
 import { AuthenticationService } from '../services/authentication.service';
 
+
 @Injectable()
 export class BaseApiService {
 
-  constructor(private http: Http, private configService : ConfigService, private authenticationService : AuthenticationService) { }
+  constructor(private http: Http, private configService : ConfigService, private authenticationService: AuthenticationService) { }
 
-  public getBaseUrl() {
-    return this.configService.get("APP_API_URI");
-  }
+  get token() : string { return sessionStorage.getItem('id_token'); }
+  get jwt() { return { headers: this.headers }; }
+  
+  get headers() {
 
-  public getHeaders() {
-
-    let token = this.authenticationService.token;
     var headers = new Headers();
-    
-    headers.append('Authorization', 'Bearer ' +  token);
+    headers.append('Authorization', 'Bearer ' +  this.token);
 
     return headers;
   }
 
-  public get(url : string) : Observable<Response> {
+  public getBaseUrl = () => this.configService.get("APP_API_URI");
+  public get = (url : string) : Observable<Response> => this.http.get(this.getBaseUrl() + url, this.jwt).catch(this.unauthorizeHandler.bind(this));
+  public post = (url : string, data : any) : Observable<Response> => this.http.post(this.getBaseUrl() + url, data, this.jwt).catch(this.unauthorizeHandler.bind(this));
+  public put = (url : string, data : any) : Observable<Response> => this.http.put(this.getBaseUrl() + url, data, this.jwt).catch(this.unauthorizeHandler.bind(this));
+  public delete = (url : string) : Observable<Response> => this.http.delete(this.getBaseUrl() + url, this.jwt).catch(this.unauthorizeHandler.bind(this));
 
-    //request.subscribe(
-    //  data => { },
-    //  err => { 
-    //    if (err.status == 401) { this.authenticationService.logout(); }},
-    //  () => console.log('RequestService: done'));
+  public download = (url : string) : Observable<Response> => this.http.get(this.getBaseUrl() + url, { headers: this.headers, responseType: ResponseContentType.Blob });
 
-    return this.http.get(this.getBaseUrl() + url, { headers: this.getHeaders() });
+  unauthorizeHandler(err: any, caught: Observable<Response>) {
+    if (err.status = 401) {
+      this.authenticationService.logout();
+      return Observable.empty();
+    } else {
+      throw err;
+    }
   }
-
-  public post(url : string, data : any) : Observable<Response> {
-
-    return this.http.post(this.getBaseUrl() + url, data, { headers: this.getHeaders() });
-  }
-
-  public put(url : string, data : any) : Observable<Response> {
-
-    return this.http.put(this.getBaseUrl() + url, data, { headers: this.getHeaders() });
-  }
-
-  public delete(url : string) : Observable<Response> {
-
-    return this.http.delete(this.getBaseUrl() + url, { headers: this.getHeaders() });
-  }
-
-  public download(url : string) : Observable<Response> {
-    
-    return this.http.get(this.getBaseUrl() + url, { headers: this.getHeaders(), responseType: ResponseContentType.Blob });
-  }
-
-      
-
 
 }

@@ -10,175 +10,195 @@ import { tokenNotExpired, AuthConfig, JwtHelper, AuthHttp } from 'angular2-jwt';
 export class AuthenticationService {
   
   public isAuthenticated : ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
-  public token: string;
   
-  jwtHelper: JwtHelper = new JwtHelper();
-  refreshSubscription: any;
+  private jwtHelper: JwtHelper = new JwtHelper();
+  private refreshSubscription: any;
+  private config: any;
 
-    constructor(private http: Http, private authHttp: AuthHttp, private configService : ConfigService) {
-        // set token if saved in local storage
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
-
-        if (this._isAuthenticated){
-          this.isAuthenticated.next(true);
-        }
-    }
-
-    login(username, password): Observable<boolean> {
-      let config = this.configService.get("AuthenticationServer");
+  constructor(private http: Http, private authHttp: AuthHttp, private configService : ConfigService) {
       
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      
-      var creds = "username=" + username
-        + "&password=" + password
-        + "&grant_type=" + "password"
-        + "&client_id=" + config.client_id
-        + "&client_secret=" + config.client_secret
+      this.config = configService.get("AuthenticationServer");
 
-      return this.http.post(config.url + 'connect/token/', creds, { headers : headers })
-        .map((response: Response) => {
+      this.refreshSubscriptionAction();
+      this.scheduleRefresh();
+  }
 
-          this.processTokenResponse(response);          
-          this.scheduleRefresh();
+  get requestOptions() {
 
-          // login successful if there's a jwt token in the response
-          let token = response.json() && response.json().access_token;
-          if (token) {
-            // set token property
-            this.token = token;
-            
-            // store username and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
-            
-            this.isAuthenticated.next(true);
-            // return true to indicate successful login
-            return true;
-          } else {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-            this.isAuthenticated.next(false);
-            // return false to indicate failed login
-            return false;
-          }
-        });
-    }
+    return { headers : headers };
+  }
 
-    logout(): void {
-        // clear token remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-
-        this.token = null;
-        this.isAuthenticated.next(false);
-        this.unscheduleRefresh();
-    }
-
-    get _isAuthenticated(): boolean {
-        if (tokenNotExpired(undefined, sessionStorage.getItem('id_token'))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+  private createToken(username, password) {
     
-    getToken() {
-        return sessionStorage.getItem('id_token');
-    }
+    var creds = "username=" + username
+      + "&password=" + password
+      + "&grant_type=" + "password"
+      + "&client_id=" + this.config.client_id
+      + "&client_secret=" + this.config.client_secret
 
-    private getNewJwt() {
-      let config = this.configService.get("AuthenticationServer");
-      let refreshTokenId = localStorage.getItem('refresh-token-id');
-      var header = new Headers();
-      
-      header.append('Content-Type', 'application/x-www-form-urlencoded');
-      let body = 'grant_type=refresh_token'
-        + '&refresh_token=' + refreshTokenId
-        + '&client_id=' + config.client_id;
-      
-      return this.http
-        .post(config.url + 'connect/token/', body, { headers: header })
-        .map((res) => this.processTokenResponse(res));
-    }
+    return this.http.post(this.config.url + 'connect/token/', creds, this.requestOptions)
+  }
 
-    private processTokenResponse(res: Response) {
-      this.persistTokenInformation(res.json().access_token, res.json().expires_in, res.json().refresh_token);
-      return Observable.of(true);
-    }
+  private refreshToken() {
+
+    let refreshTokenId = localStorage.getItem('refresh-token-id');
+
+    //if (!refreshTokenId) {
+    //  return Observable.of(false);
+   // }
+
+    let body = 'grant_type=refresh_token'
+      + '&refresh_token=' + refreshTokenId
+      + '&client_id=' + this.config.client_id;
     
-    public persistTokenInformation(token: string, tokenExpiry: string, refreshTokenId: string) {
-      sessionStorage.setItem('id_token', token);
-      sessionStorage.setItem('expires_in', tokenExpiry);
-      localStorage.setItem('refresh-token-id', refreshTokenId);
+    return this.http.post(this.config.url + 'connect/token/', body, this.requestOptions);
+  }
+
+  login(username, password) {
+
+    return this.createToken(username, password).toPromise()
+      .then(this.createTokenSuccess)
+      .then(response => this.scheduleRefresh())
+      .then(() => true);
+  }
+
+  logout(): void {
+      // clear token remove user from local storage to log user out
+      localStorage.removeItem('currentUser');      
+      sessionStorage.removeItem('id_token');
+      sessionStorage.removeItem('expires_in');
+      localStorage.removeItem('refresh-token-id');
+
+      this.isAuthenticated.next(false);
+      this.unscheduleRefresh();
+  }
+
+  get _isAuthenticated(): boolean {
+      if (tokenNotExpired(undefined, sessionStorage.getItem('id_token'))) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+  
+  getToken() {
+    return sessionStorage.getItem('id_token');
+  }
+
+  private processTokenResponse(res: Response) {
+    this.persistTokenInformation(res.json().access_token, res.json().expires_in, res.json().refresh_token);
+    return Observable.of(true);
+  }
+  
+  public persistTokenInformation(token: string, tokenExpiry: string, refreshTokenId: string) {
+    sessionStorage.setItem('id_token', token);
+    sessionStorage.setItem('expires_in', tokenExpiry);
+    localStorage.setItem('refresh-token-id', refreshTokenId);
+  }
+
+  public scheduleRefresh() { 
+    this.refreshSubscription = Observable.interval(60 * 1000).subscribe(this.refreshSubscriptionAction);
+  }
+
+  private refreshSubscriptionAction = () => {
+    this.refreshToken().subscribe(
+      this.createTokenSuccess,
+      this.createTokenFailure,
+      () => console.log('-> Token refreshed...'))
+  }
+
+  private createTokenSuccess = (response: Response) => {
+    this.processTokenResponse(response);
+    this.isAuthenticated.next(true);
+
+    return response;
+  }
+
+  private createTokenFailure = (error: any) => {
+    console.log('Refresh error: ' + JSON.stringify(error)); 
+    this.logout();
+  }
+
+  public unscheduleRefresh() {
+    // Unsubscribe fromt the refresh
+    if (this.refreshSubscription) {
+      this.refreshSubscription.unsubscribe();
     }
+  }
 
-    public scheduleRefresh() {        
-        // If the user is authenticated, use the token stream
-        // provided by angular2-jwt and flatMap the token
-        let source = this.authHttp.tokenStream.flatMap(
-            token => {
-              token = sessionStorage.getItem('id_token');
-              token = this.jwtHelper.decodeToken(token);
-                // The delay to generate in this case is the difference
-                // between the expiry time and the issued at time                
-                let jwtExp = token['exp'];                             
-                let iat = token['auth_time'];
-                
-                //let iat = new Date(sessionStorage.getItem('.issued')).getTime()/1000;                                   
-                let refreshTokenThreshold = 10; //seconds
-                let delay = ((jwtExp - iat) - refreshTokenThreshold) * 1000;
-
-                delay = 60 * 1000;
-
-                return Observable.interval(delay);
-            });
-
-        this.refreshSubscription = source.subscribe(() => {
-            this.getNewJwt().subscribe((res) =>  console.log('-> Refreshed...'),(error) => console.log('Refresh error: '+ JSON.stringify(error)))
-        });
-    }
-
-    public startupTokenRefresh() {
-        // If the user is authenticated, use the token stream
-        // provided by angular2-jwt and flatMap the token
-        if (this._isAuthenticated) {
-            let source = this.authHttp.tokenStream.flatMap(
-                token => {
-                    // Get the expiry time to generate
-                    // a delay in milliseconds
-                    let now: number = new Date().valueOf()/1000;
-                    let jwtExp: number = this.jwtHelper.decodeToken(token).exp;
-                    let iat = new Date(sessionStorage.getItem('.issued')).getTime()/1000;
-
-                    let refreshTokenThreshold = 10; //seconds
-
-                    let delay: number = jwtExp - now ;
-                    let totalLife: number = (jwtExp - iat); 
-                    (delay < refreshTokenThreshold ) ? delay = 1 : delay = delay - refreshTokenThreshold;                    
-
-                    // Use the delay in a timer to
-                    // run the refresh at the proper time
-                    return Observable.timer(delay*1000);
-                });
-
-            // Once the delay time from above is
-            // reached, get a new JWT and schedule
-            // additional refreshes
-            source.subscribe(() => {
-                this.getNewJwt().subscribe(
-                    (res) => {
-                    console.log('-> Refreshed on startup')
-                    this.scheduleRefresh();
-                    },
-                    (error) => console.log('-> Refresh error:'+ JSON.stringify(error)))
-
-            });
-        }
-    }
-
-    public unscheduleRefresh() {
-        // Unsubscribe fromt the refresh
-        if (this.refreshSubscription) {
-            this.refreshSubscription.unsubscribe();
-        }
-    }
 }
+
+
+
+/*
+  public scheduleRefresh() {        
+      // If the user is authenticated, use the token stream
+      // provided by angular2-jwt and flatMap the token
+      let source = this.authHttp.tokenStream.flatMap(
+          token => {
+            token = sessionStorage.getItem('id_token');
+            token = this.jwtHelper.decodeToken(token);
+            
+            // The delay to generate in this case is the difference
+            // between the expiry time and the issued at time                
+            let jwtExp = token['exp'];                             
+            let iat = token['auth_time'];
+            
+            //let iat = new Date(sessionStorage.getItem('.issued')).getTime()/1000;                                   
+            let refreshTokenThreshold = 10; //seconds
+            let delay = ((jwtExp - iat) - refreshTokenThreshold) * 1000;
+
+            delay = 60 * 1000;
+
+            return Observable.interval(delay);
+          });
+
+      this.refreshSubscription = source.subscribe(() => {
+          this.refreshToken().subscribe(
+            (response) => this.processTokenResponse(response),
+            (error) => console.log('Refresh error: ' + JSON.stringify(error)),
+            () => console.log('-> Token refreshed...'))
+      });
+  }
+
+  public startupTokenRefresh() {
+      // If the user is authenticated, use the token stream
+      // provided by angular2-jwt and flatMap the token
+      if (this._isAuthenticated) {
+          let source = this.authHttp.tokenStream.flatMap(
+              token => {
+                  // Get the expiry time to generate
+                  // a delay in milliseconds
+                  let now: number = new Date().valueOf()/1000;
+                  let jwtExp: number = this.jwtHelper.decodeToken(token).exp;
+                  let iat = new Date(sessionStorage.getItem('.issued')).getTime()/1000;
+
+                  let refreshTokenThreshold = 10; //seconds
+
+                  let delay: number = jwtExp - now ;
+                  let totalLife: number = (jwtExp - iat); 
+                  (delay < refreshTokenThreshold ) ? delay = 1 : delay = delay - refreshTokenThreshold;                    
+
+                  // Use the delay in a timer to
+                  // run the refresh at the proper time
+                  return Observable.timer(delay*1000);
+              });
+
+          // Once the delay time from above is
+          // reached, get a new JWT and schedule
+          // additional refreshes
+          source.subscribe(() => {
+              this.getNewJwt().subscribe(
+                  (res) => {
+                  console.log('-> Refreshed on startup')
+                  this.scheduleRefresh();
+                  },
+                  (error) => console.log('-> Refresh error:'+ JSON.stringify(error)))
+
+          });
+      }
+  }
+*/

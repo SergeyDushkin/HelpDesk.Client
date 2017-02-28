@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSign() {
-    this.authenticationService.login(this.username, this.password).subscribe(IsAuthenticated => {
+    this.authenticationService.login(this.username, this.password).then(IsAuthenticated => {
       if (IsAuthenticated){
         this.router.navigate(['/']);
       } else {

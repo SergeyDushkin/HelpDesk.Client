@@ -1,7 +1,6 @@
 import { User } from "../models/user";
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
-import { RequestService } from '../services/request.service';
 import { ConfigService } from '../services/config.service';
 
 //import { retry } from '../../../node_modules/retry';

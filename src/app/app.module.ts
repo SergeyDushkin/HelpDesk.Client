@@ -47,7 +47,6 @@ import { MessagesService } from "./services/messages.service";
 import { ConfigService } from "./services/config.service";
 
 import { BaseApiService } from "./services/base-api.service";
-import { RequestService } from "./services/request.service";
 import { SignalRService } from "./services/signalr.service";
 
 import { AuthenticationService } from './services/authentication.service';
@@ -59,7 +58,7 @@ let services =  [
   UserService,
   MessagesService,
   ConfigService,
-  RequestService, BaseApiService, SignalRService,
+  BaseApiService, SignalRService,
   AuthenticationService,
   AuthenticationGuard,
   SettingsService,

@@ -28,8 +28,10 @@ import { ServiceDeskComponent } from './service-desk.component';
 import { TicketFileNewComponent } from './tickets/file-new/file-new.component';
 
 import { TicketServiceApiService } from './ticket-service-api.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 let services = [
+  AuthenticationService,
   TicketServiceApiService
 ];
 
