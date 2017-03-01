@@ -1,118 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
-  .hr-header {
-        border: none; /* Убираем границу */
-        background-color: #3c8dbc; /* Цвет линии */
-        color: #3c8dbc; /* Цвет линии для IE6-7 */
-        height: 1px; /* Толщина линии */
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+.hr-header {
+    border: none; /* Убираем границу */
+    background-color: #3c8dbc; /* Цвет линии */
+    color: #3c8dbc; /* Цвет линии для IE6-7 */
+    height: 1px; /* Толщина линии */
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
-    .hr-body {
-        border: none; /* Убираем границу */
-        background-color: #90CAF9; /* Цвет линии */
-        color: #90CAF9; /* Цвет линии для IE6-7 */
-        height: 1px; /* Толщина линии */
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    
-    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-        background-color: #E3F2FD;
-    }
+.hr-body {
+    border: none; /* Убираем границу */
+    background-color: #90CAF9; /* Цвет линии */
+    color: #90CAF9; /* Цвет линии для IE6-7 */
+    height: 1px; /* Толщина линии */
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
-    .box-style {
-        border-top-color: rgb(255, 255, 255); 
-        margin-bottom: 0px;   
-        border-top-width: 0px;   
-    }
-    .box-header-style {
-         padding-bottom: 1px; 
-        padding-top: 0px;
-     }
-    .h4{
-        margin-top: 0px;        
-        margin-bottom: 0px;
-        
-        }
-    .tr-style {
-        background-color: #E3F2FD;
-        border-top-color: #BBDEFB;
-        border-top-style: solid;
-        border-top-width: 1px;
-       
-    }
-    .tr-cursor {
-        cursor: pointer;
-    }
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #E3F2FD;
+}
 
-    .th-number {
-        width: 10px
-    }
-    .th-claim-date {
-        width: 130px
-    }
+.box-style {
+    border-top-color: rgb(255, 255, 255);
+    margin-bottom: 0px;
+    border-top-width: 0px;
+}
 
-    .mailbox-style{
-        padding-top: 10px; 
-        padding-left: 10px; 
-        padding-bottom: 10px; 
-        padding-right: 10px;
-    }
-	
-	pre {
-		white-space: pre-wrap;       /* css-3 */
-		white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-		white-space: -pre-wrap;      /* Opera 4-6 */
-		white-space: -o-pre-wrap;    /* Opera 7 */
-		word-wrap: break-word;       /* Internet Explorer 5.5+ */
-		border-radius: 0px;
-	}
-    
-    a.tab > .badge {
+.box-header-style {
+    padding-bottom: 1px;
+    padding-top: 0px;
+}
+
+.h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.tr-style {
+    background-color: #E3F2FD;
+    border-top-color: #BBDEFB;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.tr-cursor {
+    cursor: pointer;
+}
+
+.th-number {
+    width: 10px;
+}
+
+.th-claim-date {
+    width: 130px;
+}
+
+.mailbox-style {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    border-radius: 0px;
+}
+
+a.tab > .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.badge-border {
+    border-radius: 2.25px;
+}
+
+.mailbox-attachment-height {
+    height: 45px !important;
+}
+
+.mailbox-attachment-name {
+    font-weight: normal;
+    cursor: pointer;
+    color: #333;
+}
+
+.thumbnail {
+    position: relative;
+    /*width: 200px;*/
+    height: 130px;
+    overflow: hidden;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+    .thumbnail img {
         position: absolute;
-        top: -10px;
-        right: -10px;
-        font-size: 10px;
-        font-weight: 400;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
     }
-	
-	.badge-border{
-		border-radius: 2.25px;
-    }
-	.mailbox-attachment-height { 
-		 height: 45px !important;
-	}
-	.mailbox-attachment-name {
-     font-weight: normal;
-	 cursor: pointer;
-	 color: #333;
-	 }
-	 
- .thumbnail {
-  position: relative;
-  width: 200px;
-  height: 130px;
-  overflow: hidden;
-  border-radius: 0px;
-}
-.thumbnail img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-}
-.thumbnail img.portrait {
-  width: 100%;
-  height: auto;
-}
 
-.content{
-word-wrap: break-word;
-}
-	
+        .thumbnail img.portrait {
+            width: 100%;
+            height: auto;
+        }
 
+.content {
+    word-wrap: break-word;
+}
