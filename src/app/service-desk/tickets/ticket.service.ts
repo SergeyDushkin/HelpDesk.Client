@@ -4,23 +4,24 @@ import { Observable, ReplaySubject } from 'rxjs/Rx';
 
 import { Ticket } from './ticket';
 import { BaseApiService } from '../../services/base-api.service';
+import { TicketServiceApiService } from '../ticket-service-api.service';
 
 @Injectable()
 export class TicketService {
 
-  constructor(private apiService : BaseApiService) { 
+  constructor(private apiService : BaseApiService, private ticketService: TicketServiceApiService) { 
   }
 
   getById(id : string) : Observable<Ticket> {
     
-    return this.apiService.get("tickets/" + id)
+    return this.ticketService.get("tickets/" + id)
       .map(r => r.json())
       .map(item => this.extractData(item));
   }
 
   get() : Observable<Ticket[]> {
     
-    return this.apiService.get("tickets/")
+    return this.ticketService.get("tickets/")
       .map(r => r.json()
       .map(item => this.extractData(item)));
   }

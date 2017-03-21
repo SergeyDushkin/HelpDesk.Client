@@ -7,9 +7,10 @@ import { ConfigService } from '../services/config.service';
 @Injectable()
 export class TicketServiceApiService implements RestApi {
 
-  constructor(private http: Http, private configService : ConfigService) { }
+  //constructor(private http: Http, private configService : ConfigService) { }
+  constructor(private http: Http) { }
 
-  public getBaseUrl = () => this.configService.get("APP_TICKET_SERVICE_API_URI");
+  public getBaseUrl = () => "http://52.178.193.205/tickets-service/"; //this.configService.get("APP_TICKET_SERVICE_API_URI");
   public get = (url : string) : Observable<Response> => this.http.get(this.getBaseUrl() + url, this.jwt);
   public post = (url : string, data : any) : Observable<Response> => this.http.post(this.getBaseUrl() + url, data, this.jwt);
   public put = (url : string, data : any) : Observable<Response> => this.http.put(this.getBaseUrl() + url, data, this.jwt);

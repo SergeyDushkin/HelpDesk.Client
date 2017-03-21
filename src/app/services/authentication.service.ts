@@ -15,9 +15,15 @@ export class AuthenticationService {
   private refreshSubscription: any;
   private config: any;
 
-  constructor(private http: Http, private authHttp: AuthHttp, private configService : ConfigService) {
+  //constructor(private http: Http, private authHttp: AuthHttp, private configService : ConfigService) {
+  constructor(private http: Http, private authHttp: AuthHttp) {
       
-      this.config = configService.get("AuthenticationServer");
+      //this.config = configService.get("AuthenticationServer");
+      this.config = {
+        "url" : "http://52.178.193.205/authorization/",
+        "client_id" : "public",
+        "client_secret" : "public"
+        };
 
       this.refreshSubscriptionAction();
       this.scheduleRefresh();

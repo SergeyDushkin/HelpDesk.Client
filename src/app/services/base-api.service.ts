@@ -8,7 +8,8 @@ import { AuthenticationService } from '../services/authentication.service';
 @Injectable()
 export class BaseApiService {
 
-  constructor(private http: Http, private configService : ConfigService, private authenticationService: AuthenticationService) { }
+  //constructor(private http: Http, private configService : ConfigService, private authenticationService: AuthenticationService) { }
+  constructor(private http: Http, private authenticationService: AuthenticationService) { }
 
   get token() : string { return sessionStorage.getItem('id_token'); }
   get jwt() { return { headers: this.headers }; }
@@ -21,7 +22,7 @@ export class BaseApiService {
     return headers;
   }
 
-  public getBaseUrl = () => this.configService.get("APP_API_URI");
+  public getBaseUrl = () => "http://52.178.193.205/api/"; //this.configService.get("APP_API_URI");
   public get = (url : string) : Observable<Response> => this.http.get(this.getBaseUrl() + url, this.jwt).catch(this.unauthorizeHandler.bind(this));
   public post = (url : string, data : any) : Observable<Response> => this.http.post(this.getBaseUrl() + url, data, this.jwt).catch(this.unauthorizeHandler.bind(this));
   public put = (url : string, data : any) : Observable<Response> => this.http.put(this.getBaseUrl() + url, data, this.jwt).catch(this.unauthorizeHandler.bind(this));

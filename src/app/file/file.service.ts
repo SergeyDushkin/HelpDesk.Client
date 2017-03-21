@@ -7,9 +7,11 @@ import { File } from './file';
 @Injectable()
 export class FileService {
 
-  constructor(private http: Http, private configService : ConfigService) { }
+  //constructor(private http: Http, private configService : ConfigService) { }
+  constructor(private http: Http) { }
 
-  public getBaseUrl = () => this.configService.get("APP_DRIVE_SERVICE_API_URI");
+  //public getBaseUrl = () => this.configService.get("APP_DRIVE_SERVICE_API_URI");
+  public getBaseUrl = () => "http://52.178.193.205/drive/"; //this.configService.get("APP_TICKET_SERVICE_API_URI");
 
   getById(resource: string, referenceId: string, id : string) : Observable<File> {
     

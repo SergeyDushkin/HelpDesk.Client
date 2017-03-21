@@ -40,12 +40,13 @@ export class MenuAsideComponent implements OnInit {
       "title": "Контрагенты",
       "icon": "truck ",
       "link": ['/suppliers']
-    },
-    {
-      "title": "Настройки",
-      "icon": "truck ",
-      "link": ['/settings/smtp']
     }
+    //,
+    //{
+    //  "title": "Настройки",
+    //  "icon": "truck ",
+    //  "link": ['/settings/smtp']
+    //}
   ];
   
   private service_links: Array<any> = [
