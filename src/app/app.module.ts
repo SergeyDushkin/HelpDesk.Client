@@ -29,6 +29,7 @@ import { MessagesBoxComponent} from "./widgets/messages-box/messages-box.compone
 import { NotificationBoxComponent } from "./widgets/notification-box/notification-box.component";
 import { TasksBoxComponent } from "./widgets/tasks-box/tasks-box.component";
 import { UserBoxComponent } from "./widgets/user-box/user-box.component";
+import { TabBadgeComponent } from "./widgets/tab-badge";
 import { SmtpSettingsComponent } from "./settings/smtp.settings.component";
 
 let widgets = [
@@ -39,6 +40,7 @@ let widgets = [
   NotificationBoxComponent,
   TasksBoxComponent,
   UserBoxComponent,
+  TabBadgeComponent,
   SmtpSettingsComponent
 ];
 
