@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
 
-import { Ticket } from './ticket';
+import { Ticket, PageResult } from './ticket';
 import { BaseApiService } from '../../services/base-api.service';
 import { TicketServiceApiService } from '../ticket-service-api.service';
 
@@ -17,6 +17,17 @@ export class TicketService {
     return this.ticketService.get("tickets/" + id)
       .map(r => r.json())
       .map(item => this.extractData(item));
+  }
+
+  getPage(page: number) : Observable<PageResult<Ticket>> {
+    
+    return this.ticketService.get(`tickets/?page=${page}&&results=100`)
+      .map(r => {
+        let count = r.headers.get('X-Total-Count');
+        let data = r.json().map(i => this.extractData(i));
+
+        return new PageResult(data, Number.parseInt(count));
+      });
   }
 
   get() : Observable<Ticket[]> {

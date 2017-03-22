@@ -7,6 +7,16 @@ import { Priority } from '../ticket-priority/priority';
 import { Service } from '../service/service';
 import { Unit } from '../units/unit';
 
+export class PageResult<T> {
+    data: T[];
+    totalCount: number;
+
+    public constructor(data: T[], totalCount: number = undefined) {
+        this.data = data;
+        this.totalCount = totalCount || data.length;
+    }
+} 
+
 export class Ticket {
     id: string;
     ticketNumber: string;

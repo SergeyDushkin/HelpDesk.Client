@@ -23,7 +23,7 @@
                     </tr>                
                 </thead>
             
-                <tr routerLink="{{ticket.id}}" *ngFor="let ticket of tickets; trackBy: trackById" class="tr-cursor">
+                <tr routerLink="{{ticket.id}}" *ngFor="let ticket of data; trackBy: trackById" class="tr-cursor">
                     <td>{{ticket.ticketNumber}}</td>
                     <td>{{ticket.client.name}}</td>
                     <td>{{ticket.address.name}}</td>
@@ -37,14 +37,16 @@
 
         <div class="box-footer clearfix">
             <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}"><a (click)="setPage(pager.currentPage - 1)">&laquo;</a></li>
+                <li [ngClass]="{active:pager.currentPage === page}" *ngFor="let page of pager.pages"><a (click)="setPage(page)">{{page}}</a></li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}"><a (click)="setPage(pager.currentPage + 1)">&raquo;</a></li>
             </ul>
         </div>
         <!-- /.box -->
+
+        <div *ngIf="isLoading" class="overlay">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
     </div>
 
 </section><!-- /.content -->
